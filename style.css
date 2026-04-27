@@ -1004,11 +1004,13 @@ footer {
 
 .skill-carousel {
     overflow-x: auto;
-    overflow-y: visible;
+    overflow-y: visible; /* Computes to auto since overflow-x is auto */
     scroll-snap-type: x mandatory;
     scrollbar-width: none;
     scroll-behavior: smooth;
-    padding: 0.45rem 0.55rem 0.8rem 0.3rem;
+    /* Massive padding + negative margin trick to prevent rotated cards and shadows from being clipped by the scroll container */
+    padding: 1.5rem 1.5rem 3rem 1.5rem;
+    margin: -1.5rem -1.5rem -3rem -1.5rem;
     background: transparent;
     flex: 1;
 }
