@@ -1984,6 +1984,9 @@ footer {
         grid-column: 1 / -1;
     }
 
+    .app-stage {
+        grid-template-columns: 1fr;
+    }
 
     .hero-frame,
     .selection-frame,
