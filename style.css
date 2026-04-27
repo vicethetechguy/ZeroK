@@ -671,17 +671,18 @@ footer {
     font-size: clamp(1.6rem, 2.4vw, 2.4rem);
     line-height: 1.05;
     margin-top: 0.3rem;
-    /* Gold → orange gradient text */
-    background: linear-gradient(110deg, #ffcf00 0%, #ffaa00 55%, #ff7b38 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--text-black);
 }
 
-/* Topbar eyebrow — warm gold label */
+/* Topbar eyebrow */
 .dashboard-topbar .eyebrow {
-    color: rgba(255, 207, 0, 0.75);
+    color: var(--text-black);
     letter-spacing: 0.1em;
+}
+
+/* Home button on topbar */
+.dashboard-home-button {
+    color: var(--text-black);
 }
 
 .dashboard-layout {
@@ -756,9 +757,9 @@ footer {
     margin-bottom: 0.25rem;
 }
 
-/* Skill hub header titles — readable warm amber on dark card */
+/* Skill hub header titles */
 .skill-hub-header .eyebrow {
-    color: rgba(255, 185, 40, 0.85);
+    color: var(--text-black);
     letter-spacing: 0.1em;
 }
 
