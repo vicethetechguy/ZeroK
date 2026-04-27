@@ -1347,7 +1347,7 @@ ${referralLink}`;
             
             logoutBtn.textContent = originalText;
             logoutBtn.disabled = false;
-            showLandingPage();
+            // The onAuthStateChange listener takes care of updating views on sign-out
         });
 
         const profileImageUpload = document.getElementById('profile-image-upload');
@@ -1496,6 +1496,7 @@ ${referralLink}`;
                 localStorage.removeItem('zeroKDashboardData');
                 dashboardShell.classList.add('hidden');
                 landingShell.classList.remove('hidden');
+                document.body.style.background = 'radial-gradient(circle at top center, rgba(255, 255, 255, 0.32), transparent 24%), linear-gradient(180deg, #e6d5ff 0%, #cbb2ff 22%, #ffd968 58%, #ffcf00 100%)';
             }
         });
 
