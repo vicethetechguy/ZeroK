@@ -1047,7 +1047,7 @@ ${referralLink}`;
         };
 
         const showDashboard = () => {
-            appStage.classList.add('hidden');
+            landingShell.classList.add('hidden');
             dashboardShell.classList.remove('hidden');
             dashboardView.classList.remove('hidden');
             dashboardSidebar.classList.remove('hidden');
@@ -1055,7 +1055,8 @@ ${referralLink}`;
             skillDetailView.classList.add('hidden');
             profileView.classList.add('hidden');
             document.body.style.background = 'var(--surface-black)';
-            renderDashboard();
+            populateDashboard();
+            closeCurrentModal();
             window.scrollTo(0, 0);
         };
 
