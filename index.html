@@ -16,7 +16,7 @@
         <header class="topbar">
             <div class="brand-lockup">
                 <div class="brand-mark">
-                    <img src="logo.png" alt="Zero K" style="height: 48px; object-fit: contain;">
+                    <img src="logo.png" alt="Zero K" style="height: 64px; object-fit: contain;">
                     <div class="topbar-badge" style="border: 1px solid rgba(255, 207, 0, 0.4); color: #ffcf00;">2-Week Digital Training</div>
                 </div>
             </div>
@@ -171,7 +171,7 @@
 
                 <div class="referral-dashboard-row" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 2rem; margin-bottom: 2rem;">
                     
-                    <div class="dashboard-card referral-target-card" style="margin: 0; background: var(--surface-charcoal); border: 1px solid var(--surface-stroke); border-radius: 1.4rem; padding: 1.5rem;">
+                    <div class="dashboard-card referral-target-card" style="margin: 0; padding: 1.5rem;">
                         <div class="dashboard-card-head" style="display: flex; justify-content: space-between; align-items: flex-start;">
                             <div>
                                 <p class="eyebrow" style="color: rgba(255, 255, 255, 0.6); margin: 0; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em;">Referral target</p>
@@ -1055,7 +1055,7 @@ ${referralLink}`;
             referralView.classList.add('hidden');
             skillDetailView.classList.add('hidden');
             profileView.classList.add('hidden');
-            document.body.style.background = 'var(--surface-black)';
+            document.body.style.background = 'radial-gradient(circle at top center, rgba(255, 255, 255, 0.32), transparent 24%), linear-gradient(180deg, #e6d5ff 0%, #cbb2ff 22%, #ffd968 58%, #ffcf00 100%)';
             populateDashboard();
             closeCurrentModal();
             window.scrollTo(0, 0);

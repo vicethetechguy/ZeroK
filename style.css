@@ -727,10 +727,11 @@ footer {
 .dashboard-card {
     position: relative;
     padding: 1.75rem;
-    border-radius: 2rem;
-    background: linear-gradient(180deg, rgba(16, 16, 16, 0.98), rgba(26, 26, 26, 0.98));
+    border-radius: 1.5rem;
+    background: rgba(13, 13, 13, 0.72);
+    backdrop-filter: blur(20px);
     color: var(--text-light);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
     box-shadow: var(--shadow-hard);
     overflow: hidden;
 }
@@ -1524,10 +1525,11 @@ footer {
     position: relative;
     width: min(520px, 100%);
     padding: 2.5rem 2rem;
-    border-radius: 2rem;
-    background: linear-gradient(180deg, rgba(16, 16, 16, 0.98), rgba(26, 26, 26, 0.98));
+    border-radius: 1.5rem;
+    background: rgba(13, 13, 13, 0.72);
+    backdrop-filter: blur(24px);
     color: var(--text-light);
-    border: 1px solid var(--surface-stroke);
+    border: 1px solid rgba(255, 255, 255, 0.12);
     box-shadow: var(--shadow-hard);
     max-height: calc(100dvh - 2rem);
     overflow-y: auto;
