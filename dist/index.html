@@ -1,0 +1,1348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zero K - Learn a Skill</title>
+    <meta name="description" content="Learn a skill that will change your life with Zero K. 3 Skills, 2 Week Training with free access.">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=MuseoModerno:wght@300;400;600;800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="page-shell" id="landing-shell">
+        <header class="topbar">
+            <div class="brand-lockup">
+                <div class="brand-mark">
+                    <img src="logo.png" alt="Zero K Logo" class="brand-logo">
+                    <div class="topbar-badge">2-Week Digital Training</div>
+                </div>
+            </div>
+            <div class="topbar-actions">
+                <button type="button" class="ghost-button compact-button topbar-signin" id="open-signin">Sign In</button>
+            </div>
+        </header>
+
+        <main class="app-stage">
+            <section class="phone-frame hero-frame">
+                <div class="phone-status">
+                    <span>Zero K Live</span>
+                </div>
+
+                <div class="hero-copy">
+                    <p class="hero-kicker">Choose your path</p>
+                    <h2>Learn a skill that will change your life</h2>
+                    <p class="hero-text">Choose one skill to begin your guided two-week training and unlock free access to
+                        your first growth track.</p>
+                </div>
+
+                <div class="hero-strip">
+                    <div class="mini-stat">
+                        <strong>3</strong>
+                        <span>Skills</span>
+                    </div>
+                    <div class="mini-stat">
+                        <strong>14</strong>
+                        <span>Days</span>
+                    </div>
+                    <div class="mini-stat accent">
+                        <strong>Free</strong>
+                        <span>Desktop CapCut PRO</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="phone-frame selection-frame">
+                <div class="section-head">
+                    <div>
+                        <p class="eyebrow">Choose your interest</p>
+                        <h3>Select a minimum of 1 skill</h3>
+                    </div>
+                    <span class="selection-count"><span id="selection-count">0</span>/1</span>
+                </div>
+
+                <div class="landing-skill-picker">
+                    <label for="landing-skill-select" class="landing-skill-label">Choose your skill</label>
+                    <div id="landing-skill-select" class="custom-select" aria-label="Select a skill">
+                        <button type="button" class="custom-select-trigger" id="landing-skill-trigger" aria-expanded="false">Select a skill</button>
+                        <div class="custom-select-menu hidden" id="landing-skill-menu" role="listbox">
+                            <button type="button" class="custom-select-option" data-value="Vibe Coding">Vibe Coding</button>
+                            <button type="button" class="custom-select-option" data-value="Graphics Designs">Graphics Designs</button>
+                            <button type="button" class="custom-select-option" data-value="Video Editing">Video Editing</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="featured-class">
+                    <div class="featured-label">Starter path</div>
+                    <div class="featured-body">
+                        <div>
+                            <p class="featured-tag">Fast track</p>
+                            <h4>Start with one skill, unlock another through referrals</h4>
+                        </div>
+                        <div class="featured-arrow" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" class="featured-arrow-icon">
+                                <path d="M7 17L17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="phone-frame library-frame">
+                <div class="section-head">
+                    <div>
+                        <p class="eyebrow">Your training bundle</p>
+                        <h3>What you get inside</h3>
+                    </div>
+                </div>
+
+                <div class="course-grid">
+                    <article class="course-card lilac">
+                        <p class="course-type">Popular</p>
+                        <h4>Hands-on guided sessions</h4>
+                        <p class="course-meta">Live demos, tasks, and practical coaching for your chosen skill.</p>
+                    </article>
+
+                    <article class="course-card orange">
+                        <p class="course-type">Bonus</p>
+                        <h4>Referral unlock challenge</h4>
+                        <p class="course-meta">Refer 10 friends to unlock one extra skill for free.</p>
+                    </article>
+
+                    <article class="course-card dark wide">
+                        <p class="course-type">Outcome</p>
+                        <h4>Build confidence, grow your network, and earn access to more learning.</h4>
+                    </article>
+                </div>
+            </section>
+
+            <section class="pricing-dock">
+                <div class="timer-panel" id="offer-timer">
+                    <p class="timer-text">Offer expires in</p>
+                    <div class="countdown">
+                        <div class="time-box"><span id="days">30</span><small>DAYS</small></div>
+                        <div class="time-box"><span id="hours">00</span><small>HRS</small></div>
+                        <div class="time-box"><span id="minutes">00</span><small>MIN</small></div>
+                        <div class="time-box"><span id="seconds">00</span><small>SEC</small></div>
+                    </div>
+                </div>
+
+                <div class="pricing-summary">
+                    <div class="price-current">
+                        <p id="current-price-label">Access</p>
+                        <span class="main-price" id="main-price">Free</span>
+                    </div>
+                </div>
+
+                <a href="#payment-modal" class="cta-button" id="main-cta-btn">Claim Free Access</a>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Zero K. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <div class="dashboard-shell hidden" id="dashboard-shell">
+        <header class="dashboard-topbar">
+            <div>
+                <p class="eyebrow">Zero K Dashboard</p>
+                <h2 id="dashboard-greeting">Welcome</h2>
+            </div>
+            <button type="button" class="ghost-button dashboard-home-button" id="back-to-home">Home</button>
+        </header>
+
+        <main class="dashboard-layout">
+            <section class="dashboard-panel primary-panel" id="dashboard-view">
+                <div class="dashboard-card hero-dashboard skill-hub-card skill-hub-card-shellless">
+                    <div class="skill-hub-header">
+                        <div>
+                            <p class="eyebrow">Your skill vault</p>
+                            <h3>Build your stack</h3>
+                        </div>
+                        <div class="skill-picker-wrap" id="dashboard-skill-picker-wrap">
+                            <button type="button" class="skill-plus-button" id="dashboard-skill-plus" aria-expanded="false" aria-label="Add extra skill">+</button>
+                        </div>
+                    </div>
+                    <p class="dashboard-text skill-hub-text" id="skill-hub-text">Your free access is active. Complete the referral challenge to unlock one
+                        extra skill.</p>
+
+                    <div class="skill-dashboard-grid">
+                        <div class="skill-feature-zone">
+                            <div class="skill-carousel-meta">
+                                <span id="skill-carousel-status">1 skill active</span>
+                                <span id="skill-swipe-hint">Swipe to explore</span>
+                            </div>
+                            <div class="skill-carousel" id="skill-carousel" aria-label="Unlocked skills">
+                                <div class="skill-card-track" id="skill-card-track">
+                                    <article class="skill-stack-card primary" id="primary-skill-card">
+                                        <p class="eyebrow">Primary skill</p>
+                                        <h4 id="dashboard-skill-name">Vibe Coding</h4>
+                                        <p class="skill-card-copy">Your training lane is ready. Start here and grow into your next unlocked skill.</p>
+                                    </article>
+                                </div>
+                            </div>
+                            <div class="skill-carousel-dots" id="skill-carousel-dots" aria-hidden="true">
+                                <span class="skill-dot active"></span>
+                            </div>
+                        </div>
+
+                        <div class="skill-side-panels">
+                            <article class="skill-micro-panel highlight">
+                                <span class="skill-micro-icon">01</span>
+                                <p class="skill-micro-label">Track live</p>
+                                <strong id="skill-micro-name">Vibe Coding</strong>
+                            </article>
+                            <article class="skill-micro-panel">
+                                <span class="skill-micro-icon">10</span>
+                                <p class="skill-micro-label">Referral target</p>
+                                <strong><span id="dashboard-referral-count-tile">0</span> verified</strong>
+                            </article>
+                            <article class="skill-micro-panel compact">
+                                <p class="skill-micro-label">Next move</p>
+                                <strong>Tap the slanted card to open your 2-week roadmap.</strong>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-card">
+                    <div class="dashboard-card-head">
+                        <div>
+                            <p class="eyebrow">Referral link</p>
+                            <h3>Share and grow</h3>
+                        </div>
+                        <button type="button" class="ghost-button compact-button" id="copy-referral-link">Copy</button>
+                    </div>
+                    <div class="referral-link-box" id="dashboard-referral-link"></div>
+                </div>
+
+                <div class="dashboard-card">
+                    <p class="eyebrow">Unlock an extra skill</p>
+                    <h3>Complete the referral task</h3>
+                    <p class="dashboard-text">Refer 10 friends with your unique link and unlock one additional skill at no
+                        cost.</p>
+                    <div class="dashboard-progress-block">
+                        <div class="progress-header">
+                            <span>Referral progress</span>
+                            <strong><span id="dashboard-referral-count">0</span>/10</strong>
+                        </div>
+                        <div class="progress-track" aria-hidden="true">
+                            <div class="progress-fill" id="dashboard-referral-progress-fill"></div>
+                        </div>
+                        <p class="dashboard-progress-note" id="dashboard-referral-note">You need 10 successful referrals to unlock one extra skill.</p>
+                    </div>
+                    <button type="button" class="cta-button dashboard-cta" id="open-referral-task">Go to Task</button>
+                </div>
+            </section>
+
+            <section class="dashboard-panel secondary-panel hidden" id="referral-view">
+                <div class="dashboard-card">
+                    <div class="dashboard-card-head">
+                        <div>
+                            <p class="eyebrow">Referral challenge</p>
+                            <h3>Invite 10 friends</h3>
+                        </div>
+                        <button type="button" class="ghost-button compact-button" id="back-to-dashboard">Back</button>
+                    </div>
+
+                    <p class="dashboard-text">Share your link, track progress, and unlock one extra skill when your referral
+                        count reaches 10.</p>
+
+                    <div class="referral-link-box large-link" id="referral-page-link"></div>
+
+                    <div class="progress-header">
+                        <span>Referral progress</span>
+                        <strong><span id="referral-count">0</span>/10</strong>
+                    </div>
+
+                    <div class="progress-track" aria-hidden="true">
+                        <div class="progress-fill" id="referral-progress-fill"></div>
+                    </div>
+
+                    <div class="unlock-card" id="unlock-status-card">
+                        <p class="eyebrow">Task status</p>
+                        <h4 id="unlock-status-title">Keep sharing your link</h4>
+                        <p id="unlock-status-text">You need 10 successful referrals to unlock one extra skill.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="dashboard-panel detail-panel hidden" id="skill-detail-view">
+                <div class="dashboard-card skill-detail-card">
+                    <div class="dashboard-card-head skill-detail-head">
+                        <div>
+                            <p class="eyebrow" id="skill-detail-badge">Skill track</p>
+                            <h3 id="skill-detail-title">Skill roadmap</h3>
+                        </div>
+                        <button type="button" class="ghost-button compact-button" id="back-from-skill-detail">Back</button>
+                    </div>
+
+                    <p class="dashboard-text skill-detail-intro" id="skill-detail-intro">See what this beginner-friendly training path covers.</p>
+
+                    <div class="skill-detail-hero">
+                        <div class="skill-detail-summary">
+                            <p class="skill-detail-summary-label">What this skill means</p>
+                            <p class="skill-detail-summary-copy" id="skill-detail-description"></p>
+                        </div>
+                        <div class="skill-detail-note">
+                            <p class="skill-detail-summary-label">Class scheduling</p>
+                            <p class="skill-detail-summary-copy">Class days and session times will be communicated inside each learner group.</p>
+                        </div>
+                    </div>
+
+                    <div class="skill-detail-grid">
+                        <article class="skill-detail-block">
+                            <p class="eyebrow">Week 1</p>
+                            <h4>Foundation and setup</h4>
+                            <ul class="skill-detail-list" id="skill-detail-week-one"></ul>
+                        </article>
+
+                        <article class="skill-detail-block">
+                            <p class="eyebrow">Week 2</p>
+                            <h4>Practice and output</h4>
+                            <ul class="skill-detail-list" id="skill-detail-week-two"></ul>
+                        </article>
+                    </div>
+
+                    <div class="skill-detail-outcome">
+                        <p class="eyebrow">By the end</p>
+                        <p class="skill-detail-summary-copy" id="skill-detail-outcome"></p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <div id="skill-picker-overlay" class="picker-overlay hidden" aria-hidden="true">
+        <div class="picker-dialog" role="dialog" aria-modal="true" aria-labelledby="skill-picker-title">
+            <button type="button" class="close-picker" id="close-skill-picker" aria-label="Close skill picker">&times;</button>
+            <p class="eyebrow">Extra skill unlocked</p>
+            <h3 id="skill-picker-title">Pick your next skill</h3>
+            <p class="dashboard-text picker-intro">You reached 10 referrals. Choose one of the remaining skills to add to your dashboard.</p>
+            <div id="dashboard-skill-select" class="custom-select dashboard-skill-select">
+                <div class="custom-select-menu hidden" id="dashboard-skill-menu" role="listbox"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="unlock-required-overlay" class="picker-overlay hidden" aria-hidden="true">
+        <div class="picker-dialog picker-dialog-sm" role="dialog" aria-modal="true" aria-labelledby="unlock-required-title">
+            <button type="button" class="close-picker" id="close-unlock-required" aria-label="Close unlock message">&times;</button>
+            <p class="eyebrow">Unlock required</p>
+            <h3 id="unlock-required-title">Complete the referral task first</h3>
+            <p class="dashboard-text picker-intro">Refer 10 friends successfully before you can unlock and add another skill to your dashboard.</p>
+            <button type="button" class="cta-button picker-action" id="unlock-required-ok">Okay</button>
+        </div>
+    </div>
+
+    <div id="modal-overlay" class="modal-overlay hidden" aria-hidden="true">
+        <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="registration-title">
+            <button type="button" class="close-modal" aria-label="Close modal">&times;</button>
+
+            <div id="form-view">
+                <p class="eyebrow">Complete registration</p>
+                <h2 id="registration-title">Lock in your spot</h2>
+                <p class="modal-intro">Add your details and selected skill to claim your free access.</p>
+                <form id="registration-form" name="google-sheet">
+                    <div class="form-group">
+                        <label for="fullName">Full Name</label>
+                        <input type="text" id="fullName" name="FullName" required placeholder="John Doe">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="Email" required placeholder="john@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="skills-hidden">Selected Skill</label>
+                        <div id="signup-skill-select" class="custom-select form-skill-select">
+                            <button type="button" class="custom-select-trigger" id="signup-skill-trigger" aria-expanded="false">Choose a skill</button>
+                            <div class="custom-select-menu hidden" id="signup-skill-menu" role="listbox">
+                                <button type="button" class="custom-select-option" data-value="Vibe Coding">Vibe Coding</button>
+                                <button type="button" class="custom-select-option" data-value="Graphics Designs">Graphics Designs</button>
+                                <button type="button" class="custom-select-option" data-value="Video Editing">Video Editing</button>
+                            </div>
+                        </div>
+                        <input type="hidden" id="skills-hidden" name="Skills" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="referralCode">Referral Code</label>
+                        <input type="text" id="referralCode" name="ReferralCode" placeholder="Enter referral code">
+                    </div>
+                    <button type="submit" class="submit-button" id="submit-btn">Submit & Continue</button>
+                </form>
+                <button type="button" class="text-switch" id="switch-to-signin">Already signed up? Sign in</button>
+            </div>
+
+            <div id="signin-view" class="hidden">
+                <p class="eyebrow">Welcome back</p>
+                <h2>Sign in to your dashboard</h2>
+                <p class="modal-intro">Use the same full name and email you used when registering to access your dashboard.</p>
+                <form id="signin-form">
+                    <div class="form-group">
+                        <label for="signinFullName">Full Name</label>
+                        <input type="text" id="signinFullName" required placeholder="John Doe">
+                    </div>
+                    <div class="form-group">
+                        <label for="signinEmail">Email Address</label>
+                        <input type="email" id="signinEmail" required placeholder="john@example.com">
+                    </div>
+                    <button type="submit" class="submit-button" id="signin-btn">Sign In</button>
+                </form>
+                <button type="button" class="text-switch" id="switch-to-register">Need free access? Register</button>
+            </div>
+
+            <div id="success-view" class="hidden">
+                <div class="success-icon" aria-hidden="true">&#127881;</div>
+                <p class="eyebrow">Registration complete</p>
+                <h2>Congratulations!</h2>
+                <p class="modal-intro">Your free access is ready. Continue to your dashboard to get your referral link and
+                    start your task.</p>
+                <button type="button" class="proceed-button" id="dashboard-link">Process to Dashboard</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="toast" class="toast" aria-live="polite">
+        <div class="toast-icon" aria-hidden="true">&#9888;</div>
+        <div class="toast-message">Please select a minimum of 1 skill before proceeding.</div>
+    </div>
+
+    <script>
+        const landingShell = document.getElementById('landing-shell');
+        const dashboardShell = document.getElementById('dashboard-shell');
+        const landingSkillSelect = document.getElementById('landing-skill-select');
+        const landingSkillTrigger = document.getElementById('landing-skill-trigger');
+        const landingSkillMenu = document.getElementById('landing-skill-menu');
+        const ctaButton = document.querySelector('.cta-button');
+        const openSigninButton = document.getElementById('open-signin');
+        const modalOverlay = document.getElementById('modal-overlay');
+        const closeModal = document.querySelector('.close-modal');
+        const registrationForm = document.getElementById('registration-form');
+        const signinForm = document.getElementById('signin-form');
+        const formView = document.getElementById('form-view');
+        const signinView = document.getElementById('signin-view');
+        const successView = document.getElementById('success-view');
+        const submitBtn = document.getElementById('submit-btn');
+        const signinBtn = document.getElementById('signin-btn');
+        const skillsHiddenInput = document.getElementById('skills-hidden');
+        const signupSkillSelect = document.getElementById('signup-skill-select');
+        const signupSkillTrigger = document.getElementById('signup-skill-trigger');
+        const signupSkillMenu = document.getElementById('signup-skill-menu');
+        const referralCodeInput = document.getElementById('referralCode');
+        const footerText = document.querySelector('footer p');
+        const toast = document.getElementById('toast');
+        const selectionCount = document.getElementById('selection-count');
+        const dashboardLink = document.getElementById('dashboard-link');
+        const dashboardGreeting = document.getElementById('dashboard-greeting');
+        const dashboardSkillName = document.getElementById('dashboard-skill-name');
+        const dashboardReferralLink = document.getElementById('dashboard-referral-link');
+        const referralPageLink = document.getElementById('referral-page-link');
+        const copyReferralLinkButton = document.getElementById('copy-referral-link');
+        const openReferralTaskButton = document.getElementById('open-referral-task');
+        const backToDashboardButton = document.getElementById('back-to-dashboard');
+        const backToHomeButton = document.getElementById('back-to-home');
+        const dashboardView = document.getElementById('dashboard-view');
+        const referralView = document.getElementById('referral-view');
+        const skillDetailView = document.getElementById('skill-detail-view');
+        const referralCountEl = document.getElementById('referral-count');
+        const referralProgressFill = document.getElementById('referral-progress-fill');
+        const dashboardReferralCountEl = document.getElementById('dashboard-referral-count');
+        const dashboardReferralCountTile = document.getElementById('dashboard-referral-count-tile');
+        const dashboardReferralProgressFill = document.getElementById('dashboard-referral-progress-fill');
+        const dashboardReferralNote = document.getElementById('dashboard-referral-note');
+        const unlockStatusCard = document.getElementById('unlock-status-card');
+        const unlockStatusTitle = document.getElementById('unlock-status-title');
+        const unlockStatusText = document.getElementById('unlock-status-text');
+        const switchToSigninButton = document.getElementById('switch-to-signin');
+        const switchToRegisterButton = document.getElementById('switch-to-register');
+        const dashboardSkillPickerWrap = document.getElementById('dashboard-skill-picker-wrap');
+        const dashboardSkillPlusButton = document.getElementById('dashboard-skill-plus');
+        const dashboardSkillSelect = document.getElementById('dashboard-skill-select');
+        const dashboardSkillMenu = document.getElementById('dashboard-skill-menu');
+        const skillPickerOverlay = document.getElementById('skill-picker-overlay');
+        const closeSkillPickerButton = document.getElementById('close-skill-picker');
+        const unlockRequiredOverlay = document.getElementById('unlock-required-overlay');
+        const closeUnlockRequiredButton = document.getElementById('close-unlock-required');
+        const unlockRequiredOkButton = document.getElementById('unlock-required-ok');
+        const skillHubText = document.getElementById('skill-hub-text');
+        const skillCarousel = document.getElementById('skill-carousel');
+        const skillCardTrack = document.getElementById('skill-card-track');
+        const skillCarouselDots = document.getElementById('skill-carousel-dots');
+        const skillCarouselStatus = document.getElementById('skill-carousel-status');
+        const skillSwipeHint = document.getElementById('skill-swipe-hint');
+        const skillDetailBadge = document.getElementById('skill-detail-badge');
+        const skillDetailTitle = document.getElementById('skill-detail-title');
+        const skillDetailIntro = document.getElementById('skill-detail-intro');
+        const skillDetailDescription = document.getElementById('skill-detail-description');
+        const skillDetailWeekOne = document.getElementById('skill-detail-week-one');
+        const skillDetailWeekTwo = document.getElementById('skill-detail-week-two');
+        const skillDetailOutcome = document.getElementById('skill-detail-outcome');
+        const backFromSkillDetailButton = document.getElementById('back-from-skill-detail');
+
+        let selectedSkills = [];
+        let dashboardData = {
+            name: '',
+            email: '',
+            skill: '',
+            extraSkill: '',
+            referralLink: '',
+            referrals: 0
+        };
+        const availableSkills = ['Vibe Coding', 'Graphics Designs', 'Video Editing'];
+        const skillVisualThemes = {
+            'Vibe Coding': {
+                badge: 'Creative Build',
+                accentClass: 'amber',
+                artClass: 'art-code'
+            },
+            'Graphics Designs': {
+                badge: 'Visual Craft',
+                accentClass: 'cyan',
+                artClass: 'art-design'
+            },
+            'Video Editing': {
+                badge: 'Motion Cut',
+                accentClass: 'rose',
+                artClass: 'art-video'
+            }
+        };
+        const skillLearningPlans = {
+            'Vibe Coding': {
+                badge: 'AI-assisted build',
+                intro: 'Learn how to use AI tools to turn simple ideas into working digital projects, even if you are starting from zero.',
+                description: 'Vibe Coding is a beginner-friendly way of creating websites, tools, and simple product ideas by combining clear prompts, smart iteration, and basic product thinking. You do not need deep coding experience to begin. You learn how to describe what you want, review what the AI gives back, improve it step by step, and test your result.',
+                weekOne: [
+                    'What Vibe Coding is, how AI coding tools help, and how to describe an idea clearly.',
+                    'Breaking one project idea into small tasks so the AI can help you one step at a time.',
+                    'Writing better prompts: goal, style, features, examples, and constraints.',
+                    'Reading simple HTML, CSS, and JavaScript so you can understand what the AI generated.',
+                    'Editing text, buttons, forms, colors, and sections inside a basic project layout.'
+                ],
+                weekTwo: [
+                    'Improving AI outputs by asking follow-up questions, refining prompts, and comparing versions.',
+                    'Spotting simple bugs, testing key flows, and asking the AI to fix broken parts.',
+                    'Adding practical features like forms, simple pages, calls to action, and clean structure.',
+                    'Polishing a beginner project for real users with clearer copy, spacing, and better flow.',
+                    'Preparing a simple finished project you can show, demo, or keep improving after class.'
+                ],
+                outcome: 'You should leave with the confidence to plan a small digital idea, guide AI to build it, review the result, and keep improving it like a beginner product creator.'
+            },
+            'Graphics Designs': {
+                badge: 'Visual communication',
+                intro: 'Learn how to create clean beginner-level designs that communicate clearly and look intentional.',
+                description: 'Graphics Design is about using text, color, spacing, images, and layout to pass a message in a visual way. In this training, the focus is on the basics that help beginners create flyers, simple brand assets, and social media designs that feel neat and readable.',
+                weekOne: [
+                    'Understanding design purpose, audience, and the message a design is meant to communicate.',
+                    'Core design principles like hierarchy, contrast, scale, balance, alignment, and repetition.',
+                    'Typography basics: choosing readable fonts, pairing fonts, spacing text, and creating clear headings.',
+                    'Color basics: using simple palettes, understanding contrast, and choosing colors with intention.',
+                    'Layout basics: grids, white space, focal points, and arranging content so it feels organized.'
+                ],
+                weekTwo: [
+                    'Working with images, icons, and shapes without making the design feel crowded or inconsistent.',
+                    'Designing beginner social media posts, simple promotional flyers, and announcement graphics.',
+                    'Applying brand consistency with repeatable colors, type choices, and visual style.',
+                    'Improving weak designs through feedback, cleanup, spacing fixes, and stronger emphasis.',
+                    'Exporting polished beginner work that is ready to share digitally.'
+                ],
+                outcome: 'By the end, you should be able to create simple, attractive graphics that use layout, type, and color in a more confident and professional way.'
+            },
+            'Video Editing': {
+                badge: 'Story in motion',
+                intro: 'Learn how to turn raw clips into a clear, watchable video using beginner editing basics.',
+                description: 'Video Editing is the process of arranging clips, trimming mistakes, shaping timing, managing sound, and exporting a finished story. This training focuses on the practical beginner steps needed to edit short videos for social content, promos, and simple storytelling.',
+                weekOne: [
+                    'Understanding the editing workspace and the role of the timeline in arranging clips and audio.',
+                    'Importing footage, organizing media, and building a simple sequence from raw clips.',
+                    'Cutting, trimming, and reordering clips to improve timing and remove unwanted parts.',
+                    'Learning the difference between rough cuts, cleaner cuts, and the first polished pass.',
+                    'Basic audio handling so voice, music, and video stay clear and in sync.'
+                ],
+                weekTwo: [
+                    'Adding simple transitions, titles, and on-screen text only where they improve the story.',
+                    'Using basic color and visual cleanup to make footage feel more balanced and intentional.',
+                    'Improving pacing so the video feels smoother, more engaging, and easier to follow.',
+                    'Reviewing edits, making corrections, and preparing different versions for real viewers.',
+                    'Exporting your finished video with the right settings for sharing online.'
+                ],
+                outcome: 'You should finish the training able to organize footage, make clean cuts, improve sound and pacing, and export a simple video with confidence.'
+            }
+        };
+        const referralCodeFromUrl = new URLSearchParams(window.location.search).get('ref') || '';
+
+        const daysEl = document.getElementById('days');
+        const hoursEl = document.getElementById('hours');
+        const minutesEl = document.getElementById('minutes');
+        const secondsEl = document.getElementById('seconds');
+        const mainPrice = document.getElementById('main-price');
+        const currentPriceLabel = document.getElementById('current-price-label');
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxB1LKtzrjI91U-3nqHkJU-7Bxld3qDGmc_y26SvIulA5wFPT6iHEmgaieNMeA1JyLdUw/exec';
+        const campaignDeadline = new Date('2026-05-26T23:59:59+01:00').getTime();
+
+        const showToast = (message) => {
+            toast.querySelector('.toast-message').textContent = message;
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3500);
+        };
+
+        const openModal = () => {
+            modalOverlay.classList.remove('hidden');
+            modalOverlay.setAttribute('aria-hidden', 'false');
+        };
+
+        const closeCurrentModal = () => {
+            modalOverlay.classList.add('hidden');
+            modalOverlay.setAttribute('aria-hidden', 'true');
+        };
+
+        const updateSelectionCount = () => {
+            selectionCount.textContent = selectedSkills.length;
+        };
+
+        const resetSelections = () => {
+            updateSelectedSkill('');
+        };
+
+        const showRegisterView = () => {
+            formView.classList.remove('hidden');
+            signinView.classList.add('hidden');
+            successView.classList.add('hidden');
+            referralCodeInput.value = referralCodeFromUrl;
+            renderSelectedSkills();
+        };
+
+        const showSigninView = () => {
+            formView.classList.add('hidden');
+            signinView.classList.remove('hidden');
+            successView.classList.add('hidden');
+        };
+
+        const renderSelectedSkills = () => {
+            setCustomSelectValue(signupSkillTrigger, signupSkillMenu, selectedSkills[0] || '', 'Choose a skill');
+        };
+
+        const setCustomSelectValue = (trigger, menu, value, placeholder) => {
+            trigger.textContent = value || placeholder;
+            trigger.classList.toggle('placeholder', !value);
+
+            menu.querySelectorAll('.custom-select-option').forEach((option) => {
+                const isActive = option.dataset.value === value;
+                option.classList.toggle('active', isActive);
+                option.setAttribute('aria-selected', isActive ? 'true' : 'false');
+            });
+        };
+
+        const closeCustomSelect = (picker, trigger, menu) => {
+            picker.classList.remove('open');
+            trigger.setAttribute('aria-expanded', 'false');
+            menu.classList.add('hidden');
+        };
+
+        const toggleCustomSelect = (picker, trigger, menu) => {
+            const isOpen = picker.classList.contains('open');
+            closeCustomSelect(landingSkillSelect, landingSkillTrigger, landingSkillMenu);
+            closeCustomSelect(signupSkillSelect, signupSkillTrigger, signupSkillMenu);
+
+            if (!isOpen) {
+                picker.classList.add('open');
+                trigger.setAttribute('aria-expanded', 'true');
+                menu.classList.remove('hidden');
+            }
+        };
+
+        const updateSelectedSkill = (selectedSkill) => {
+            selectedSkills = selectedSkill ? [selectedSkill] : [];
+            skillsHiddenInput.value = selectedSkill || '';
+            setCustomSelectValue(landingSkillTrigger, landingSkillMenu, selectedSkill, 'Select a skill');
+            setCustomSelectValue(signupSkillTrigger, signupSkillMenu, selectedSkill, 'Choose a skill');
+            updateSelectionCount();
+        };
+
+        const buildReferralLink = (fullName) => {
+            const slug = fullName.toLowerCase().trim().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || 'zero-k-user';
+            return window.location.origin + window.location.pathname + '?ref=' + slug;
+        };
+
+        const buildReferralMessage = (referralLink) => {
+            return `In collaboration with the YCM ACPPB Nationwide, Zero K is launching a free 2-week digital skill training in;
+
+*VIBE CODING*
+*GRAPHICS DESIGNING*
+*VIDEO EDITING*
+
+Learn a skill with zero knowledge and change your life.
+
+${referralLink}`;
+        };
+
+        const persistDashboardData = () => {
+            localStorage.setItem('zeroKDashboardData', JSON.stringify(dashboardData));
+        };
+
+        const normalizeIdentityValue = (value) => (value || '').trim().toLowerCase();
+
+        const getSavedDashboardData = () => {
+            try {
+                return enrichDashboardData(JSON.parse(localStorage.getItem('zeroKDashboardData') || 'null') || {});
+            } catch (error) {
+                localStorage.removeItem('zeroKDashboardData');
+                return null;
+            }
+        };
+
+        const isSameDashboardUser = (savedData, fullName, email) => {
+            if (!savedData) {
+                return false;
+            }
+
+            return normalizeIdentityValue(savedData.name) === normalizeIdentityValue(fullName)
+                && normalizeIdentityValue(savedData.email) === normalizeIdentityValue(email)
+                && Boolean(savedData.skill)
+                && Boolean(savedData.referralLink);
+        };
+
+        const enrichDashboardData = (data) => {
+            return {
+                name: data.name || '',
+                email: data.email || '',
+                skill: data.skill || '',
+                extraSkill: data.extraSkill || '',
+                referralLink: data.referralLink || '',
+                referrals: Number(data.referrals || 0),
+                referralsVerified: Boolean(data.referralsVerified)
+            };
+        };
+
+        const buildPendingDashboardData = (data) => {
+            const normalizedData = enrichDashboardData(data);
+            normalizedData.extraSkill = '';
+            normalizedData.referralsVerified = false;
+            return normalizedData;
+        };
+
+        const sanitizeDashboardData = (data) => {
+            const normalizedData = enrichDashboardData(data);
+            normalizedData.referrals = Math.max(0, Number(normalizedData.referrals || 0));
+
+            if (!normalizedData.referralsVerified || normalizedData.referrals < 10) {
+                normalizedData.extraSkill = '';
+            }
+
+            return normalizedData;
+        };
+
+        const mapApiUserToDashboardData = (user) => {
+            return {
+                name: user.fullName,
+                email: user.email,
+                skill: user.selectedSkill,
+                extraSkill: '',
+                referralLink: user.referralLink,
+                referrals: Number(user.referralCount || 0),
+                referralsVerified: true
+            };
+        };
+
+        const hasUnlockedExtraSkill = () => dashboardData.referralsVerified && dashboardData.referrals >= 10;
+
+        const normalizeSkillName = (skill) => availableSkills.includes(skill) ? skill : availableSkills[0];
+
+        const buildSkillDetailList = (items) => {
+            return items.map((item) => '<li>' + item + '</li>').join('');
+        };
+
+        const renderSkillDetail = (skillName) => {
+            const normalizedSkill = normalizeSkillName(skillName);
+            const plan = skillLearningPlans[normalizedSkill];
+
+            skillDetailBadge.textContent = plan.badge;
+            skillDetailTitle.textContent = normalizedSkill;
+            skillDetailIntro.textContent = plan.intro;
+            skillDetailDescription.textContent = plan.description;
+            skillDetailWeekOne.innerHTML = buildSkillDetailList(plan.weekOne);
+            skillDetailWeekTwo.innerHTML = buildSkillDetailList(plan.weekTwo);
+            skillDetailOutcome.textContent = plan.outcome;
+        };
+
+        const buildSkillCardMarkup = (card) => {
+            const normalizedSkill = normalizeSkillName(card.title);
+            const theme = skillVisualThemes[normalizedSkill] || skillVisualThemes[availableSkills[0]];
+
+            return '<article class="skill-stack-card ' + card.className + '" data-skill="' + normalizedSkill + '" role="button" tabindex="0" aria-label="Open ' + normalizedSkill + ' training plan">'
+                + '<div class="skill-card-visual ' + theme.artClass + '">'
+                + '<span class="skill-card-badge">' + theme.badge + '</span>'
+                + '<img src="logo.png" alt="Zero K skill card artwork" class="skill-card-logo">'
+                + '<div class="skill-card-grid" aria-hidden="true"></div>'
+                + '</div>'
+                + '<p class="eyebrow">' + card.eyebrow + '</p>'
+                + '<h4>' + card.title + '</h4>'
+                + '<p class="skill-card-copy">' + card.copy + '</p>'
+                + '<span class="skill-card-link-label">Open 2-week training breakdown</span>'
+                + '</article>';
+        };
+
+        const applyUnlockRules = () => {
+            const sanitizedData = sanitizeDashboardData(dashboardData);
+            const hasChanged = sanitizedData.extraSkill !== dashboardData.extraSkill
+                || sanitizedData.referrals !== dashboardData.referrals
+                || sanitizedData.referralsVerified !== dashboardData.referralsVerified
+                || sanitizedData.name !== dashboardData.name
+                || sanitizedData.email !== dashboardData.email
+                || sanitizedData.skill !== dashboardData.skill
+                || sanitizedData.referralLink !== dashboardData.referralLink;
+
+            dashboardData = sanitizedData;
+
+            if (hasChanged) {
+                persistDashboardData();
+            }
+        };
+
+        const syncDashboardDataFromApi = ({ fullName, email, savedDashboardData, onMissing }) => {
+            const query = new URLSearchParams({
+                action: 'findUser',
+                fullName,
+                email
+            });
+
+            return fetch(scriptURL + '?' + query.toString())
+                .then((response) => response.json())
+                .then((data) => {
+                    if (!data.success || !data.user) {
+                        throw new Error(data.message || 'User not found');
+                    }
+
+                    const apiDashboardData = sanitizeDashboardData(mapApiUserToDashboardData(data.user));
+                    dashboardData = apiDashboardData;
+
+                    if (savedDashboardData && savedDashboardData.email === apiDashboardData.email && savedDashboardData.skill === apiDashboardData.skill) {
+                        dashboardData.extraSkill = savedDashboardData.extraSkill || '';
+                    }
+
+                    applyUnlockRules();
+                    persistDashboardData();
+
+                    if (!dashboardShell.classList.contains('hidden')) {
+                        populateDashboard();
+                    }
+
+                    return true;
+                })
+                .catch((error) => {
+                    if (typeof onMissing === 'function') {
+                        onMissing(error);
+                    }
+
+                    return false;
+                });
+        };
+
+        const getAvailableExtraSkills = () => {
+            return availableSkills.filter((skill) => skill !== dashboardData.skill);
+        };
+
+        const closeDashboardSkillPicker = () => {
+            dashboardSkillPickerWrap.classList.remove('open');
+            dashboardSkillPlusButton.setAttribute('aria-expanded', 'false');
+            dashboardSkillMenu.classList.add('hidden');
+            skillPickerOverlay.classList.add('hidden');
+            skillPickerOverlay.setAttribute('aria-hidden', 'true');
+        };
+
+        const openDashboardSkillPicker = () => {
+            renderDashboardSkillMenu();
+            dashboardSkillPickerWrap.classList.add('open');
+            dashboardSkillPlusButton.setAttribute('aria-expanded', 'true');
+            skillPickerOverlay.classList.remove('hidden');
+            skillPickerOverlay.setAttribute('aria-hidden', 'false');
+            dashboardSkillMenu.classList.remove('hidden');
+        };
+
+        const closeUnlockRequiredPopup = () => {
+            unlockRequiredOverlay.classList.add('hidden');
+            unlockRequiredOverlay.setAttribute('aria-hidden', 'true');
+        };
+
+        const openUnlockRequiredPopup = () => {
+            unlockRequiredOverlay.classList.remove('hidden');
+            unlockRequiredOverlay.setAttribute('aria-hidden', 'false');
+        };
+
+        const renderDashboardSkillMenu = () => {
+            const extraSkillOptions = getAvailableExtraSkills();
+
+            dashboardSkillMenu.innerHTML = extraSkillOptions.map((skill) => {
+                const activeClass = dashboardData.extraSkill === skill ? ' active' : '';
+                const selectedState = dashboardData.extraSkill === skill ? 'true' : 'false';
+                return '<button type="button" class="custom-select-option' + activeClass + '" data-value="' + skill + '" aria-selected="' + selectedState + '">' + skill + '</button>';
+            }).join('');
+
+            dashboardSkillMenu.querySelectorAll('.custom-select-option').forEach((option) => {
+                option.addEventListener('click', () => {
+                    if (!hasUnlockedExtraSkill()) {
+                        showToast('Refer 10 friends to unlock your extra skill slot.');
+                        return;
+                    }
+
+                    dashboardData.extraSkill = option.dataset.value;
+                    persistDashboardData();
+                    renderSkillCards();
+                    closeDashboardSkillPicker();
+                    showToast(option.dataset.value + ' has been added to your dashboard.');
+                });
+            });
+        };
+
+        const renderSkillCarouselDots = (cardCount) => {
+            skillCarouselDots.innerHTML = Array.from({ length: cardCount }, (_, index) => '<span class="skill-dot' + (index === 0 ? ' active' : '') + '" data-index="' + index + '"></span>').join('');
+        };
+
+        const updateSkillCarouselState = () => {
+            const cards = skillCardTrack.querySelectorAll('.skill-stack-card');
+            if (!cards.length) {
+                return;
+            }
+
+            const cardWidth = cards[0].offsetWidth || 1;
+            const activeIndex = Math.min(cards.length - 1, Math.round(skillCarousel.scrollLeft / cardWidth));
+
+            skillCarouselDots.querySelectorAll('.skill-dot').forEach((dot, index) => {
+                dot.classList.toggle('active', index === activeIndex);
+            });
+        };
+
+        const renderSkillCards = () => {
+            const cards = [
+                {
+                    eyebrow: 'Primary skill',
+                    title: dashboardData.skill,
+                    copy: 'Your training lane is ready. Tap this card to join your peers and see the beginner roadmap for this skill.',
+                    className: 'primary'
+                }
+            ];
+
+            if (dashboardData.extraSkill) {
+                cards.push({
+                    eyebrow: 'Unlocked skill',
+                    title: dashboardData.extraSkill,
+                    copy: 'This extra track is now open. Tap this card to view the 2-week beginner breakdown for this skill.',
+                    className: 'secondary'
+                });
+            }
+
+            skillCardTrack.innerHTML = cards.map((card) => {
+                return buildSkillCardMarkup(card);
+            }).join('');
+
+            renderSkillCarouselDots(cards.length);
+            skillCarousel.scrollLeft = 0;
+            skillCarousel.classList.toggle('has-secondary-card', Boolean(dashboardData.extraSkill));
+            skillCarouselStatus.textContent = cards.length + (cards.length === 1 ? ' skill active' : ' skills active');
+            skillSwipeHint.textContent = cards.length > 1 ? 'Swipe to view both cards' : (hasUnlockedExtraSkill() ? 'Tap + to unlock your second card' : 'Unlock the next card with referrals');
+            updateSkillCarouselState();
+        };
+
+        const updateReferralProgress = () => {
+            applyUnlockRules();
+
+            const countedReferrals = dashboardData.referralsVerified ? dashboardData.referrals : 0;
+            const cappedReferrals = Math.min(countedReferrals, 10);
+            const progress = (cappedReferrals / 10) * 100;
+
+            referralCountEl.textContent = cappedReferrals;
+            referralProgressFill.style.width = progress + '%';
+            dashboardReferralCountEl.textContent = cappedReferrals;
+            dashboardReferralCountTile.textContent = cappedReferrals;
+            dashboardReferralProgressFill.style.width = progress + '%';
+
+            if (!dashboardData.referralsVerified) {
+                unlockStatusCard.classList.remove('unlocked');
+                unlockStatusTitle.textContent = 'Checking referrals';
+                unlockStatusText.textContent = 'We are confirming your latest referral count from the system.';
+                dashboardReferralNote.textContent = 'Checking your latest referral progress before unlock is allowed.';
+                openReferralTaskButton.classList.remove('hidden');
+                dashboardSkillPickerWrap.classList.add('locked');
+                dashboardSkillPlusButton.setAttribute('aria-label', 'Extra skill locked');
+                dashboardSkillPlusButton.setAttribute('aria-disabled', 'true');
+                return;
+            }
+
+            if (cappedReferrals >= 10) {
+                unlockStatusCard.classList.add('unlocked');
+                unlockStatusTitle.textContent = 'Extra skill unlocked';
+                unlockStatusText.textContent = 'You have completed the task. Your dashboard can now grant one additional skill.';
+                dashboardReferralNote.textContent = 'Referral target reached. You can now unlock one extra skill.';
+                openReferralTaskButton.classList.add('hidden');
+                dashboardSkillPickerWrap.classList.remove('locked');
+                dashboardSkillPlusButton.setAttribute('aria-label', 'Choose your extra skill');
+                dashboardSkillPlusButton.setAttribute('aria-disabled', 'false');
+            } else {
+                unlockStatusCard.classList.remove('unlocked');
+                unlockStatusTitle.textContent = 'Keep sharing your link';
+                unlockStatusText.textContent = 'You need ' + (10 - cappedReferrals) + ' more referrals to unlock one extra skill.';
+                dashboardReferralNote.textContent = 'You need ' + (10 - cappedReferrals) + ' more successful referrals to unlock your extra skill.';
+                openReferralTaskButton.classList.remove('hidden');
+                dashboardSkillPickerWrap.classList.add('locked');
+                dashboardSkillPlusButton.setAttribute('aria-label', 'Extra skill locked');
+                dashboardSkillPlusButton.setAttribute('aria-disabled', 'true');
+            }
+        };
+
+        const populateDashboard = () => {
+            applyUnlockRules();
+            dashboardGreeting.textContent = 'Welcome, ' + dashboardData.name;
+            dashboardSkillName.textContent = dashboardData.skill;
+            document.getElementById('skill-micro-name').textContent = dashboardData.skill;
+            dashboardReferralLink.textContent = dashboardData.referralLink;
+            referralPageLink.textContent = dashboardData.referralLink;
+            renderDashboardSkillMenu();
+            renderSkillCards();
+            updateReferralProgress();
+            skillHubText.textContent = hasUnlockedExtraSkill()
+                ? 'Your extra slot is ready. Tap the plus icon to drop down the remaining skills and add a fresh card to your stack.'
+                : 'Your free access is active. Complete the referral challenge to unlock one extra skill and expand this deck.';
+        };
+
+        const showDashboard = () => {
+            landingShell.classList.add('hidden');
+            dashboardShell.classList.remove('hidden');
+            dashboardView.classList.remove('hidden');
+            referralView.classList.add('hidden');
+            skillDetailView.classList.add('hidden');
+            populateDashboard();
+            closeCurrentModal();
+        };
+
+        const showReferralView = () => {
+            dashboardView.classList.add('hidden');
+            referralView.classList.remove('hidden');
+            skillDetailView.classList.add('hidden');
+        };
+
+        const showDashboardHome = () => {
+            dashboardView.classList.remove('hidden');
+            referralView.classList.add('hidden');
+            skillDetailView.classList.add('hidden');
+        };
+
+        const showSkillDetailView = (skillName) => {
+            renderSkillDetail(skillName);
+            dashboardView.classList.add('hidden');
+            referralView.classList.add('hidden');
+            skillDetailView.classList.remove('hidden');
+        };
+
+        const countdownInterval = setInterval(() => {
+            const now = new Date().getTime();
+            const distance = campaignDeadline - now;
+
+            if (distance <= 0) {
+                clearInterval(countdownInterval);
+                daysEl.textContent = '00';
+                hoursEl.textContent = '00';
+                minutesEl.textContent = '00';
+                secondsEl.textContent = '00';
+                currentPriceLabel.textContent = 'Access';
+                mainPrice.textContent = 'Free';
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            daysEl.textContent = days.toString().padStart(2, '0');
+            hoursEl.textContent = hours.toString().padStart(2, '0');
+            minutesEl.textContent = minutes.toString().padStart(2, '0');
+            secondsEl.textContent = seconds.toString().padStart(2, '0');
+        }, 1000);
+
+        landingSkillTrigger.addEventListener('click', () => {
+            toggleCustomSelect(landingSkillSelect, landingSkillTrigger, landingSkillMenu);
+        });
+
+        signupSkillTrigger.addEventListener('click', () => {
+            toggleCustomSelect(signupSkillSelect, signupSkillTrigger, signupSkillMenu);
+        });
+
+        landingSkillMenu.querySelectorAll('.custom-select-option').forEach((option) => {
+            option.addEventListener('click', () => {
+                updateSelectedSkill(option.dataset.value);
+                closeCustomSelect(landingSkillSelect, landingSkillTrigger, landingSkillMenu);
+            });
+        });
+
+        signupSkillMenu.querySelectorAll('.custom-select-option').forEach((option) => {
+            option.addEventListener('click', () => {
+                updateSelectedSkill(option.dataset.value);
+                closeCustomSelect(signupSkillSelect, signupSkillTrigger, signupSkillMenu);
+            });
+        });
+
+        ctaButton.addEventListener('click', (e) => {
+            e.preventDefault();
+
+            if (selectedSkills.length < 1) {
+                showToast('Please select a minimum of 1 skill before proceeding.');
+                return;
+            }
+
+            renderSelectedSkills();
+            showRegisterView();
+            openModal();
+        });
+
+        openSigninButton.addEventListener('click', () => {
+            showSigninView();
+            openModal();
+        });
+
+        switchToSigninButton.addEventListener('click', showSigninView);
+        switchToRegisterButton.addEventListener('click', showRegisterView);
+
+        closeModal.addEventListener('click', closeCurrentModal);
+
+        modalOverlay.addEventListener('click', (e) => {
+            if (e.target === modalOverlay) {
+                closeCurrentModal();
+            }
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!landingSkillSelect.contains(e.target)) {
+                closeCustomSelect(landingSkillSelect, landingSkillTrigger, landingSkillMenu);
+            }
+
+            if (!signupSkillSelect.contains(e.target)) {
+                closeCustomSelect(signupSkillSelect, signupSkillTrigger, signupSkillMenu);
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !modalOverlay.classList.contains('hidden')) {
+                closeCurrentModal();
+            }
+
+            if (e.key === 'Escape') {
+                closeCustomSelect(landingSkillSelect, landingSkillTrigger, landingSkillMenu);
+                closeCustomSelect(signupSkillSelect, signupSkillTrigger, signupSkillMenu);
+                closeDashboardSkillPicker();
+                closeUnlockRequiredPopup();
+            }
+        });
+
+        registrationForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            if (selectedSkills.length < 1) {
+                showToast('Please select a minimum of 1 skill before proceeding.');
+                return;
+            }
+
+            skillsHiddenInput.value = selectedSkills.join(', ');
+
+            const fullName = document.getElementById('fullName').value.trim();
+            const referralCode = referralCodeInput.value.trim();
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Submitting...';
+            submitBtn.disabled = true;
+
+            dashboardData = {
+                name: fullName,
+                email: document.getElementById('email').value.trim(),
+                skill: selectedSkills[0],
+                extraSkill: '',
+                referralLink: buildReferralLink(fullName),
+                referrals: 0
+            };
+
+            const params = new URLSearchParams({
+                action: 'registerUser',
+                fullName: dashboardData.name,
+                email: dashboardData.email,
+                selectedSkill: dashboardData.skill,
+                referralLink: dashboardData.referralLink,
+                referralCode
+            });
+
+            fetch(scriptURL, {
+                method: 'POST',
+                body: params
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                    if (!data.success) {
+                        throw new Error(data.message || 'Registration failed');
+                    }
+
+                    if (data.user) {
+                        dashboardData = enrichDashboardData(mapApiUserToDashboardData(data.user));
+                    }
+
+                    persistDashboardData();
+                    formView.classList.add('hidden');
+                    successView.classList.remove('hidden');
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled = false;
+                    registrationForm.reset();
+                    resetSelections();
+                })
+                .catch(() => {
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled = false;
+                    showToast('Registration failed. Please try again.');
+                });
+        });
+
+        signinForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const fullName = document.getElementById('signinFullName').value.trim();
+            const email = document.getElementById('signinEmail').value.trim();
+            const originalText = signinBtn.textContent;
+            const savedDashboardData = getSavedDashboardData();
+
+            signinBtn.textContent = 'Signing In...';
+            signinBtn.disabled = true;
+
+            if (isSameDashboardUser(savedDashboardData, fullName, email)) {
+                dashboardData = buildPendingDashboardData(savedDashboardData);
+                signinForm.reset();
+                signinBtn.textContent = originalText;
+                signinBtn.disabled = false;
+                showDashboard();
+            }
+
+            syncDashboardDataFromApi({
+                fullName,
+                email,
+                savedDashboardData,
+                onMissing: () => {
+                    signinBtn.textContent = originalText;
+                    signinBtn.disabled = false;
+
+                    if (!dashboardShell.classList.contains('hidden')) {
+                        showToast('Signed in with saved dashboard data while referrals sync is unavailable.');
+                        return;
+                    }
+
+                    showToast('No dashboard found with those details yet.');
+                }
+            }).then((foundUser) => {
+                if (!foundUser) {
+                    return;
+                }
+
+                if (dashboardShell.classList.contains('hidden')) {
+                    signinForm.reset();
+                    signinBtn.textContent = originalText;
+                    signinBtn.disabled = false;
+                    showDashboard();
+                }
+            });
+        });
+
+        dashboardLink.addEventListener('click', showDashboard);
+        openReferralTaskButton.addEventListener('click', showReferralView);
+        backToDashboardButton.addEventListener('click', showDashboardHome);
+        backFromSkillDetailButton.addEventListener('click', showDashboardHome);
+        backToHomeButton.addEventListener('click', () => {
+            dashboardShell.classList.add('hidden');
+            landingShell.classList.remove('hidden');
+            showDashboardHome();
+        });
+
+        dashboardSkillPlusButton.addEventListener('click', () => {
+            if (!hasUnlockedExtraSkill()) {
+                openUnlockRequiredPopup();
+                return;
+            }
+
+            const isOpen = dashboardSkillPickerWrap.classList.contains('open');
+            closeCustomSelect(landingSkillSelect, landingSkillTrigger, landingSkillMenu);
+            closeCustomSelect(signupSkillSelect, signupSkillTrigger, signupSkillMenu);
+
+            if (isOpen) {
+                closeDashboardSkillPicker();
+                return;
+            }
+
+            openDashboardSkillPicker();
+        });
+
+        closeSkillPickerButton.addEventListener('click', closeDashboardSkillPicker);
+        closeUnlockRequiredButton.addEventListener('click', closeUnlockRequiredPopup);
+        unlockRequiredOkButton.addEventListener('click', closeUnlockRequiredPopup);
+
+        skillPickerOverlay.addEventListener('click', (e) => {
+            if (e.target === skillPickerOverlay) {
+                closeDashboardSkillPicker();
+            }
+        });
+
+        unlockRequiredOverlay.addEventListener('click', (e) => {
+            if (e.target === unlockRequiredOverlay) {
+                closeUnlockRequiredPopup();
+            }
+        });
+
+        skillCarousel.addEventListener('scroll', updateSkillCarouselState);
+
+        skillCardTrack.addEventListener('click', (event) => {
+            const skillCard = event.target.closest('.skill-stack-card');
+            if (!skillCard) {
+                return;
+            }
+
+            showSkillDetailView(skillCard.dataset.skill);
+        });
+
+        skillCardTrack.addEventListener('keydown', (event) => {
+            const skillCard = event.target.closest('.skill-stack-card');
+            if (!skillCard) {
+                return;
+            }
+
+            if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault();
+                showSkillDetailView(skillCard.dataset.skill);
+            }
+        });
+
+        copyReferralLinkButton.addEventListener('click', async () => {
+            if (!dashboardData.referralLink) {
+                return;
+            }
+
+            try {
+                await navigator.clipboard.writeText(buildReferralMessage(dashboardData.referralLink));
+                showToast('Referral message copied.');
+            } catch (error) {
+                showToast('Copy failed. You can still share the link manually.');
+            }
+        });
+
+        const savedDashboardData = getSavedDashboardData();
+        if (savedDashboardData && savedDashboardData.name && savedDashboardData.skill && savedDashboardData.referralLink) {
+            dashboardData = buildPendingDashboardData(savedDashboardData);
+            populateDashboard();
+            syncDashboardDataFromApi({
+                fullName: savedDashboardData.name,
+                email: savedDashboardData.email,
+                savedDashboardData
+            });
+        }
+
+        updateSelectionCount();
+        footerText.innerHTML = '&copy; ' + new Date().getFullYear() + ' Zero K. All rights reserved.';
+    </script>
+</body>
+
+</html>
