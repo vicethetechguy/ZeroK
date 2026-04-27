@@ -1213,24 +1213,24 @@ footer {
     background:
         radial-gradient(circle at top right, rgba(255, 207, 0, 0.3), transparent 24%),
         linear-gradient(160deg, rgba(255, 242, 191, 0.14), rgba(255, 207, 0, 0.08) 38%, rgba(255, 255, 255, 0.04));
-    transform: rotate(-3deg) translateY(4px);
+    transform: translateY(4px);
 }
 
 .skill-stack-card.secondary {
     background:
         radial-gradient(circle at top right, rgba(165, 124, 242, 0.28), transparent 26%),
         linear-gradient(160deg, rgba(165, 124, 242, 0.2), rgba(255, 255, 255, 0.05));
-    transform: rotate(3deg) translateY(4px);
+    transform: translateY(4px);
 }
 
 .skill-stack-card.primary:hover,
 .skill-stack-card.primary:focus-visible {
-    transform: rotate(-3deg) translateY(0px);
+    transform: translateY(0px);
 }
 
 .skill-stack-card.secondary:hover,
 .skill-stack-card.secondary:focus-visible {
-    transform: rotate(3deg) translateY(0px);
+    transform: translateY(0px);
 }
 
 .skill-stack-card h4 {
