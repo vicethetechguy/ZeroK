@@ -1095,7 +1095,7 @@ footer {
 .skill-card-track {
     display: grid;
     grid-auto-flow: column;
-    grid-auto-columns: 260px;
+    grid-auto-columns: 310px;
     gap: 0.85rem;
     align-items: stretch;
 }
@@ -1103,7 +1103,7 @@ footer {
 .skill-stack-card {
     position: relative;
     scroll-snap-align: start;
-    min-height: 360px;
+    min-height: 200px;
     padding: 1.05rem;
     border-radius: 2rem;
     border: 1px solid rgba(255, 255, 255, 0.14);
@@ -1748,7 +1748,7 @@ footer {
     }
 
     .skill-card-track {
-        grid-auto-columns: 280px;
+        grid-auto-columns: 320px;
     }
 }
 
@@ -2003,7 +2003,7 @@ footer {
 
     /* Carousel */
     .skill-card-track {
-        grid-auto-columns: 260px;
+        grid-auto-columns: 290px;
     }
 
     /* Referral link box */
