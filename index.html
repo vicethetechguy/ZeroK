@@ -174,22 +174,13 @@
                         extra skill.</p>
 
                     <div class="skill-dashboard-grid">
-                        <div class="skill-feature-zone">
-                            <div class="skill-carousel-meta">
-                                <button type="button" class="active-skill-badge" id="skill-carousel-status">1 Active Skill</button>
+                        <div class="skill-carousel" id="skill-carousel" aria-label="Unlocked skills">
+                            <div class="skill-card-track" id="skill-card-track">
+                                <!-- Cards injected by JS -->
                             </div>
-                            <div class="skill-carousel" id="skill-carousel" aria-label="Unlocked skills">
-                                <div class="skill-card-track" id="skill-card-track">
-                                    <article class="skill-stack-card primary" id="primary-skill-card">
-                                        <p class="eyebrow">Primary skill</p>
-                                        <h4 id="dashboard-skill-name">Vibe Coding</h4>
-                                        <p class="skill-card-copy">Your training lane is ready. Start here and grow into your next unlocked skill.</p>
-                                    </article>
-                                </div>
-                            </div>
-                            <div class="skill-carousel-dots" id="skill-carousel-dots" aria-hidden="true">
-                                <span class="skill-dot active"></span>
-                            </div>
+                        </div>
+                        <div class="skill-carousel-dots" id="skill-carousel-dots" aria-hidden="true">
+                            <span class="skill-dot active"></span>
                         </div>
 
                         <div class="skill-side-panels">
@@ -244,7 +235,18 @@
                         <button type="button" class="ghost-button compact-button" id="back-to-dashboard-from-profile">Back</button>
                     </div>
                     
-                    <div class="form-grid-2col" style="margin-top: 1.5rem;">
+                    <div class="profile-image-section" style="margin-top: 1.5rem; margin-bottom: 2rem; display: flex; align-items: center; gap: 1rem;">
+                        <div class="profile-image-preview" id="profile-image-preview" style="width: 80px; height: 80px; border-radius: 50%; background: rgba(255,255,255,0.05); border: 2px solid rgba(255,255,255,0.1); overflow: hidden; display: flex; align-items: center; justify-content: center;">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 40px; height: 40px; color: var(--text-muted);"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                        </div>
+                        <div>
+                            <input type="file" id="profile-image-upload" accept="image/*" class="hidden">
+                            <label for="profile-image-upload" class="cta-button compact-button" style="display: inline-block; cursor: pointer; padding: 0.6rem 1rem; font-size: 0.85rem;">Upload Picture</label>
+                            <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.5rem;">JPG, PNG, max 2MB</p>
+                        </div>
+                    </div>
+
+                    <div class="form-grid-2col">
                         <div class="form-group">
                             <label>Username</label>
                             <input type="text" id="profile-username-display" readonly style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); color: var(--text-light); pointer-events: none;">
@@ -823,11 +825,19 @@ ${referralLink}`;
             const normalizedSkill = normalizeSkillName(card.title);
             const theme = skillVisualThemes[normalizedSkill] || skillVisualThemes[availableSkills[0]];
 
+            let iconSvg = '';
+            if (theme.artClass === 'art-code') {
+                iconSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="skill-card-icon"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>`;
+            } else if (theme.artClass === 'art-design') {
+                iconSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="skill-card-icon"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>`;
+            } else {
+                iconSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="skill-card-icon"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>`;
+            }
+
             return '<article class="skill-stack-card ' + card.className + '" data-skill="' + normalizedSkill + '" role="button" tabindex="0" aria-label="Open ' + normalizedSkill + ' training plan">'
                 + '<div class="skill-card-visual ' + theme.artClass + '">'
                 + '<span class="skill-card-badge">' + theme.badge + '</span>'
-                + '<img src="logo.png" alt="Zero K skill card artwork" class="skill-card-logo">'
-                + '<div class="skill-card-grid" aria-hidden="true"></div>'
+                + iconSvg
                 + '</div>'
                 + '<p class="eyebrow">' + card.eyebrow + '</p>'
                 + '<h4>' + card.title + '</h4>'
