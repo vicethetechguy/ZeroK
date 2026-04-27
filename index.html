@@ -1474,7 +1474,19 @@ ${referralLink}`;
         // ── Auto-restore session via Supabase ────────────────────────────────────
         sb.auth.getSession().then(async ({ data: { session } }) => {
             if (session) {
-                await syncProfileFromSupabase(session.user.id, session.user.email);
+                const found = await syncProfileFromSupabase(session.user.id, session.user.email);
+                if (!found) {
+                    dashboardData = { 
+                        name: session.user.email.split('@')[0], 
+                        email: session.user.email, 
+                        skill: availableSkills[0], 
+                        extraSkill: '', 
+                        referralLink: window.location.origin + '?ref=' + Math.random().toString(36).substring(2, 10), 
+                        referrals: 0, 
+                        referralsVerified: false 
+                    };
+                    persistDashboardData();
+                }
                 showDashboard();
             }
         });
