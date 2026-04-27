@@ -11,7 +11,8 @@
     --chip-blue: #6188ff;
     --chip-orange: #ff7b38;
     --chip-lime: #c9f43c;
-    --font-main: 'MuseoModerno', sans-serif;
+    --font-main: 'Poppins', sans-serif;
+    --font-secondary: 'Inter', sans-serif;
     --shadow-soft: 0 20px 60px rgba(0, 0, 0, 0.28);
     --shadow-hard: 0 24px 70px rgba(0, 0, 0, 0.45);
 }
@@ -28,7 +29,7 @@ html {
 }
 
 body {
-    font-family: var(--font-main);
+    font-family: var(--font-secondary);
     min-height: 100vh;
     color: var(--text-black);
     background:
@@ -52,6 +53,10 @@ button,
 input,
 a {
     font: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-main);
 }
 
 .page-shell {
