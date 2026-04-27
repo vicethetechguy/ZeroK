@@ -24,6 +24,7 @@
 }
 
 html {
+    font-size: 88%;
     scroll-behavior: smooth;
     scrollbar-width: none;
 }
