@@ -1105,7 +1105,7 @@ footer {
 .skill-stack-card {
     position: relative;
     scroll-snap-align: start;
-    min-height: 200px;
+    min-height: 150px;
     padding: 1.05rem;
     border-radius: 2rem;
     border: 1px solid rgba(255, 255, 255, 0.14);
