@@ -168,13 +168,15 @@
                     <p class="dashboard-text skill-hub-text" id="skill-hub-text">Your free access is active. Complete the referral challenge to unlock one
                         extra skill.</p>
 
-                    <div class="skill-carousel" id="skill-carousel" aria-label="Unlocked skills">
-                        <div class="skill-card-track" id="skill-card-track">
-                            <!-- Cards injected by JS -->
+                    <div class="skill-dashboard-grid">
+                        <div class="skill-carousel" id="skill-carousel" aria-label="Unlocked skills">
+                            <div class="skill-card-track" id="skill-card-track">
+                                <!-- Cards injected by JS -->
+                            </div>
                         </div>
-                    </div>
-                    <div class="skill-carousel-dots" id="skill-carousel-dots" aria-hidden="true">
-                        <span class="skill-dot active"></span>
+                        <div class="skill-carousel-dots" id="skill-carousel-dots" aria-hidden="true">
+                            <span class="skill-dot active"></span>
+                        </div>
                     </div>
                 </div>
 
@@ -186,19 +188,19 @@
                                 <p class="eyebrow" style="color: rgba(255, 255, 255, 0.6); margin: 0; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em;">Referral target</p>
                                 <h3 style="margin-top: 0.4rem; font-size: 1.4rem;">Track progress</h3>
                             </div>
-                            <div class="stat-circle" style="background: rgba(255, 255, 255, 0.05); color: #ffffff; width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.2rem; border: 1px solid rgba(255,255,255,0.1);"><span id="dashboard-referral-count-tile">0</span> verified</div>
+                            <div class="stat-circle" style="background: rgba(255, 255, 255, 0.05); color: #ffffff; width: 48px; height: 48px; border-radius: 0.75rem; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.2rem; border: 1px solid rgba(255,255,255,0.1);"><span id="dashboard-referral-count-tile">0</span></div>
                         </div>
                     </div>
 
-                    <div class="dashboard-card referral-link-card" style="margin: 0; background: linear-gradient(135deg, var(--bg-yellow), #ffef9b); border: none; border-radius: 1.4rem; padding: 1.5rem; color: var(--text-black);">
+                    <div class="dashboard-card referral-link-card" style="margin: 0; background: linear-gradient(135deg, var(--bg-yellow), #ffef9b); border: none; border-radius: 1.4rem; padding: 1.5rem; color: #111111;">
                         <div class="dashboard-card-head" style="display: flex; justify-content: space-between; align-items: flex-start;">
                             <div>
                                 <p class="eyebrow" style="color: rgba(0, 0, 0, 0.6); margin: 0; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em;">Referral link</p>
-                                <h3 style="margin-top: 0.4rem; font-size: 1.4rem; color: var(--text-black);">Share and grow</h3>
+                                <h3 style="margin-top: 0.4rem; font-size: 1.4rem; color: #111111;">Share and grow</h3>
                             </div>
-                            <button type="button" class="ghost-button compact-button" id="copy-referral-link" style="color: var(--text-black); border-color: rgba(0, 0, 0, 0.2); background: rgba(0,0,0,0.05);">Copy</button>
+                            <button type="button" class="ghost-button compact-button" id="copy-referral-link" style="color: #111111; border-color: rgba(0, 0, 0, 0.2); background: rgba(0,0,0,0.05);">Copy</button>
                         </div>
-                        <div class="referral-link-box" id="dashboard-referral-link" style="margin-top: 1rem; background: rgba(0,0,0,0.05); padding: 0.75rem; border-radius: 0.75rem; font-family: monospace; font-size: 0.85rem; border: 1px solid rgba(0,0,0,0.1); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--text-black);"></div>
+                        <div class="referral-link-box" id="dashboard-referral-link" style="margin-top: 1rem; background: rgba(0,0,0,0.05); padding: 0.75rem; border-radius: 0.75rem; font-family: monospace; font-size: 0.85rem; border: 1px solid rgba(0,0,0,0.1); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: #111111;"></div>
                     </div>
                     
                 </div>
@@ -1388,14 +1390,19 @@ ${referralLink}`;
             }
 
             const { data: { publicUrl } } = sb.storage.from('avatars').getPublicUrl(filePath);
+            
+            // Attempt to update the avatar_url in the database
             const { error: updateError } = await sb.from('profiles').update({ avatar_url: publicUrl }).eq('id', userId);
             
-            if (updateError) {
-                showToast('Failed to save picture to profile.');
-            } else {
-                showToast('Profile picture saved successfully!');
-                profileImagePreview.innerHTML = '<img src="' + publicUrl + '" style="width: 100%; height: 100%; object-fit: cover;">';
-                document.querySelector('.profile-avatar').parentElement.innerHTML = '<img src="' + publicUrl + '" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">';
+            dashboardData.avatarUrl = publicUrl;
+            persistDashboardData();
+            
+            showToast('Profile picture saved successfully!');
+            profileImagePreview.innerHTML = '<img src="' + publicUrl + '" style="width: 100%; height: 100%; object-fit: cover;">';
+            
+            const topbarAvatar = document.querySelector('.profile-avatar');
+            if (topbarAvatar) {
+                topbarAvatar.parentElement.innerHTML = '<img src="' + publicUrl + '" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%; width: 44px; height: 44px;">';
             }
         });
 
