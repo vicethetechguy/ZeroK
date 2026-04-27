@@ -112,6 +112,18 @@ a {
     opacity: 0.75;
 }
 
+.brand-text-logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin: 0;
+    background: linear-gradient(110deg, #ffcf00 0%, #ffaa00 55%, #ff7b38 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    letter-spacing: -0.02em;
+}
+
 .topbar-badge {
     padding: 0.78rem 1.08rem;
     border-radius: 999px;

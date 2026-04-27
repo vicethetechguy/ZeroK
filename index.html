@@ -17,12 +17,12 @@
         <header class="topbar">
             <div class="brand-lockup">
                 <div class="brand-mark">
-                    <img src="logo.png" alt="Zero K Logo" class="brand-logo">
-                    <div class="topbar-badge">2-Week Digital Training</div>
+                    <h1 class="brand-text-logo">Zero K</h1>
+                    <div class="topbar-badge" style="border: 1px solid rgba(255, 207, 0, 0.4); color: #ffcf00;">2-Week Digital Training</div>
                 </div>
             </div>
             <div class="topbar-actions">
-                <button type="button" class="ghost-button compact-button topbar-signin" id="open-signin">Sign In</button>
+                <button type="button" class="ghost-button compact-button topbar-signin" id="open-signin" style="color: #ffcf00; font-weight: 600;">Sign In</button>
             </div>
         </header>
 
@@ -47,10 +47,6 @@
                     <div class="mini-stat">
                         <strong>14</strong>
                         <span>Days</span>
-                    </div>
-                    <div class="mini-stat accent">
-                        <strong>Free</strong>
-                        <span>Desktop CapCut PRO</span>
                     </div>
                 </div>
             </section>
@@ -1312,11 +1308,22 @@ ${referralLink}`;
             signinBtn.disabled = false;
 
             const found = await syncProfileFromSupabase(userId, email);
-            if (found) {
-                showDashboard();
-            } else {
-                showToast('Signed in but profile not found. Contact support.');
+            if (!found) {
+                // Profile missing: Create fallback session data so they can still access the dashboard
+                dashboardData = { 
+                    name: email.split('@')[0], 
+                    email: email, 
+                    skill: availableSkills[0], 
+                    extraSkill: '', 
+                    referralLink: window.location.origin + '?ref=' + Math.random().toString(36).substring(2, 10), 
+                    referrals: 0, 
+                    referralsVerified: false 
+                };
+                persistDashboardData();
             }
+            
+            showDashboard();
+            closeCurrentModal(); // Ensure modal is forcefully closed
         });
 
         // Profile Listeners
@@ -1346,6 +1353,47 @@ ${referralLink}`;
             logoutBtn.textContent = originalText;
             logoutBtn.disabled = false;
             showLandingPage();
+        });
+
+        const profileImageUpload = document.getElementById('profile-image-upload');
+        const profileImagePreview = document.getElementById('profile-image-preview');
+
+        profileImageUpload.addEventListener('change', async (e) => {
+            const file = e.target.files[0];
+            if (!file) return;
+            
+            if (file.size > 2 * 1024 * 1024) {
+                showToast('Image must be less than 2MB');
+                return;
+            }
+
+            const { data: { session } } = await sb.auth.getSession();
+            if (!session) return;
+            
+            const userId = session.user.id;
+            const fileExt = file.name.split('.').pop();
+            const filePath = userId + '.' + fileExt;
+
+            profileImagePreview.innerHTML = '<span style="font-size: 0.8rem; color: var(--text-muted);">Uploading...</span>';
+
+            const { error: uploadError } = await sb.storage.from('avatars').upload(filePath, file, { upsert: true });
+
+            if (uploadError) {
+                showToast('Upload failed! You need to create an "avatars" bucket in Supabase first.');
+                profileImagePreview.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 40px; height: 40px; color: var(--text-muted);"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>';
+                return;
+            }
+
+            const { data: { publicUrl } } = sb.storage.from('avatars').getPublicUrl(filePath);
+            const { error: updateError } = await sb.from('profiles').update({ avatar_url: publicUrl }).eq('id', userId);
+            
+            if (updateError) {
+                showToast('Failed to save picture to profile.');
+            } else {
+                showToast('Profile picture saved successfully!');
+                profileImagePreview.innerHTML = '<img src="' + publicUrl + '" style="width: 100%; height: 100%; object-fit: cover;">';
+                document.querySelector('.profile-avatar').parentElement.innerHTML = '<img src="' + publicUrl + '" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">';
+            }
         });
 
         dashboardLink.addEventListener('click', showDashboard);
