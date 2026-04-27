@@ -1034,7 +1034,7 @@ ${referralLink}`;
         const populateDashboard = () => {
             applyUnlockRules();
             dashboardGreeting.textContent = 'Welcome, ' + dashboardData.name;
-            dashboardSkillName.textContent = dashboardData.skill;
+            if (dashboardSkillName) dashboardSkillName.textContent = dashboardData.skill;
             const skillMicroName = document.getElementById('skill-micro-name');
             if (skillMicroName) skillMicroName.textContent = dashboardData.skill;
             dashboardReferralLink.textContent = dashboardData.referralLink;
