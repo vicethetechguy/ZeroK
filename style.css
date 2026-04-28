@@ -82,7 +82,7 @@ h1, h2, h3, h4, h5, h6 {
     position: absolute;
     inset: 0 0 auto 0;
     height: calc(100% + 0.16rem);
-    background: linear-gradient(180deg, rgba(230, 213, 255, 0.94), rgba(230, 213, 255, 0.74) 72%, rgba(230, 213, 255, 0));
+    background: transparent;
     pointer-events: none;
 }
 
@@ -998,7 +998,10 @@ footer {
 }
 
 .skill-picker-wrap {
-    position: relative;
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 1000;
     display: flex;
     justify-content: flex-end;
     flex-shrink: 0;
@@ -1013,7 +1016,7 @@ footer {
     width: 58px;
     height: 58px;
     border: 0;
-    border-radius: 1.1rem;
+    border-radius: 50%;
     background: linear-gradient(180deg, #fff4c4 0%, #ffd74e 100%);
     color: var(--text-black);
     font-size: 2rem;
@@ -1194,16 +1197,15 @@ footer {
     position: relative;
     scroll-snap-align: start;
     min-height: 220px;
-    padding: 1.15rem;
-    border-radius: 1.55rem;
-    border: 1px solid rgba(255, 255, 255, 0.14);
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.06));
+    padding: 0;
+    border: none;
+    background: transparent;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     gap: 0.3rem;
     overflow: hidden;
-    box-shadow: 0 24px 48px rgba(0, 0, 0, 0.28);
+    box-shadow: none;
     transform-origin: center;
     transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
     cursor: pointer;
@@ -1301,15 +1303,11 @@ footer {
 }
 
 .skill-stack-card.primary {
-    background:
-        radial-gradient(circle at top right, rgba(255, 207, 0, 0.3), transparent 24%),
-        linear-gradient(160deg, rgba(255, 242, 191, 0.14), rgba(255, 207, 0, 0.08) 38%, rgba(255, 255, 255, 0.04));
+    background: transparent;
 }
 
 .skill-stack-card.secondary {
-    background:
-        radial-gradient(circle at top right, rgba(165, 124, 242, 0.28), transparent 26%),
-        linear-gradient(160deg, rgba(165, 124, 242, 0.2), rgba(255, 255, 255, 0.05));
+    background: transparent;
 }
 
 .skill-stack-card h4 {
@@ -1559,8 +1557,8 @@ footer {
     align-items: center;
     justify-content: space-between;
     gap: 0.75rem;
-    margin-bottom: 1.5rem;
-    padding: 0.1rem 0.1rem 0.2rem;
+    margin-bottom: 1rem;
+    padding: 0.15rem 0.1rem 0.2rem;
     position: sticky;
     top: 0.35rem;
     z-index: 80;
@@ -1569,14 +1567,14 @@ footer {
 
 .dashboard-topbar h2 {
     margin: 0.18rem 0 0;
-    font-size: clamp(1.7rem, 6vw, 2rem);
-    line-height: 1;
+    font-size: clamp(1.45rem, 5.8vw, 1.8rem);
+    line-height: 1.02;
     color: #101010;
 }
 
 .dashboard-topbar .eyebrow {
     color: rgba(16, 16, 16, 0.56);
-    font-size: 0.7rem;
+    font-size: 0.66rem;
     letter-spacing: 0.14em;
 }
 
@@ -1610,6 +1608,7 @@ footer {
 
 .skill-hub-standalone-zone {
     margin-bottom: 1.5rem;
+    position: relative;
 }
 
 .skill-hub-header {
@@ -1635,14 +1634,17 @@ footer {
 }
 
 .skill-plus-button {
-    width: 48px;
-    height: 48px;
-    border-radius: 16px;
-    box-shadow: 0 12px 24px rgba(255, 179, 58, 0.24);
+    width: 56px;
+    height: 56px;
+    border-radius: 18px;
+    box-shadow: 0 12px 24px rgba(255, 179, 58, 0.18);
 }
 
-.skill-dashboard-grid {
-    gap: 0.8rem;
+.skill-picker-wrap {
+    position: fixed;
+    right: max(1rem, calc((100vw - 375px) / 2 + 0.5rem));
+    bottom: 1.25rem;
+    z-index: 95;
 }
 
 .skill-carousel {
@@ -1662,8 +1664,8 @@ footer {
     max-height: 220px;
     padding: 0;
     border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    box-shadow: 0 16px 30px rgba(30, 20, 45, 0.16);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    box-shadow: 0 10px 22px rgba(30, 20, 45, 0.12);
     background: transparent;
     overflow: hidden;
 }
@@ -1671,7 +1673,7 @@ footer {
 .skill-stack-card:hover,
 .skill-stack-card:focus-visible {
     transform: translateY(-2px);
-    box-shadow: 0 18px 36px rgba(30, 20, 45, 0.2);
+    box-shadow: 0 14px 26px rgba(30, 20, 45, 0.16);
     border-color: rgba(255, 214, 120, 0.42);
 }
 
@@ -1788,6 +1790,7 @@ footer {
 .skill-carousel-dots {
     justify-content: flex-start;
     padding-left: 0.15rem;
+    margin-top: 0.65rem;
 }
 
 .skill-dot {
@@ -3137,13 +3140,23 @@ footer {
     }
 
     .dashboard-topbar {
-        top: 0.35rem;
-        margin-bottom: 1rem;
-        padding: 0.1rem 0.1rem 0.2rem;
+        position: relative;
+        top: auto;
+        width: 100%;
+        margin-left: 0;
+        padding: 1rem;
+        background: rgba(13, 13, 13, 0.4);
+        backdrop-filter: blur(20px);
+        border-radius: 1.5rem;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 1.5rem;
     }
 
     .dashboard-topbar h2 {
-        font-size: clamp(1.55rem, 6vw, 1.9rem);
+        font-size: clamp(1.35rem, 5.8vw, 1.65rem);
     }
 
     .skill-hub-header h3,
@@ -3185,6 +3198,11 @@ footer {
 
     .referral-dashboard-row {
         gap: 1rem;
+    }
+
+    .skill-picker-wrap {
+        right: 1rem;
+        bottom: 1rem;
     }
 }
 
@@ -3228,5 +3246,16 @@ footer {
 
     .skill-stack-card {
         min-height: min(200px, 60vw);
+    }
+
+    .skill-picker-wrap {
+        right: 0.85rem;
+        bottom: 0.85rem;
+    }
+
+    .skill-plus-button {
+        width: 52px;
+        height: 52px;
+        border-radius: 16px;
     }
 }
