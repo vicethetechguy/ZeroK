@@ -1004,7 +1004,7 @@ footer {
 }
 
 .skill-picker-wrap.locked .skill-plus-button {
-    opacity: 0.55;
+    opacity: 1;
     cursor: not-allowed;
 }
 
