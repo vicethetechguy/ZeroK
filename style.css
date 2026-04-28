@@ -3222,7 +3222,10 @@ footer {
     }
 
     .brand-logo {
-        max-height: 22px;
+        height: 104px;
+        margin-top: -2.5rem;
+        margin-bottom: -2.5rem;
+        max-height: none;
     }
 
     .topbar-signin {
