@@ -766,13 +766,18 @@ footer {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 1.25rem;
-    margin-bottom: 2rem;
-    padding: 1rem 1.5rem;
-    background: #1a1a1a;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 1.25rem;
-    box-shadow: none;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 80;
+    background: #0b0b0b;
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0;
+    margin-left: 0;
+    margin-right: 0;
 }
 
 .dashboard-topbar h2 {
@@ -1706,14 +1711,13 @@ footer {
     align-self: flex-start;
     padding: 0.34rem 0.72rem;
     border-radius: 999px;
-    background: rgba(17, 17, 17, 0.14);
-    border: 1px solid rgba(255, 255, 255, 0.22);
-    color: rgba(17, 17, 17, 0.74);
+    background: rgba(255, 255, 255, 0.25);
+    border: none;
+    color: rgba(17, 17, 17, 0.85);
     font-size: 0.68rem;
     font-weight: 800;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    backdrop-filter: blur(6px);
 }
 
 .skill-card-main {
@@ -3307,14 +3311,14 @@ footer {
         width: 100%;
         margin-left: 0;
         padding: 1rem;
-        background: rgba(13, 13, 13, 0.4);
-        backdrop-filter: blur(20px);
-        border-radius: 1.5rem;
-        border: 1px solid rgba(255, 255, 255, 0.1);
+        background: #0b0b0b;
+        border-radius: 0;
+        border: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         display: flex;
         align-items: center;
         justify-content: space-between;
-        margin-bottom: 1.5rem;
+        margin-bottom: 1rem;
     }
 
     .dashboard-topbar h2 {
