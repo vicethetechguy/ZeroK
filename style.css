@@ -995,7 +995,7 @@ footer {
 
 .skill-picker-wrap {
     position: fixed;
-    bottom: 5rem;
+    bottom: 12rem;
     right: 2rem;
     z-index: 1000;
     display: flex;
@@ -2387,9 +2387,9 @@ footer {
     }
 
     .brand-logo {
-        height: 72px;
-        margin-top: -1.6rem;
-        margin-bottom: -1.6rem;
+        height: 104px;
+        margin-top: -2.5rem;
+        margin-bottom: -2.5rem;
     }
 
     .topbar-actions {

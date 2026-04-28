@@ -801,7 +801,8 @@ ${referralLink}`;
                 extraSkill: profile.extra_skill || '',
                 referralLink: profile.referral_link || '',
                 referrals: Number(profile.referral_count || 0),
-                referralsVerified: true
+                referralsVerified: true,
+                avatarUrl: profile.avatar_url || ''
             };
         };
 
@@ -1054,6 +1055,27 @@ ${referralLink}`;
             skillHubText.textContent = hasUnlockedExtraSkill()
                 ? 'Your extra slot is ready. Tap the plus icon to drop down the remaining skills and add a fresh card to your stack.'
                 : 'Your free access is active. Complete the referral challenge to unlock one extra skill and expand this deck.';
+
+            const topbarAvatarBtn = document.getElementById('open-profile');
+            const profilePreviewEl = document.getElementById('profile-image-preview');
+            const profileUserDisplay = document.getElementById('profile-username-display');
+            const profileMailDisplay = document.getElementById('profile-email-display');
+            
+            if (profileUserDisplay) profileUserDisplay.value = dashboardData.name || '';
+            if (profileMailDisplay) profileMailDisplay.value = dashboardData.email || '';
+
+            if (dashboardData.avatarUrl) {
+                if (topbarAvatarBtn) {
+                    topbarAvatarBtn.innerHTML = '<img src="' + dashboardData.avatarUrl + '" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%; width: 44px; height: 44px;">';
+                }
+                if (profilePreviewEl) {
+                    profilePreviewEl.innerHTML = '<img src="' + dashboardData.avatarUrl + '" style="width: 100%; height: 100%; object-fit: cover;">';
+                }
+            } else {
+                const defaultAvatarSvg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="profile-avatar" style="width: 22px; height: 22px; color: var(--text-black);"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>';
+                if (topbarAvatarBtn) topbarAvatarBtn.innerHTML = defaultAvatarSvg;
+                if (profilePreviewEl) profilePreviewEl.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 40px; height: 40px; color: var(--text-muted);"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>';
+            }
         };
 
         const showDashboard = () => {
