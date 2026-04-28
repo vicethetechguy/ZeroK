@@ -140,7 +140,7 @@
         </footer>
     </div>
 
-        <div class="dashboard-shell hidden" id="dashboard-shell">
+    <div class="dashboard-shell hidden" id="dashboard-shell">
         <!-- Dashboard Header -->
         <div class="dashboard-header">
             <p class="eyebrow" style="color: rgba(255,255,255,0.5); margin-bottom: 0.25rem;">Welcome back</p>
@@ -247,19 +247,19 @@
                 </div>
                 <div class="leaderboard-item">
                     <div class="leaderboard-rank">4</div>
-                    <div class="leaderboard-avatar" style="background: #6188ff;"></div>
+                    <div class="leaderboard-avatar" style="background: #a57cf2;"></div>
                     <div class="leaderboard-info">
-                        <div class="leaderboard-name">Taylor</div>
+                        <div class="leaderboard-name">Casey</div>
                         <div class="leaderboard-stats">198 tasks • 8 day streak</div>
                     </div>
                     <div class="leaderboard-score">850 pts</div>
                 </div>
                 <div class="leaderboard-item">
                     <div class="leaderboard-rank">5</div>
-                    <div class="leaderboard-avatar" style="background: #a57cf2;"></div>
+                    <div class="leaderboard-avatar" style="background: #6188ff;"></div>
                     <div class="leaderboard-info">
-                        <div class="leaderboard-name">Casey</div>
-                        <div class="leaderboard-stats">156 tasks • 6 day streak</div>
+                        <div class="leaderboard-name">Riley</div>
+                        <div class="leaderboard-stats">156 tasks • 5 day streak</div>
                     </div>
                     <div class="leaderboard-score">720 pts</div>
                 </div>
@@ -268,140 +268,144 @@
 
         <!-- Referral View -->
         <div class="referral-view hidden" id="referral-view">
-            <button class="back-btn" id="back-from-referral">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
-                Back to Dashboard
-            </button>
             <div class="view-header">
-                <h2>Referral Program</h2>
-                <p>Invite friends and earn rewards</p>
+                <h2>Share & Earn</h2>
+                <p>Invite friends to unlock rewards</p>
             </div>
+            
             <div class="referral-hero">
-                <h3>Share & Earn</h3>
-                <p>Invite 10 friends to unlock an extra skill for free!</p>
+                <div class="referral-hero-icon">👥</div>
+                <h3>Invite Friends</h3>
+                <p>Share your unique link and earn rewards when friends join</p>
             </div>
+
             <div class="referral-link-section">
                 <h4>Your Referral Link</h4>
                 <div class="referral-link-box">
-                    <input type="text" id="referral-link-input" readonly value="">
-                    <button class="referral-copy-btn" id="copy-referral-btn">Copy</button>
+                    <input type="text" id="referral-link-input" class="referral-link-input" readonly placeholder="Sign in to get your link">
                 </div>
+                <button class="copy-link-btn" id="copy-referral-btn">Copy Link</button>
             </div>
+
             <div class="referral-progress-card">
                 <div class="referral-progress-header">
-                    <h3>Progress</h3>
+                    <h3>Your Progress</h3>
                     <span class="referral-progress-count"><span id="referral-view-count">0</span>/10</span>
                 </div>
                 <div class="referral-progress-bar">
                     <div class="referral-progress-fill" id="referral-view-progress-fill" style="width: 0%"></div>
                 </div>
-                <p class="referral-progress-text">Keep sharing to reach your goal!</p>
+                <p class="referral-progress-text">Refer 10 friends to unlock an extra skill</p>
             </div>
         </div>
 
         <!-- Wallet View -->
         <div class="wallet-view hidden" id="wallet-view">
-            <button class="back-btn" id="back-from-wallet">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
-                Back to Dashboard
-            </button>
             <div class="view-header">
                 <h2>Wallet</h2>
                 <p>Your rewards and activity</p>
             </div>
+            
             <div class="wallet-balance-card">
-                <p class="wallet-balance-label">Available Points</p>
+                <div class="wallet-balance-label">Total Points</div>
                 <div class="wallet-balance-value" id="wallet-points">250</div>
             </div>
-            <h4 class="wallet-activity-title">Recent Activity</h4>
-            <div class="wallet-activity-list">
-                <div class="wallet-activity-item">
-                    <span class="label">Completed Vibe Coding module</span>
-                    <span class="points">+50</span>
+
+            <div class="wallet-activity">
+                <h3>Recent Activity</h3>
+                <div class="activity-item">
+                    <div class="activity-icon earned">+</div>
+                    <div class="activity-info">
+                        <div class="activity-title">Welcome Bonus</div>
+                        <div class="activity-date">Today</div>
+                    </div>
+                    <div class="activity-points earned">+250</div>
                 </div>
-                <div class="wallet-activity-item">
-                    <span class="label">7-day streak bonus</span>
-                    <span class="points">+25</span>
-                </div>
-                <div class="wallet-activity-item">
-                    <span class="label">Referral reward</span>
-                    <span class="points">+100</span>
-                </div>
-                <div class="wallet-activity-item">
-                    <span class="label">Redeemed: Premium badge</span>
-                    <span class="points negative">-75</span>
+                <div class="activity-item">
+                    <div class="activity-icon earned">+</div>
+                    <div class="activity-info">
+                        <div class="activity-title">Referral Reward</div>
+                        <div class="activity-date">Pending</div>
+                    </div>
+                    <div class="activity-points earned">+100</div>
                 </div>
             </div>
         </div>
 
         <!-- Profile View -->
-        <div class="profile-view hidden" id="profile-view">
-            <button class="back-btn" id="back-from-profile">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
-                Back to Dashboard
-            </button>
-            <div class="profile-header">
-                <div class="profile-avatar" id="profile-image-preview">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 1 0-16 0"/></svg>
-                    <label class="profile-avatar-edit" for="profile-image-upload">Edit</label>
-                    <input type="file" id="profile-image-upload" accept="image/*" style="display: none;">
+        <section class="dashboard-panel secondary-panel hidden full-span" id="profile-view">
+            <div class="dashboard-card">
+                <div class="dashboard-card-head">
+                    <div>
+                        <p class="eyebrow">User profile</p>
+                        <h3>Your details</h3>
+                    </div>
                 </div>
-                <h3 class="profile-name" id="profile-name-display">User</h3>
-                <p class="profile-email" id="profile-email-display">email@example.com</p>
-            </div>
-            <div class="profile-details">
-                <div class="profile-field">
-                    <label>Username</label>
-                    <input type="text" id="profile-username-input" readonly>
-                </div>
-                <div class="profile-field">
-                    <label>Email</label>
-                    <input type="email" id="profile-email-input" readonly>
-                </div>
-            </div>
-            <button class="logout-btn" id="logout-btn">Sign Out</button>
-        </div>
 
-        <!-- Task Bar (Bottom Navigation) -->
-        <nav class="task-bar">
-            <button class="task-bar-item active" data-view="dashboard" id="taskbar-dashboard">
+                <div class="profile-image-section">
+                    <div class="profile-image-preview" id="profile-image-preview">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="profile-avatar-icon"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                    </div>
+                    <label class="profile-image-upload-btn">
+                        <input type="file" id="profile-image-upload" accept="image/*" hidden>
+                        Change Photo
+                    </label>
+                </div>
+
+                <div class="profile-details">
+                    <div class="profile-field">
+                        <label for="profile-username-display">Username</label>
+                        <input type="text" id="profile-username-display" readonly>
+                    </div>
+                    <div class="profile-field">
+                        <label for="profile-email-display">Email</label>
+                        <input type="email" id="profile-email-display" readonly>
+                    </div>
+                </div>
+
+                <button type="button" class="back-btn" id="back-to-dashboard-from-profile">Back to Dashboard</button>
+                <button type="button" class="logout-btn" id="logout-btn">Sign Out</button>
+            </div>
+        </section>
+
+        <!-- Bottom Task Bar -->
+        <div class="task-bar">
+            <button class="task-bar-item active" id="taskbar-dashboard" aria-label="Dashboard">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="3" y="3" width="7" height="7"></rect>
-                    <rect x="14" y="3" width="7" height="7"></rect>
-                    <rect x="14" y="14" width="7" height="7"></rect>
-                    <rect x="3" y="14" width="7" height="7"></rect>
+                    <rect x="3" y="3" width="7" height="9"></rect>
+                    <rect x="14" y="3" width="7" height="5"></rect>
+                    <rect x="14" y="12" width="7" height="9"></rect>
+                    <rect x="3" y="16" width="7" height="5"></rect>
                 </svg>
                 <span>Dashboard</span>
             </button>
-            <button class="task-bar-item" data-view="leaderboard" id="taskbar-leaderboard">
+            <button class="task-bar-item" id="taskbar-leaderboard" aria-label="Leaderboard">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
-                    <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
-                    <path d="M4 22h16"></path>
-                    <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path>
-                    <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path>
-                    <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path>
+                    <path d="M18 20V10"></path>
+                    <path d="M12 20V4"></path>
+                    <path d="M6 20v-6"></path>
                 </svg>
                 <span>Leaderboard</span>
             </button>
-            <button class="task-bar-item" data-view="referral" id="taskbar-referral">
+            <button class="task-bar-item" id="taskbar-referral" aria-label="Referral">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
                     <circle cx="9" cy="7" r="4"></circle>
-                    <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
                     <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
                 </svg>
                 <span>Referral</span>
             </button>
-            <button class="task-bar-item" data-view="wallet" id="taskbar-wallet">
+            <button class="task-bar-item" id="taskbar-wallet" aria-label="Wallet">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M21 12V7H5a2 2 0 0 1 0-4h14v4"></path>
                     <path d="M3 5v14a2 2 0 0 0 2 2h16v-5"></path>
-                    <path d="M18 12a2 2 0 0 0 0 4h4v-4Z"></path>
+                    <path d="M18 12h.01"></path>
                 </svg>
                 <span>Wallet</span>
             </button>
-        </nav>
+        </div>
+
     </div>
 
     <div id="modal-overlay" class="modal-overlay hidden" aria-hidden="true">
@@ -1104,8 +1108,667 @@ ${referralLink}`;
             updateSkillCarouselState();
         };
 
+        const updateReferralProgress = () => {
+            applyUnlockRules();
+
+            const countedReferrals = dashboardData.referralsVerified ? dashboardData.referrals : 0;
+            const cappedReferrals = Math.min(countedReferrals, 10);
+            const progress = (cappedReferrals / 10) * 100;
+
+            referralCountEl.textContent = cappedReferrals;
+            referralProgressFill.style.width = progress + '%';
+            dashboardReferralCountEl.textContent = cappedReferrals;
+            dashboardReferralCountTile.textContent = cappedReferrals;
+            dashboardReferralProgressFill.style.width = progress + '%';
+
+            if (!dashboardData.referralsVerified) {
+                unlockStatusCard.classList.remove('unlocked');
+                unlockStatusTitle.textContent = 'Checking referrals';
+                unlockStatusText.textContent = 'We are confirming your latest referral count from the system.';
+                dashboardReferralNote.textContent = 'Checking your latest referral progress before unlock is allowed.';
+                openReferralTaskButton.classList.remove('hidden');
+                dashboardSkillPickerWrap.classList.add('locked');
+                dashboardSkillPlusButton.setAttribute('aria-label', 'Extra skill locked');
+                dashboardSkillPlusButton.setAttribute('aria-disabled', 'true');
+                return;
+            }
+
+            if (cappedReferrals >= 10) {
+                unlockStatusCard.classList.add('unlocked');
+                unlockStatusTitle.textContent = 'Extra skill unlocked';
+                unlockStatusText.textContent = 'You have completed the task. Your dashboard can now grant one additional skill.';
+                dashboardReferralNote.textContent = 'Referral target reached. You can now unlock one extra skill.';
+                openReferralTaskButton.classList.add('hidden');
+                dashboardSkillPickerWrap.classList.remove('locked');
+                dashboardSkillPlusButton.setAttribute('aria-label', 'Choose your extra skill');
+                dashboardSkillPlusButton.setAttribute('aria-disabled', 'false');
+            } else {
+                unlockStatusCard.classList.remove('unlocked');
+                unlockStatusTitle.textContent = 'Keep sharing your link';
+                unlockStatusText.textContent = 'You need ' + (10 - cappedReferrals) + ' more referrals to unlock one extra skill.';
+                dashboardReferralNote.textContent = 'You need ' + (10 - cappedReferrals) + ' more successful referrals to unlock your extra skill.';
+                openReferralTaskButton.classList.remove('hidden');
+                dashboardSkillPickerWrap.classList.add('locked');
+                dashboardSkillPlusButton.setAttribute('aria-label', 'Extra skill locked');
+                dashboardSkillPlusButton.setAttribute('aria-disabled', 'true');
+            }
+        };
+
+        const populateDashboard = () => {
+            applyUnlockRules();
+            dashboardGreeting.textContent = 'Welcome, ' + dashboardData.name;
+            if (dashboardSkillName) dashboardSkillName.textContent = dashboardData.skill;
+            const skillMicroName = document.getElementById('skill-micro-name');
+            if (skillMicroName) skillMicroName.textContent = dashboardData.skill;
+            dashboardReferralLink.textContent = dashboardData.referralLink;
+            referralPageLink.textContent = dashboardData.referralLink;
+            renderDashboardSkillMenu();
+            renderSkillCards();
+            updateReferralProgress();
+            skillHubText.textContent = hasUnlockedExtraSkill()
+                ? 'Your extra slot is ready. Tap the plus icon to drop down the remaining skills and add a fresh card to your stack.'
+                : 'Your free access is active. Complete the referral challenge to unlock one extra skill and expand this deck.';
+
+            const topbarAvatarBtn = document.getElementById('open-profile');
+            const profilePreviewEl = document.getElementById('profile-image-preview');
+            const profileUserDisplay = document.getElementById('profile-username-display');
+            const profileMailDisplay = document.getElementById('profile-email-display');
+            
+            if (profileUserDisplay) profileUserDisplay.value = dashboardData.name || '';
+            if (profileMailDisplay) profileMailDisplay.value = dashboardData.email || '';
+
+            if (dashboardData.avatarUrl) {
+                if (topbarAvatarBtn) {
+                    topbarAvatarBtn.innerHTML = '<img src="' + dashboardData.avatarUrl + '" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%; width: 44px; height: 44px;">';
+                }
+                if (profilePreviewEl) {
+                    profilePreviewEl.innerHTML = '<img src="' + dashboardData.avatarUrl + '" style="width: 100%; height: 100%; object-fit: cover;">';
+                }
+            } else {
+                const defaultAvatarSvg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="profile-avatar" style="width: 22px; height: 22px; color: var(--text-black);"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>';
+                if (topbarAvatarBtn) topbarAvatarBtn.innerHTML = defaultAvatarSvg;
+                if (profilePreviewEl) profilePreviewEl.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 40px; height: 40px; color: var(--text-muted);"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>';
+            }
+        };
+
+        const showDashboard = () => {
+            landingShell.classList.add('hidden');
+            dashboardShell.classList.remove('hidden');
+            dashboardView.classList.remove('hidden');
+            dashboardSidebar.classList.remove('hidden');
+            referralView.classList.add('hidden');
+            skillDetailView.classList.add('hidden');
+            profileView.classList.add('hidden');
+            document.body.style.background = 'radial-gradient(circle at top center, rgba(255, 255, 255, 0.32), transparent 24%), linear-gradient(180deg, #e6d5ff 0%, #cbb2ff 22%, #ffd968 58%, #ffcf00 100%)';
+            populateDashboard();
+            closeCurrentModal();
+            window.scrollTo(0, 0);
+        };
+
+        const showReferralView = () => {
+            dashboardView.classList.add('hidden');
+            dashboardSidebar.classList.add('hidden');
+            referralView.classList.remove('hidden');
+            skillDetailView.classList.add('hidden');
+        };
+
+        const showDashboardHome = () => {
+            dashboardView.classList.remove('hidden');
+            dashboardSidebar.classList.remove('hidden');
+            referralView.classList.add('hidden');
+            skillDetailView.classList.add('hidden');
+        };
+
+        const showSkillDetailView = (skillName) => {
+            renderSkillDetail(skillName);
+            dashboardView.classList.add('hidden');
+            dashboardSidebar.classList.add('hidden');
+            referralView.classList.add('hidden');
+            skillDetailView.classList.remove('hidden');
+        };
+
+        const countdownInterval = setInterval(() => {
+            const now = new Date().getTime();
+            const distance = campaignDeadline - now;
+
+            if (distance <= 0) {
+                clearInterval(countdownInterval);
+                daysEl.textContent = '00';
+                hoursEl.textContent = '00';
+                minutesEl.textContent = '00';
+                secondsEl.textContent = '00';
+                currentPriceLabel.textContent = 'Access';
+                mainPrice.textContent = 'Free';
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            daysEl.textContent = days.toString().padStart(2, '0');
+            hoursEl.textContent = hours.toString().padStart(2, '0');
+            minutesEl.textContent = minutes.toString().padStart(2, '0');
+            secondsEl.textContent = seconds.toString().padStart(2, '0');
+        }, 1000);
+
+        landingSkillTrigger.addEventListener('click', () => {
+            toggleCustomSelect(landingSkillSelect, landingSkillTrigger, landingSkillMenu);
+        });
+
+        signupSkillTrigger.addEventListener('click', () => {
+            toggleCustomSelect(signupSkillSelect, signupSkillTrigger, signupSkillMenu);
+        });
+
+        landingSkillMenu.querySelectorAll('.custom-select-option').forEach((option) => {
+            option.addEventListener('click', () => {
+                updateSelectedSkill(option.dataset.value);
+                closeCustomSelect(landingSkillSelect, landingSkillTrigger, landingSkillMenu);
+            });
+        });
+
+        signupSkillMenu.querySelectorAll('.custom-select-option').forEach((option) => {
+            option.addEventListener('click', () => {
+                updateSelectedSkill(option.dataset.value);
+                closeCustomSelect(signupSkillSelect, signupSkillTrigger, signupSkillMenu);
+            });
+        });
+
+        ctaButton.addEventListener('click', (e) => {
+            e.preventDefault();
+
+            if (selectedSkills.length < 1) {
+                showToast('Please select a minimum of 1 skill before proceeding.');
+                return;
+            }
+
+            renderSelectedSkills();
+            showRegisterView();
+            openModal();
+        });
+
+        openSigninButton.addEventListener('click', () => {
+            showSigninView();
+            openModal();
+        });
+
+        switchToSigninButton.addEventListener('click', showSigninView);
+        switchToRegisterButton.addEventListener('click', showRegisterView);
+
+        closeModal.addEventListener('click', closeCurrentModal);
+
+        modalOverlay.addEventListener('click', (e) => {
+            if (e.target === modalOverlay) {
+                closeCurrentModal();
+            }
+        });
+
+        // Password visibility toggles
+        document.addEventListener('click', (e) => {
+            const toggle = e.target.closest('.pw-toggle');
+            if (!toggle) return;
+            const input = document.getElementById(toggle.dataset.target);
+            if (!input) return;
+            const isHidden = input.type === 'password';
+            input.type = isHidden ? 'text' : 'password';
+            toggle.querySelector('.eye-icon').classList.toggle('hidden', isHidden);
+            toggle.querySelector('.eye-off-icon').classList.toggle('hidden', !isHidden);
+            toggle.setAttribute('aria-label', isHidden ? 'Hide password' : 'Show password');
+        });
+        document.addEventListener('click', (e) => {
+            if (!landingSkillSelect.contains(e.target)) {
+                closeCustomSelect(landingSkillSelect, landingSkillTrigger, landingSkillMenu);
+            }
+
+            if (!signupSkillSelect.contains(e.target)) {
+                closeCustomSelect(signupSkillSelect, signupSkillTrigger, signupSkillMenu);
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !modalOverlay.classList.contains('hidden')) {
+                closeCurrentModal();
+            }
+
+            if (e.key === 'Escape') {
+                closeCustomSelect(landingSkillSelect, landingSkillTrigger, landingSkillMenu);
+                closeCustomSelect(signupSkillSelect, signupSkillTrigger, signupSkillMenu);
+                closeDashboardSkillPicker();
+                closeUnlockRequiredPopup();
+            }
+        });
+
+        registrationForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            if (selectedSkills.length < 1) {
+                showToast('Please select a minimum of 1 skill before proceeding.');
+                return;
+            }
+
+            const username    = regUsernameInput.value.trim();
+            const email       = regEmailInput.value.trim();
+            const password    = regPasswordInput.value;
+            const skill       = selectedSkills[0];
+            const referralCode = referralCodeInput.value.trim();
+            const referralLink = buildReferralLink(username);
+
+            if (!username) { showToast('Please enter a username.'); return; }
+
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Creating account...';
+            submitBtn.disabled = true;
+
+            // 1. Create Supabase auth user
+            const { data: authData, error: authError } = await sb.auth.signUp({ email, password });
+
+            if (authError) {
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+                showToast(authError.message || 'Registration failed. Please try again.');
+                return;
+            }
+
+            const userId = authData.user.id;
+
+            // 2. Upsert profile row
+            const { error: profileError } = await sb.from('profiles').upsert({
+                id: userId,
+                username,
+                email,
+                selected_skill: skill,
+                referral_link: referralLink,
+                referral_code: referralCode || null,
+                referral_count: 0,
+                extra_skill: null
+            });
+
+            if (profileError) {
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+                showToast('Account created but profile save failed. Contact support.');
+                return;
+            }
+
+            // 3. Track referral if a referral code was provided
+            if (referralCode) {
+                await sb.rpc('increment_referral_count', { ref_slug: referralCode }).catch(() => {});
+            }
+
+            // 4. Immediately sign the user in — no email verification needed
+            const { data: signInData, error: signInError } = await sb.auth.signInWithPassword({ email, password });
+
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
+
+            if (signInError || !signInData.session) {
+                // Signed up but couldn't auto-sign-in — show success and let them sign in manually
+                dashboardData = { name: username, email, skill, extraSkill: '', referralLink, referrals: 0, referralsVerified: false };
+                persistDashboardData();
+                formView.classList.add('hidden');
+                successView.classList.remove('hidden');
+                registrationForm.reset();
+                resetSelections();
+                return;
+            }
+
+            // Auto-signed in — go straight to dashboard
+            dashboardData = { name: username, email, skill, extraSkill: '', referralLink, referrals: 0, referralsVerified: false };
+            persistDashboardData();
+            registrationForm.reset();
+            resetSelections();
+            closeCurrentModal();
+            showDashboard();
+        });
+
+        signinForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const email    = document.getElementById('signinEmail').value.trim();
+            const password = signinPasswordInput.value;
+            const originalText = signinBtn.textContent;
+
+            signinBtn.textContent = 'Signing In...';
+            signinBtn.disabled = true;
+
+            const { data: authData, error: authError } = await sb.auth.signInWithPassword({ email, password });
+
+            if (authError) {
+                signinBtn.textContent = originalText;
+                signinBtn.disabled = false;
+                showToast(authError.message || 'Sign in failed. Check your credentials.');
+                return;
+            }
+
+            const userId = authData.user.id;
+            signinForm.reset();
+            signinBtn.textContent = originalText;
+            signinBtn.disabled = false;
+            closeCurrentModal();
+
+            const found = await syncProfileFromSupabase(userId, email);
+            if (!found) {
+                // Profile missing: Create fallback session data so they can still access the dashboard
+                dashboardData = { 
+                    name: email.split('@')[0], 
+                    email: email, 
+                    skill: availableSkills[0], 
+                    extraSkill: '', 
+                    referralLink: window.location.origin + '?ref=' + Math.random().toString(36).substring(2, 10), 
+                    referrals: 0, 
+                    referralsVerified: false 
+                };
+                persistDashboardData();
+            }
+            
+            showDashboard();
+        });
+
+        // Profile Listeners
+        openProfileBtn.addEventListener('click', () => {
+            if (!dashboardData) return;
+            profileUsernameDisplay.value = dashboardData.name || '';
+            profileEmailDisplay.value = dashboardData.email || '';
+            dashboardView.classList.add('hidden');
+            dashboardSidebar.classList.add('hidden');
+            referralView.classList.add('hidden');
+            skillDetailView.classList.add('hidden');
+            profileView.classList.remove('hidden');
+            window.scrollTo(0, 0);
+        });
+
+        backToDashboardFromProfile.addEventListener('click', showDashboard);
+
+        logoutBtn.addEventListener('click', async () => {
+            const originalText = logoutBtn.textContent;
+            logoutBtn.textContent = 'Signing out...';
+            logoutBtn.disabled = true;
+            
+            await sb.auth.signOut();
+            dashboardData = null;
+            localStorage.removeItem('zerok_dashboard_data');
+            
+            logoutBtn.textContent = originalText;
+            logoutBtn.disabled = false;
+            // The onAuthStateChange listener takes care of updating views on sign-out
+        });
+
+        const profileImageUpload = document.getElementById('profile-image-upload');
+        const profileImagePreview = document.getElementById('profile-image-preview');
+
+        profileImageUpload.addEventListener('change', async (e) => {
+            const file = e.target.files[0];
+            if (!file) return;
+            
+            if (file.size > 2 * 1024 * 1024) {
+                showToast('Image must be less than 2MB');
+                return;
+            }
+
+            const reader = new FileReader();
+            reader.onload = async (event) => {
+                const base64String = event.target.result;
+                
+                // Preview immediately in UI
+                profileImagePreview.innerHTML = '<img src="' + base64String + '" style="width: 100%; height: 100%; object-fit: cover;">';
+                
+                const topbarAvatarBtn = document.getElementById('open-profile');
+                if (topbarAvatarBtn) {
+                    topbarAvatarBtn.innerHTML = '<img src="' + base64String + '" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%; width: 44px; height: 44px;">';
+                }
+
+                // Save to local state immediately
+                if (!dashboardData) {
+                    dashboardData = { name: '', email: '', skill: '', extraSkill: '', referralLink: '', referrals: 0, referralsVerified: false };
+                }
+                dashboardData.avatarUrl = base64String;
+                persistDashboardData();
+
+                const { data: { session } } = await sb.auth.getSession();
+                if (session) {
+                    const userId = session.user.id;
+                    
+                    // Step 1: Save base64 to profiles table (primary persistence)
+                    const { error: dbError } = await sb.from('profiles').update({ avatar_url: base64String }).eq('id', userId);
+                    
+                    if (dbError) {
+                        console.error('Failed to save avatar to profile:', dbError);
+                        showToast('Failed to save profile picture. Please try again.');
+                        return;
+                    }
+
+                    // Step 2: Try to upload to storage for a cleaner URL (optional enhancement)
+                    const fileExt = file.name.split('.').pop();
+                    const filePath = userId + '.' + fileExt;
+
+                    const { error: uploadError } = await sb.storage.from('avatars').upload(filePath, file, { upsert: true });
+                    
+                    if (uploadError) {
+                        // Storage failed, but base64 is already saved - this is fine
+                        console.warn('Storage upload skipped (bucket may not exist):', uploadError.message);
+                        showToast('Profile picture saved!');
+                    } else {
+                        // Storage succeeded - update with public URL
+                        const { data: { publicUrl } } = sb.storage.from('avatars').getPublicUrl(filePath);
+                        await sb.from('profiles').update({ avatar_url: publicUrl }).eq('id', userId);
+                        dashboardData.avatarUrl = publicUrl;
+                        persistDashboardData();
+                        showToast('Profile picture updated successfully!');
+                    }
+                } else {
+                    showToast('Profile picture saved locally!');
+                }
+            };
+            reader.readAsDataURL(file);
+        });
+
+        dashboardLink.addEventListener('click', showDashboard);
+        openReferralTaskButton.addEventListener('click', showReferralView);
+        backToDashboardButton.addEventListener('click', showDashboard);
+        backFromSkillDetailButton.addEventListener('click', showDashboard);
+
+        dashboardSkillPlusButton.addEventListener('click', () => {
+            if (!hasUnlockedExtraSkill()) {
+                openUnlockRequiredPopup();
+                return;
+            }
+
+            const isOpen = dashboardSkillPickerWrap.classList.contains('open');
+            closeCustomSelect(landingSkillSelect, landingSkillTrigger, landingSkillMenu);
+            closeCustomSelect(signupSkillSelect, signupSkillTrigger, signupSkillMenu);
+
+            if (isOpen) {
+                closeDashboardSkillPicker();
+                return;
+            }
+
+            openDashboardSkillPicker();
+        });
+
+        closeSkillPickerButton.addEventListener('click', closeDashboardSkillPicker);
+        closeUnlockRequiredButton.addEventListener('click', closeUnlockRequiredPopup);
+        unlockRequiredOkButton.addEventListener('click', closeUnlockRequiredPopup);
+
+        skillPickerOverlay.addEventListener('click', (e) => {
+            if (e.target === skillPickerOverlay) {
+                closeDashboardSkillPicker();
+            }
+        });
+
+        unlockRequiredOverlay.addEventListener('click', (e) => {
+            if (e.target === unlockRequiredOverlay) {
+                closeUnlockRequiredPopup();
+            }
+        });
+
+        skillCarousel.addEventListener('scroll', updateSkillCarouselState);
+
+        skillCardTrack.addEventListener('click', (event) => {
+            const skillCard = event.target.closest('.skill-stack-card');
+            if (!skillCard) {
+                return;
+            }
+
+            showSkillDetailView(skillCard.dataset.skill);
+        });
+
+        skillCardTrack.addEventListener('keydown', (event) => {
+            const skillCard = event.target.closest('.skill-stack-card');
+            if (!skillCard) {
+                return;
+            }
+
+            if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault();
+                showSkillDetailView(skillCard.dataset.skill);
+            }
+        });
+
+        copyReferralLinkButton.addEventListener('click', async () => {
+            if (!dashboardData.referralLink) {
+                return;
+            }
+
+            try {
+                await navigator.clipboard.writeText(buildReferralMessage(dashboardData.referralLink));
+                showToast('Referral message copied.');
+            } catch (error) {
+                showToast('Copy failed. You can still share the link manually.');
+            }
+        });
+
+        // ── Auto-restore session via Supabase ────────────────────────────────────
+        sb.auth.getSession().then(async ({ data: { session } }) => {
+            if (session) {
+                const found = await syncProfileFromSupabase(session.user.id, session.user.email);
+                if (!found) {
+                    dashboardData = { 
+                        name: session.user.email.split('@')[0], 
+                        email: session.user.email, 
+                        skill: availableSkills[0], 
+                        extraSkill: '', 
+                        referralLink: window.location.origin + '?ref=' + Math.random().toString(36).substring(2, 10), 
+                        referrals: 0, 
+                        referralsVerified: false 
+                    };
+                    persistDashboardData();
+                }
+                showDashboard();
+            }
+        });
+
+        sb.auth.onAuthStateChange(async (event, session) => {
+            if (event === 'SIGNED_OUT') {
+                localStorage.removeItem('zeroKDashboardData');
+                dashboardShell.classList.add('hidden');
+                landingShell.classList.remove('hidden');
+                document.body.style.background = 'radial-gradient(circle at top center, rgba(255, 255, 255, 0.32), transparent 24%), linear-gradient(180deg, #e6d5ff 0%, #cbb2ff 22%, #ffd968 58%, #ffcf00 100%)';
+            }
+        });
+
+        updateSelectionCount();
+        footerText.innerHTML = '&copy; ' + new Date().getFullYear() + ' Zero K. All rights reserved.';
+    
+
+        // ========================================
+        // Task Bar Navigation Functions
+        // ========================================
+        
+        const hideAllViews = () => {
+            const views = ['dashboard-view', 'leaderboard-view', 'referral-view', 'wallet-view', 'profile-view'];
+            views.forEach(viewId => {
+                const view = document.getElementById(viewId);
+                if (view) view.classList.add('hidden');
+            });
+        };
+
+        const updateTaskBarActiveState = (activeView) => {
+            const taskBarItems = document.querySelectorAll('.task-bar-item');
+            taskBarItems.forEach(item => item.classList.remove('active'));
+            
+            const activeItem = document.getElementById('taskbar-' + activeView);
+            if (activeItem) activeItem.classList.add('active');
+        };
+
+        const navigateToDashboard = () => {
+            hideAllViews();
+            const view = document.getElementById('dashboard-view');
+            if (view) view.classList.remove('hidden');
+            updateTaskBarActiveState('dashboard');
+        };
+
+        const navigateToLeaderboard = () => {
+            hideAllViews();
+            const view = document.getElementById('leaderboard-view');
+            if (view) view.classList.remove('hidden');
+            updateTaskBarActiveState('leaderboard');
+        };
+
+        const navigateToReferral = () => {
+            hideAllViews();
+            const view = document.getElementById('referral-view');
+            if (view) view.classList.remove('hidden');
+            updateTaskBarActiveState('referral');
+            updateReferralProgress();
+        };
+
+        const navigateToWallet = () => {
+            hideAllViews();
+            const view = document.getElementById('wallet-view');
+            if (view) view.classList.remove('hidden');
+            updateTaskBarActiveState('wallet');
+            updateWalletDisplay();
+        };
+
+        const updateWalletDisplay = () => {
+            const walletPointsEl = document.getElementById('wallet-points');
+            if (walletPointsEl && dashboardData) {
+                const referralPoints = (dashboardData.referrals || 0) * 100;
+                const basePoints = 250;
+                walletPointsEl.textContent = basePoints + referralPoints;
+            }
+        };
+
+        const updateReferralProgress = () => {
+            if (dashboardData) {
+                const count = Math.min(dashboardData.referrals || 0, 10);
+                const countEl = document.getElementById('referral-view-count');
+                const progressEl = document.getElementById('referral-view-progress-fill');
+                const linkEl = document.getElementById('referral-link-input');
+                
+                if (countEl) countEl.textContent = count;
+                if (progressEl) progressEl.style.width = (count / 10 * 100) + '%';
+                if (linkEl && dashboardData.referralLink) linkEl.value = dashboardData.referralLink;
+            }
+        };
+
         // Task bar event listeners
+        const taskbarDashboard = document.getElementById('taskbar-dashboard');
+        const taskbarLeaderboard = document.getElementById('taskbar-leaderboard');
+        const taskbarReferral = document.getElementById('taskbar-referral');
+        const taskbarWallet = document.getElementById('taskbar-wallet');
+        const copyReferralBtn = document.getElementById('copy-referral-btn');
+        const referralLinkInput = document.getElementById('referral-link-input');
+
         if (taskbarDashboard) taskbarDashboard.addEventListener('click', navigateToDashboard);
         if (taskbarLeaderboard) taskbarLeaderboard.addEventListener('click', navigateToLeaderboard);
         if (taskbarReferral) taskbarReferral.addEventListener('click', navigateToReferral);
-        if (taskbarWallet
+        if (taskbarWallet) taskbarWallet.addEventListener('click', navigateToWallet);
+        
+        if (copyReferralBtn) {
+            copyReferralBtn.addEventListener('click', async () => {
+                if (referralLinkInput && referralLinkInput.value) {
+                    try {
+                        await navigator.clipboard.writeText(referralLinkInput.value);
+                        showToast('Referral link copied!');
+                    } catch (err) {
+                        showToast('Failed to copy. Please copy manually.');
+                    }
+                }
+            });
+        }
+</script>
+</body>
+
+</html>
