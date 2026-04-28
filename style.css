@@ -769,10 +769,9 @@ footer {
     gap: 1.25rem;
     margin-bottom: 2rem;
     padding: 1rem 1.5rem;
-    background: rgba(255, 255, 255, 0.08);
+    background: #1a1a1a;
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 1.25rem;
-    backdrop-filter: blur(16px);
     box-shadow: none;
 }
 
@@ -820,11 +819,7 @@ footer {
 }
 
 .dashboard-card::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent 28%);
-    pointer-events: none;
+    display: none;
 }
 
 .dashboard-card > * {
@@ -1593,14 +1588,9 @@ footer {
 .dashboard-card {
     padding: 1.15rem;
     border-radius: 20px;
-    background: linear-gradient(180deg, rgba(18, 18, 18, 0.78), rgba(18, 18, 18, 0.66));
+    background: #1a1a1a;
     border: 1px solid rgba(255, 255, 255, 0.14);
     box-shadow: 0 14px 32px rgba(23, 16, 37, 0.14);
-    backdrop-filter: blur(12px);
-}
-
-.dashboard-card::before {
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), transparent 32%);
 }
 
 .skill-hub-standalone-zone {
@@ -1696,21 +1686,15 @@ footer {
 }
 
 .skill-card-surface.art-code {
-    background:
-        radial-gradient(circle at top right, rgba(255, 248, 207, 0.28), transparent 24%),
-        linear-gradient(135deg, #ffb14a 0%, #ffcb67 48%, #ffe3a0 100%);
+    background: linear-gradient(135deg, #ffb14a 0%, #ffcb67 48%, #ffe3a0 100%);
 }
 
 .skill-card-surface.art-design {
-    background:
-        radial-gradient(circle at top right, rgba(255, 255, 255, 0.28), transparent 24%),
-        linear-gradient(135deg, #9c8cff 0%, #c7b0ff 52%, #f1d7ff 100%);
+    background: linear-gradient(135deg, #9c8cff 0%, #c7b0ff 52%, #f1d7ff 100%);
 }
 
 .skill-card-surface.art-video {
-    background:
-        radial-gradient(circle at top right, rgba(255, 246, 208, 0.2), transparent 24%),
-        linear-gradient(135deg, #ff9968 0%, #ffb57e 45%, #e2b6ff 100%);
+    background: linear-gradient(135deg, #ff9968 0%, #ffb57e 45%, #e2b6ff 100%);
 }
 
 .skill-card-badge {
