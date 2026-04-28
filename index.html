@@ -1413,6 +1413,9 @@ ${referralLink}`;
                 const { data: { session } } = await sb.auth.getSession();
                 if (session) {
                     const userId = session.user.id;
+                    
+                    await sb.from('profiles').update({ avatar_url: base64String }).eq('id', userId);
+
                     const fileExt = file.name.split('.').pop();
                     const filePath = userId + '.' + fileExt;
 
