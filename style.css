@@ -1222,15 +1222,16 @@ footer {
 
 .skill-card-visual {
     position: relative;
-    min-height: 106px;
+    width: 100%;
+    min-height: inherit;
+    flex-grow: 1;
     border-radius: 1rem;
     overflow: hidden;
     display: flex;
     align-items: flex-end;
     justify-content: flex-start;
-    padding: 0.95rem;
+    padding: 1.25rem;
     isolation: isolate;
-    margin-bottom: 0.7rem;
 }
 
 .skill-card-visual.art-code {
