@@ -159,7 +159,7 @@
                             <h3>Build Your Stack</h3>
                         </div>
                     </div>
-                    <p class="dashboard-text skill-hub-text" id="skill-hub-text">Your free access is active. Complete the referral challenge to unlock one extra skill and expand this deck.</p>
+                    <p class="dashboard-text skill-hub-text" id="skill-hub-text" style="color: #0b0b0b !important; font-weight: 500;">Your free access is active. Complete the referral challenge to unlock one extra skill and expand this deck.</p>
 
                     <div class="skill-carousel" id="skill-carousel" aria-label="Unlocked skills">
                         <div class="skill-card-track" id="skill-card-track">
@@ -1393,38 +1393,42 @@ ${referralLink}`;
                 return;
             }
 
-            const { data: { session } } = await sb.auth.getSession();
-            if (!session) return;
-            
-            const userId = session.user.id;
-            const fileExt = file.name.split('.').pop();
-            const filePath = userId + '.' + fileExt;
+            const reader = new FileReader();
+            reader.onload = async (event) => {
+                const base64String = event.target.result;
+                
+                profileImagePreview.innerHTML = '<img src="' + base64String + '" style="width: 100%; height: 100%; object-fit: cover;">';
+                
+                const topbarAvatarBtn = document.getElementById('open-profile');
+                if (topbarAvatarBtn) {
+                    topbarAvatarBtn.innerHTML = '<img src="' + base64String + '" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%; width: 44px; height: 44px;">';
+                }
 
-            profileImagePreview.innerHTML = '<span style="font-size: 0.8rem; color: var(--text-muted);">Uploading...</span>';
+                if (!dashboardData) {
+                    dashboardData = { name: '', email: '', skill: '', extraSkill: '', referralLink: '', referrals: 0, referralsVerified: false };
+                }
+                dashboardData.avatarUrl = base64String;
+                persistDashboardData();
 
-            const { error: uploadError } = await sb.storage.from('avatars').upload(filePath, file, { upsert: true });
+                const { data: { session } } = await sb.auth.getSession();
+                if (session) {
+                    const userId = session.user.id;
+                    const fileExt = file.name.split('.').pop();
+                    const filePath = userId + '.' + fileExt;
 
-            if (uploadError) {
-                showToast('Upload failed! You need to create an "avatars" bucket in Supabase first.');
-                profileImagePreview.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 40px; height: 40px; color: var(--text-muted);"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>';
-                return;
-            }
-
-            const { data: { publicUrl } } = sb.storage.from('avatars').getPublicUrl(filePath);
-            
-            // Attempt to update the avatar_url in the database
-            const { error: updateError } = await sb.from('profiles').update({ avatar_url: publicUrl }).eq('id', userId);
-            
-            dashboardData.avatarUrl = publicUrl;
-            persistDashboardData();
-            
-            showToast('Profile picture saved successfully!');
-            profileImagePreview.innerHTML = '<img src="' + publicUrl + '" style="width: 100%; height: 100%; object-fit: cover;">';
-            
-            const topbarAvatar = document.querySelector('.profile-avatar');
-            if (topbarAvatar) {
-                topbarAvatar.parentElement.innerHTML = '<img src="' + publicUrl + '" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%; width: 44px; height: 44px;">';
-            }
+                    sb.storage.from('avatars').upload(filePath, file, { upsert: true }).then(async ({ error: uploadError }) => {
+                        if (!uploadError) {
+                            const { data: { publicUrl } } = sb.storage.from('avatars').getPublicUrl(filePath);
+                            await sb.from('profiles').update({ avatar_url: publicUrl }).eq('id', userId);
+                            dashboardData.avatarUrl = publicUrl;
+                            persistDashboardData();
+                        }
+                    }).catch(() => {});
+                }
+                
+                showToast('Profile picture updated successfully!');
+            };
+            reader.readAsDataURL(file);
         });
 
         dashboardLink.addEventListener('click', showDashboard);
