@@ -24,9 +24,10 @@
                     <button type="button" class="ghost-button compact-button topbar-signin" id="open-signin" style="color: #ffcf00; font-weight: 600;">Sign In</button>
                 </div>
             </div>
-            <div class="topbar-badge" style="border: 1px solid rgba(255, 207, 0, 0.4); color: #ffcf00;">2-Week Digital Training</div>
-            <div class="topbar-spacer" aria-hidden="true"></div>
         </header>
+        <div class="topbar-badge-row">
+            <div class="topbar-badge" style="border: 1px solid rgba(255, 207, 0, 0.4); color: #ffcf00;">2-Week Digital Training</div>
+        </div>
 
         <main class="app-stage">
             <section class="phone-frame hero-frame">
@@ -103,7 +104,11 @@
 
                     <article class="course-card dark wide">
                         <p class="course-type">Outcome</p>
-                        <h4>Build confidence, grow your network, and earn access to more learning.</h4>
+                        <ul class="outcome-list" aria-label="Learning outcomes">
+                            <li>Build Confidence</li>
+                            <li>Grow your Network</li>
+                            <li>Earn Access to more Learning</li>
+                        </ul>
                     </article>
                 </div>
             </section>
@@ -148,7 +153,7 @@
 
         <main class="dashboard-layout">
             <section class="dashboard-panel primary-panel" id="dashboard-view">
-                <div class="skill-hub-standalone-zone" style="margin-bottom: 2rem;">
+                <div class="skill-hub-standalone-zone">
                     <div class="skill-hub-header">
                         <div>
                             <h3>Build your stack</h3>
@@ -172,35 +177,30 @@
                     </div>
                 </div>
 
-                <div class="referral-dashboard-row" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 2rem; margin-bottom: 2rem;">
-                    
-                    <div class="dashboard-card referral-target-card" style="margin: 0; padding: 1.5rem;">
-                        <div class="dashboard-card-head" style="display: flex; justify-content: space-between; align-items: flex-start;">
+                <div class="referral-dashboard-row">
+                    <div class="dashboard-card referral-target-card">
+                        <div class="dashboard-card-head referral-card-head">
                             <div>
-                                <p class="eyebrow" style="color: rgba(255, 255, 255, 0.6); margin: 0; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em;">Referral target</p>
-                                <h3 style="margin-top: 0.4rem; font-size: 1.4rem;">Track progress</h3>
+                                <p class="eyebrow">Referral target</p>
+                                <h3>Track progress</h3>
                             </div>
-                            <div class="stat-circle" style="background: rgba(255, 255, 255, 0.05); color: #ffffff; width: 48px; height: 48px; border-radius: 0.75rem; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.2rem; border: 1px solid rgba(255,255,255,0.1);"><span id="dashboard-referral-count-tile">0</span></div>
+                            <div class="stat-circle"><span id="dashboard-referral-count-tile">0</span></div>
                         </div>
+                        <p class="dashboard-text referral-card-copy">Watch your invite count grow as new learners join through your link.</p>
                     </div>
 
-                    <div class="dashboard-card referral-link-card" style="margin: 0; background: linear-gradient(135deg, var(--bg-yellow), #ffef9b); border: none; border-radius: 1.4rem; padding: 1.5rem; color: #111111;">
-                        <div class="dashboard-card-head" style="display: flex; justify-content: space-between; align-items: flex-start;">
+                    <div class="dashboard-card referral-link-card">
+                        <div class="dashboard-card-head referral-card-head">
                             <div>
-                                <p class="eyebrow" style="color: rgba(0, 0, 0, 0.6); margin: 0; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em;">Referral link</p>
-                                <h3 style="margin-top: 0.4rem; font-size: 1.4rem; color: #111111;">Share and grow</h3>
+                                <p class="eyebrow">Referral link</p>
+                                <h3>Share and grow</h3>
                             </div>
-                            <button type="button" class="ghost-button compact-button" id="copy-referral-link" style="color: #111111; border-color: rgba(0, 0, 0, 0.2); background: rgba(0,0,0,0.05);">Copy</button>
+                            <button type="button" class="ghost-button compact-button referral-copy-btn" id="copy-referral-link">Copy</button>
                         </div>
-                        <div class="referral-link-box" id="dashboard-referral-link" style="margin-top: 1rem; background: rgba(0,0,0,0.05); padding: 0.75rem; border-radius: 0.75rem; font-family: monospace; font-size: 0.85rem; border: 1px solid rgba(0,0,0,0.1); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: #111111;"></div>
+                        <div class="referral-link-box referral-link-field" id="dashboard-referral-link"></div>
                     </div>
-                    
-                </div>
-            </section>
 
-            <!-- Right sidebar -->
-            <section class="dashboard-panel sidebar-panel" id="dashboard-sidebar">
-                <div class="dashboard-card">
+                    <div class="dashboard-card referral-task-card">
                     <p class="eyebrow">Unlock an extra skill</p>
                     <h3>Complete the referral task</h3>
                     <p class="dashboard-text">Refer 10 friends with your unique link and unlock one additional skill at no cost.</p>
@@ -215,8 +215,11 @@
                         <p class="dashboard-progress-note" id="dashboard-referral-note">You need 10 successful referrals to unlock one extra skill.</p>
                     </div>
                     <button type="button" class="cta-button dashboard-cta" id="open-referral-task">Go to Task</button>
+                    </div>
                 </div>
             </section>
+
+            <section class="dashboard-panel sidebar-panel" id="dashboard-sidebar"></section>
 
             <section class="dashboard-panel secondary-panel hidden full-span" id="profile-view">
                 <div class="dashboard-card">
@@ -368,7 +371,6 @@
                         <p class="modal-intro">Create your account and claim free access.</p>
                     </div>
                 </div>
-                <div class="auth-form-shell">
                 <form id="registration-form" autocomplete="off">
                     <div class="form-grid-2col">
                         <div class="form-group">
@@ -411,7 +413,6 @@
                     <button type="submit" class="submit-button" id="submit-btn">Create Account</button>
                 </form>
                 <button type="button" class="text-switch" id="switch-to-signin">Already have an account? Sign in</button>
-                </div>
             </div>
 
             <div id="signin-view" class="hidden auth-panel">
@@ -422,7 +423,6 @@
                         <p class="modal-intro" style="margin-bottom: 2rem;">Enter your email and password to access your dashboard.</p>
                     </div>
                 </div>
-                <div class="auth-form-shell">
                 <form id="signin-form" autocomplete="on">
                     <div class="form-group">
                         <label for="signinEmail">Email Address</label>
@@ -441,7 +441,6 @@
                     <button type="submit" class="submit-button" id="signin-btn">Sign In</button>
                 </form>
                 <button type="button" class="text-switch" id="switch-to-register">Need free access? Register</button>
-                </div>
             </div>
 
             <div id="success-view" class="hidden">
@@ -535,7 +534,6 @@
         const skillCarousel = document.getElementById('skill-carousel');
         const skillCardTrack = document.getElementById('skill-card-track');
         const skillCarouselDots = document.getElementById('skill-carousel-dots');
-        const skillCarouselStatus = document.getElementById('skill-carousel-status');
         const skillDetailBadge = document.getElementById('skill-detail-badge');
         const skillDetailTitle = document.getElementById('skill-detail-title');
         const skillDetailIntro = document.getElementById('skill-detail-intro');
@@ -660,11 +658,16 @@
         const openModal = () => {
             modalOverlay.classList.remove('hidden');
             modalOverlay.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
         };
 
         const closeCurrentModal = () => {
             modalOverlay.classList.add('hidden');
             modalOverlay.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+            showRegisterView();
+            closeCustomSelect(landingSkillSelect, landingSkillTrigger, landingSkillMenu);
+            closeCustomSelect(signupSkillSelect, signupSkillTrigger, signupSkillMenu);
         };
 
         const updateSelectionCount = () => {
@@ -830,24 +833,20 @@ ${referralLink}`;
             const normalizedSkill = normalizeSkillName(card.title);
             const theme = skillVisualThemes[normalizedSkill] || skillVisualThemes[availableSkills[0]];
 
-            let iconSvg = '';
-            if (theme.artClass === 'art-code') {
-                iconSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="skill-card-icon"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>`;
-            } else if (theme.artClass === 'art-design') {
-                iconSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="skill-card-icon"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>`;
-            } else {
-                iconSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="skill-card-icon"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>`;
-            }
+            const iconSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="skill-card-icon"><path d="M8 5l8 7-8 7"></path></svg>`;
 
             return '<article class="skill-stack-card ' + card.className + '" data-skill="' + normalizedSkill + '" role="button" tabindex="0" aria-label="Open ' + normalizedSkill + ' training plan">'
-                + '<div class="skill-card-visual ' + theme.artClass + '">'
+                + '<div class="skill-card-surface ' + theme.artClass + '">'
                 + '<span class="skill-card-badge">' + theme.badge + '</span>'
-                + iconSvg
-                + '</div>'
-                + '<p class="eyebrow">' + card.eyebrow + '</p>'
+                + '<div class="skill-card-main">'
+                + '<div class="skill-card-content">'
                 + '<h4>' + card.title + '</h4>'
                 + '<p class="skill-card-copy">' + card.copy + '</p>'
+                + '</div>'
+                + '<div class="skill-card-hint" aria-hidden="true">' + iconSvg + '</div>'
+                + '</div>'
                 + '<span class="skill-card-link-label">Open 2-week training breakdown</span>'
+                + '</div>'
                 + '</article>';
         };
 
@@ -991,8 +990,6 @@ ${referralLink}`;
                 dotsHTML += `<span class="skill-dot ${isActive}"></span>`;
             });
             skillCarouselDots.innerHTML = dotsHTML;
-
-            skillCarouselStatus.textContent = cards.length + ' Active Skill' + (cards.length === 1 ? '' : 's');
 
             applyUnlockRules();
             skillCarousel.scrollLeft = 0;
@@ -1316,6 +1313,7 @@ ${referralLink}`;
             signinForm.reset();
             signinBtn.textContent = originalText;
             signinBtn.disabled = false;
+            closeCurrentModal();
 
             const found = await syncProfileFromSupabase(userId, email);
             if (!found) {
@@ -1333,7 +1331,6 @@ ${referralLink}`;
             }
             
             showDashboard();
-            closeCurrentModal(); // Ensure modal is forcefully closed
         });
 
         // Profile Listeners

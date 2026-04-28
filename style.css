@@ -63,22 +63,45 @@ h1, h2, h3, h4, h5, h6 {
 .page-shell {
     width: min(1180px, calc(100% - 2rem));
     margin: 0 auto;
-    padding: 1.4rem 0 2rem;
+    padding: 0 0 2rem;
 }
 
 .topbar {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0.95rem;
-    margin-bottom: 1.7rem;
+    margin-bottom: 0.85rem;
+    position: sticky;
+    top: 1rem;
+    z-index: 80;
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    padding: 0;
+    background: transparent;
+}
+
+.topbar::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: calc(100% + 0.16rem);
+    background: linear-gradient(180deg, rgba(230, 213, 255, 0.94), rgba(230, 213, 255, 0.74) 72%, rgba(230, 213, 255, 0));
+    pointer-events: none;
 }
 
 .topbar-row {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 1.75rem;
+    gap: 1rem;
+    width: min(1200px, calc(100% - 2rem));
+    margin: 0 auto;
+    min-height: 68px;
+    padding: 0.75rem 1.5rem;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: none;
+    backdrop-filter: blur(12px);
+    z-index: 1;
 }
 
 .brand-lockup {
@@ -97,7 +120,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .brand-logo {
-    width: clamp(136px, 16vw, 188px);
+    width: auto;
+    max-height: 28px;
     height: auto;
     object-fit: contain;
 }
@@ -156,19 +180,23 @@ h1, h2, h3, h4, h5, h6 {
     margin-left: auto;
     flex-shrink: 0;
     margin-top: 0;
-    padding-left: 2.3rem;
+    padding-left: 0.75rem;
 }
 
-.topbar-spacer {
-    display: none;
+.topbar-badge-row {
+    width: 100%;
+    margin-bottom: 1.1rem;
 }
 
 .topbar-signin {
     color: var(--text-black) !important;
     background: linear-gradient(180deg, #fff4c4 0%, #ffd74e 100%);
     border-color: rgba(255, 207, 0, 0.28);
-    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+    box-shadow: none;
     font-weight: 800;
+    min-height: 38px;
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
 }
 
 .app-stage {
@@ -222,13 +250,13 @@ h1, h2, h3, h4, h5, h6 {
     font-size: clamp(2.3rem, 5vw, 4rem);
     line-height: 1.02;
     margin-top: 0.65rem;
-    max-width: 12ch;
+    max-width: none;
     text-wrap: balance;
 }
 
 .hero-text {
     color: var(--text-muted);
-    max-width: 27ch;
+    max-width: none;
     font-size: 0.98rem;
     margin-top: 1rem;
     text-align: left;
@@ -284,7 +312,7 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 1.9rem;
     line-height: 1.05;
     margin-top: 0.45rem;
-    max-width: 11ch;
+    max-width: none;
     text-wrap: balance;
 }
 
@@ -493,7 +521,7 @@ h1, h2, h3, h4, h5, h6 {
 .featured-body h4 {
     font-size: 1.6rem;
     line-height: 1.08;
-    max-width: 17ch;
+    max-width: none;
     margin-top: 0.4rem;
     text-wrap: balance;
 }
@@ -536,7 +564,7 @@ h1, h2, h3, h4, h5, h6 {
 .course-card h4 {
     font-size: 1.45rem;
     line-height: 1.08;
-    max-width: 14ch;
+    max-width: none;
     text-wrap: balance;
 }
 
@@ -550,7 +578,7 @@ h1, h2, h3, h4, h5, h6 {
 .course-meta {
     font-size: 0.84rem;
     line-height: 1.45;
-    max-width: 22ch;
+    max-width: none;
     text-align: left;
 }
 
@@ -573,6 +601,38 @@ h1, h2, h3, h4, h5, h6 {
 .course-card.wide {
     grid-column: 1 / -1;
     min-height: 220px;
+}
+
+.outcome-list {
+    list-style: none;
+    display: grid;
+    gap: 0.95rem;
+    margin: 0;
+    padding: 0;
+}
+
+.outcome-list li {
+    position: relative;
+    padding-left: 1.9rem;
+    font-family: var(--font-main);
+    font-size: 1.35rem;
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: var(--text-light);
+    text-wrap: balance;
+}
+
+.outcome-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.42rem;
+    width: 0.85rem;
+    height: 0.85rem;
+    border-radius: 999px;
+    background: linear-gradient(180deg, #b986ff 0%, #8f6de8 100%);
+    box-shadow: 0 0 0 0.22rem rgba(165, 124, 242, 0.16);
 }
 
 .pricing-dock {
@@ -698,7 +758,7 @@ footer {
 .dashboard-shell {
     width: min(1280px, calc(100% - 2.5rem));
     margin: 0 auto;
-    padding: 1.6rem 0 3rem;
+    padding: 0.4rem 0 3rem;
 }
 
 .dashboard-topbar {
@@ -707,27 +767,29 @@ footer {
     justify-content: space-between;
     gap: 1.25rem;
     margin-bottom: 2rem;
-    padding: 0 0.25rem;
+    padding: 0.45rem 0.35rem 0.85rem;
+    position: sticky;
+    top: 0;
+    z-index: 80;
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    padding-left: max(1rem, calc((100vw - 1180px) / 2));
+    padding-right: max(1rem, calc((100vw - 1180px) / 2));
+    background: transparent;
+    backdrop-filter: none;
+    border-bottom: 0;
 }
 
 .dashboard-topbar h2 {
     font-size: clamp(1.6rem, 2.4vw, 2.4rem);
     line-height: 1.05;
     margin-top: 0.3rem;
-    background: linear-gradient(110deg, #ffcf00 0%, #ffaa00 55%, #ff7b38 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    color: transparent;
+    color: var(--text-black);
 }
 
 /* Topbar eyebrow */
 .dashboard-topbar .eyebrow {
-    background: linear-gradient(110deg, #ffcf00 0%, #ffaa00 55%, #ff7b38 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    color: transparent;
+    color: rgba(11, 11, 11, 0.68);
     letter-spacing: 0.1em;
 }
 
@@ -1069,25 +1131,27 @@ footer {
     width: 44px;
     height: 44px;
     border-radius: 50%;
-    border: 2px solid rgba(255, 255, 255, 0.1);
-    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(17, 17, 17, 0.08);
+    background: rgba(255, 255, 255, 0.34);
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: background 0.2s ease, border-color 0.2s ease;
+    transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
     padding: 0;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
 }
 
 .profile-pic-btn:hover {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: rgba(255, 207, 0, 0.5);
+    background: rgba(255, 255, 255, 0.48);
+    border-color: rgba(255, 207, 0, 0.38);
+    transform: translateY(-1px);
 }
 
 .profile-avatar {
     width: 22px;
     height: 22px;
-    color: var(--text-light);
+    color: var(--text-black);
 }
 
 .skill-carousel-meta {
@@ -1108,9 +1172,8 @@ footer {
     scroll-snap-type: x mandatory;
     scrollbar-width: none;
     scroll-behavior: smooth;
-    /* Massive padding + negative margin trick to prevent rotated cards and shadows from being clipped by the scroll container */
-    padding: 1.5rem 1.5rem 3rem 1.5rem;
-    margin: -1.5rem -1.5rem -3rem -1.5rem;
+    padding: 0.2rem 0.1rem 0.75rem;
+    margin: 0;
     background: transparent;
     width: 100%;
 }
@@ -1122,25 +1185,25 @@ footer {
 .skill-card-track {
     display: grid;
     grid-auto-flow: column;
-    grid-auto-columns: 310px;
-    gap: 0.85rem;
+    grid-auto-columns: minmax(320px, 360px);
+    gap: 1rem;
     align-items: stretch;
 }
 
 .skill-stack-card {
     position: relative;
     scroll-snap-align: start;
-    min-height: 150px;
-    padding: 1.05rem;
-    border-radius: 2rem;
+    min-height: 220px;
+    padding: 1.15rem;
+    border-radius: 1.55rem;
     border: 1px solid rgba(255, 255, 255, 0.14);
-    background: linear-gradient(165deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.06));
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.06));
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    gap: 0.2rem;
+    gap: 0.3rem;
     overflow: hidden;
-    box-shadow: 0 30px 58px rgba(0, 0, 0, 0.36);
+    box-shadow: 0 24px 48px rgba(0, 0, 0, 0.28);
     transform-origin: center;
     transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
     cursor: pointer;
@@ -1154,13 +1217,14 @@ footer {
 
 .skill-stack-card:hover,
 .skill-stack-card:focus-visible {
-    box-shadow: 0 34px 64px rgba(0, 0, 0, 0.42);
+    box-shadow: 0 28px 56px rgba(0, 0, 0, 0.34);
     border-color: rgba(255, 207, 0, 0.42);
+    transform: translateY(-3px);
 }
 
 .skill-card-visual {
     position: relative;
-    min-height: 92px;
+    min-height: 106px;
     border-radius: 1rem;
     overflow: hidden;
     display: flex;
@@ -1240,24 +1304,12 @@ footer {
     background:
         radial-gradient(circle at top right, rgba(255, 207, 0, 0.3), transparent 24%),
         linear-gradient(160deg, rgba(255, 242, 191, 0.14), rgba(255, 207, 0, 0.08) 38%, rgba(255, 255, 255, 0.04));
-    transform: translateY(4px);
 }
 
 .skill-stack-card.secondary {
     background:
         radial-gradient(circle at top right, rgba(165, 124, 242, 0.28), transparent 26%),
         linear-gradient(160deg, rgba(165, 124, 242, 0.2), rgba(255, 255, 255, 0.05));
-    transform: translateY(4px);
-}
-
-.skill-stack-card.primary:hover,
-.skill-stack-card.primary:focus-visible {
-    transform: translateY(0px);
-}
-
-.skill-stack-card.secondary:hover,
-.skill-stack-card.secondary:focus-visible {
-    transform: translateY(0px);
 }
 
 .skill-stack-card h4 {
@@ -1312,7 +1364,7 @@ footer {
 }
 
 .dashboard-text {
-    color: var(--text-muted);
+    color: rgba(247, 232, 190, 0.9);
     max-width: 48ch;
     line-height: 1.65;
     font-size: 0.95rem;
@@ -1495,6 +1547,385 @@ footer {
     text-align: left;
 }
 
+/* Mobile-first dashboard refresh */
+.dashboard-shell {
+    width: min(375px, calc(100% - 1rem));
+    margin: 0 auto;
+    padding: 0.5rem 0 2rem;
+}
+
+.dashboard-topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+    padding: 0.1rem 0.1rem 0.2rem;
+    position: sticky;
+    top: 0.35rem;
+    z-index: 80;
+    background: linear-gradient(180deg, rgba(230, 213, 255, 0.95), rgba(230, 213, 255, 0.7) 72%, rgba(230, 213, 255, 0));
+}
+
+.dashboard-topbar h2 {
+    margin: 0.18rem 0 0;
+    font-size: clamp(1.7rem, 6vw, 2rem);
+    line-height: 1;
+    color: #101010;
+}
+
+.dashboard-topbar .eyebrow {
+    color: rgba(16, 16, 16, 0.56);
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+}
+
+.dashboard-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    align-items: start;
+}
+
+.dashboard-panel {
+    gap: 1rem;
+}
+
+.sidebar-panel {
+    display: none;
+}
+
+.dashboard-card {
+    padding: 1.15rem;
+    border-radius: 20px;
+    background: linear-gradient(180deg, rgba(18, 18, 18, 0.78), rgba(18, 18, 18, 0.66));
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    box-shadow: 0 14px 32px rgba(23, 16, 37, 0.14);
+    backdrop-filter: blur(12px);
+}
+
+.dashboard-card::before {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), transparent 32%);
+}
+
+.skill-hub-standalone-zone {
+    margin-bottom: 1.5rem;
+}
+
+.skill-hub-header {
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin-bottom: 0.4rem;
+}
+
+.skill-hub-header h3 {
+    font-size: 1.35rem;
+    line-height: 1.05;
+    color: #141414;
+    background: none;
+    -webkit-text-fill-color: initial;
+}
+
+.skill-hub-text {
+    margin-bottom: 1rem;
+    color: rgba(54, 37, 16, 0.74);
+    font-size: 0.92rem;
+    line-height: 1.55;
+    max-width: none;
+}
+
+.skill-plus-button {
+    width: 48px;
+    height: 48px;
+    border-radius: 16px;
+    box-shadow: 0 12px 24px rgba(255, 179, 58, 0.24);
+}
+
+.skill-dashboard-grid {
+    gap: 0.8rem;
+}
+
+.skill-carousel {
+    overflow-x: visible;
+    padding: 0;
+}
+
+.skill-card-track {
+    display: grid;
+    grid-auto-flow: row;
+    grid-auto-columns: auto;
+    gap: 0.9rem;
+}
+
+.skill-stack-card {
+    min-height: min(220px, 56vw);
+    max-height: 220px;
+    padding: 0;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 16px 30px rgba(30, 20, 45, 0.16);
+    background: transparent;
+    overflow: hidden;
+}
+
+.skill-stack-card:hover,
+.skill-stack-card:focus-visible {
+    transform: translateY(-2px);
+    box-shadow: 0 18px 36px rgba(30, 20, 45, 0.2);
+    border-color: rgba(255, 214, 120, 0.42);
+}
+
+.skill-stack-card.primary,
+.skill-stack-card.secondary {
+    background: transparent;
+}
+
+.skill-card-surface {
+    position: relative;
+    min-height: inherit;
+    height: 100%;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: inherit;
+    overflow: hidden;
+}
+
+.skill-card-surface.art-code {
+    background:
+        radial-gradient(circle at top right, rgba(255, 248, 207, 0.28), transparent 24%),
+        linear-gradient(135deg, #ffb14a 0%, #ffcb67 48%, #ffe3a0 100%);
+}
+
+.skill-card-surface.art-design {
+    background:
+        radial-gradient(circle at top right, rgba(255, 255, 255, 0.28), transparent 24%),
+        linear-gradient(135deg, #9c8cff 0%, #c7b0ff 52%, #f1d7ff 100%);
+}
+
+.skill-card-surface.art-video {
+    background:
+        radial-gradient(circle at top right, rgba(255, 246, 208, 0.2), transparent 24%),
+        linear-gradient(135deg, #ff9968 0%, #ffb57e 45%, #e2b6ff 100%);
+}
+
+.skill-card-badge {
+    position: static;
+    display: inline-flex;
+    align-self: flex-start;
+    padding: 0.34rem 0.72rem;
+    border-radius: 999px;
+    background: rgba(17, 17, 17, 0.14);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    color: rgba(17, 17, 17, 0.74);
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    backdrop-filter: blur(6px);
+}
+
+.skill-card-main {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 0.9rem;
+    align-items: center;
+    margin-top: auto;
+}
+
+.skill-card-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.55rem;
+}
+
+.skill-stack-card h4 {
+    font-size: clamp(1.8rem, 7vw, 2.15rem);
+    line-height: 0.98;
+    margin: 0;
+    color: #101010;
+}
+
+.skill-card-copy {
+    max-width: none;
+    color: rgba(20, 20, 20, 0.72);
+    font-size: 0.9rem;
+    line-height: 1.45;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.skill-card-hint {
+    width: 48px;
+    height: 48px;
+    border-radius: 16px;
+    display: grid;
+    place-items: center;
+    background: rgba(255, 255, 255, 0.18);
+    border: 1px solid rgba(255, 255, 255, 0.24);
+}
+
+.skill-card-icon {
+    width: 22px;
+    height: 22px;
+    position: static;
+    opacity: 0.72;
+    color: rgba(17, 17, 17, 0.52);
+}
+
+.skill-card-link-label {
+    margin-top: 0.8rem;
+    color: rgba(20, 20, 20, 0.64);
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+}
+
+.skill-carousel-dots {
+    justify-content: flex-start;
+    padding-left: 0.15rem;
+}
+
+.skill-dot {
+    width: 8px;
+    height: 8px;
+    background: rgba(17, 17, 17, 0.12);
+}
+
+.skill-dot.active {
+    background: linear-gradient(135deg, #ffb649 0%, #ff8c4d 100%);
+}
+
+.referral-dashboard-row {
+    display: grid;
+    gap: 1rem;
+    margin: 0;
+}
+
+.referral-card-head {
+    align-items: flex-start;
+    margin-bottom: 0.75rem;
+}
+
+.referral-target-card .eyebrow,
+.referral-task-card .eyebrow {
+    color: rgba(247, 244, 237, 0.6);
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+}
+
+.referral-target-card h3,
+.referral-task-card h3 {
+    font-size: 1.4rem;
+    line-height: 1.04;
+}
+
+.referral-card-copy {
+    color: rgba(247, 244, 237, 0.72);
+    font-size: 0.92rem;
+    line-height: 1.55;
+}
+
+.stat-circle {
+    width: 44px;
+    height: 44px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: var(--text-light);
+    font-weight: 800;
+    font-size: 1.1rem;
+}
+
+.referral-link-card {
+    background: linear-gradient(135deg, #ffe5a4 0%, #ffd776 48%, #ffefcb 100%);
+    color: #151515;
+    border: 0;
+    box-shadow: 0 16px 28px rgba(255, 194, 88, 0.22);
+}
+
+.referral-link-card .eyebrow,
+.referral-link-card h3,
+.referral-link-card .dashboard-text {
+    color: #151515;
+}
+
+.referral-copy-btn {
+    min-height: 38px;
+    padding: 0.55rem 0.85rem;
+    color: #151515;
+    border-color: rgba(21, 21, 21, 0.12);
+    background: rgba(255, 255, 255, 0.32);
+}
+
+.referral-link-field {
+    margin-top: 0.9rem;
+    padding: 0.9rem 1rem;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.38);
+    border: 1px solid rgba(21, 21, 21, 0.08);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    color: rgba(17, 17, 17, 0.72);
+    font-family: var(--font-secondary);
+    font-size: 0.86rem;
+}
+
+.referral-task-card {
+    padding-bottom: 1.2rem;
+}
+
+.dashboard-text {
+    max-width: none;
+    color: rgba(247, 244, 237, 0.76);
+    font-size: 0.92rem;
+    line-height: 1.58;
+}
+
+.progress-header {
+    margin-bottom: 0.6rem;
+}
+
+.progress-header span {
+    color: rgba(247, 244, 237, 0.62);
+    font-size: 0.86rem;
+}
+
+.progress-header strong {
+    color: var(--text-light);
+}
+
+.progress-track {
+    height: 12px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 0;
+}
+
+.progress-fill {
+    background: linear-gradient(90deg, #ffb04a 0%, #ff884d 52%, #c39bff 100%);
+}
+
+.dashboard-progress-note {
+    margin-top: 0.7rem;
+    color: rgba(247, 244, 237, 0.62);
+    font-size: 0.84rem;
+}
+
+.dashboard-cta {
+    min-height: 48px;
+    margin-top: 1.1rem;
+    border-radius: 16px;
+    font-size: 0.95rem;
+    box-shadow: 0 14px 26px rgba(255, 186, 74, 0.22);
+}
+
 .progress-track {
     width: 100%;
     height: 16px;
@@ -1604,6 +2035,8 @@ footer {
     font-size: 1.5rem;
     line-height: 1;
     transition: background 0.2s ease, transform 0.2s ease;
+    z-index: 3;
+    touch-action: manipulation;
 }
 
 .close-modal:hover {
@@ -1690,14 +2123,9 @@ footer {
     backdrop-filter: blur(12px);
 }
 
-.auth-form-shell {
+.auth-panel form {
     position: relative;
     z-index: 1;
-    padding: 1.25rem;
-    border-radius: 1.45rem;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.04));
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
 }
 
 .form-group {
@@ -1935,7 +2363,7 @@ footer {
     }
 
     .skill-card-track {
-        grid-auto-columns: minmax(92%, 1fr);
+        grid-auto-columns: minmax(calc(100vw - 2.5rem), 1fr);
     }
 
     .skill-detail-hero,
@@ -1945,6 +2373,34 @@ footer {
 }
 
 @media (max-width: 760px) {
+    .topbar {
+        top: 1rem;
+        padding: 0;
+        margin-bottom: 0.6rem;
+    }
+
+    .topbar-row {
+        gap: 0.75rem;
+        width: min(100% - 1rem, 1200px);
+        min-height: 64px;
+        padding: 0.75rem 1rem;
+        border-radius: 16px;
+    }
+
+    .brand-logo {
+        max-height: 24px;
+    }
+
+    .topbar-actions {
+        padding-left: 0.5rem;
+    }
+
+    .topbar-signin {
+        min-height: 36px;
+        padding: 0.5rem 0.9rem;
+        font-size: 0.82rem;
+    }
+
     .modal-overlay {
         align-items: center;
         padding: 0.75rem;
@@ -1960,10 +2416,10 @@ footer {
     }
 
     .close-modal {
-        top: 0.75rem;
-        right: 0.75rem;
-        width: 38px;
-        height: 38px;
+        top: 0.5rem;
+        right: 0.5rem;
+        width: 44px;
+        height: 44px;
         font-size: 1.3rem;
     }
 
@@ -1979,8 +2435,7 @@ footer {
         margin-bottom: 0.75rem;
     }
 
-    .auth-hero,
-    .auth-form-shell {
+    .auth-hero {
         padding: 1rem;
         border-radius: 1.25rem;
     }
@@ -2046,35 +2501,85 @@ footer {
 
     .page-shell {
         width: min(100% - 1rem, 560px);
-        padding-top: 0.8rem;
+        padding-top: 0;
     }
 
     .topbar {
         width: 100%;
-        gap: 0.9rem;
+        padding: 0.08rem 0 0.06rem;
+        margin-bottom: 0.55rem;
     }
 
     .topbar-row {
-        width: 100%;
+        width: min(100% - 1rem, 560px);
         gap: 0.9rem;
         align-items: center;
+        padding: 0.22rem 0.32rem;
+        border-radius: 0.95rem;
     }
 
     .topbar-actions {
         margin-left: auto;
         align-self: auto;
         margin-top: 0;
-        padding-left: 1.15rem;
+        padding-left: 0.45rem;
     }
 
     .brand-lockup {
         gap: 0.24rem;
     }
 
+    .topbar-badge-row {
+        margin-bottom: 0.85rem;
+    }
+
+    .topbar-badge {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.58rem 0.9rem;
+        font-size: 0.7rem;
+        margin-left: 0;
+        border-radius: 999px;
+        width: auto;
+        max-width: calc(100% - 1rem);
+    }
+
     .dashboard-topbar {
         flex-direction: row;
         align-items: center;
         gap: 0.75rem;
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
+    }
+
+    .skill-carousel {
+        padding: 0.1rem 0 0.65rem;
+    }
+
+    .skill-card-track {
+        grid-auto-columns: minmax(calc(100vw - 2.5rem), 1fr);
+        gap: 0.8rem;
+    }
+
+    .skill-stack-card {
+        min-height: 196px;
+        border-radius: 1.35rem;
+        padding: 1rem;
+    }
+
+    .skill-card-visual {
+        min-height: 92px;
+        margin-bottom: 0.55rem;
+    }
+
+    .skill-stack-card h4 {
+        font-size: 1.28rem;
+    }
+
+    .skill-card-copy {
+        font-size: 0.88rem;
+        line-height: 1.38;
     }
 
     .dashboard-topbar h2 {
@@ -2084,12 +2589,13 @@ footer {
     /* ── Dashboard mobile fixes ── */
     .dashboard-shell {
         width: calc(100% - 1.25rem);
-        padding: 1rem 0 2rem;
+        padding: 0.2rem 0 2rem;
     }
 
     .dashboard-topbar {
         margin-bottom: 1.25rem;
         gap: 0.75rem;
+        padding-bottom: 0.75rem;
     }
 
     .dashboard-topbar h2 {
@@ -2185,7 +2691,7 @@ footer {
 
     /* Carousel */
     .skill-card-track {
-        grid-auto-columns: 290px;
+        grid-auto-columns: 300px;
     }
 
     /* Referral link box */
@@ -2219,6 +2725,7 @@ footer {
 
     .app-stage {
         grid-template-columns: 1fr;
+        gap: 1rem;
     }
 
     .hero-frame,
@@ -2234,15 +2741,31 @@ footer {
         border-radius: 1.7rem;
     }
 
+    .phone-frame,
+    .pricing-dock {
+        padding: 1.05rem;
+    }
+
     .hero-copy h2 {
-        font-size: clamp(2rem, 10vw, 2.9rem);
-        max-width: 13ch;
-        line-height: 1.04;
+        font-size: clamp(1.85rem, 9vw, 2.55rem);
+        max-width: none;
+        line-height: 1;
     }
 
     .section-head h3 {
-        font-size: 1.7rem;
-        max-width: 12ch;
+        font-size: 1.55rem;
+        max-width: none;
+    }
+
+    .hero-text {
+        font-size: 0.92rem;
+        line-height: 1.42;
+        max-width: none;
+    }
+
+    .selection-count {
+        min-width: 56px;
+        padding: 0.65rem 0.8rem;
     }
 
     .course-grid,
@@ -2335,16 +2858,71 @@ footer {
     .topbar-badge {
         padding: 0.66rem 0.92rem;
         font-size: 0.74rem;
-        margin-left: 0.14rem;
+        margin-left: 0;
     }
 
     .topbar-signin {
         min-height: 40px;
-        padding: 0.6rem 0.95rem;
+        padding: 0.48rem 0.8rem;
     }
 }
 
 @media (max-width: 480px) {
+    .topbar {
+        top: 0.75rem;
+    }
+
+    .topbar-row {
+        width: calc(100% - 0.8rem);
+        min-height: 64px;
+        padding: 0.75rem 0.85rem;
+        border-radius: 16px;
+    }
+
+    .brand-logo {
+        max-height: 24px;
+    }
+
+    .topbar-signin {
+        min-height: 34px;
+        padding: 0.45rem 0.8rem;
+        font-size: 0.78rem;
+    }
+
+    .topbar-badge-row {
+        margin-bottom: 0.75rem;
+    }
+
+    .topbar-badge {
+        font-size: 0.66rem;
+        padding: 0.52rem 0.82rem;
+    }
+
+    .phone-frame,
+    .pricing-dock {
+        padding: 0.95rem;
+        border-radius: 1.45rem;
+    }
+
+    .hero-copy h2 {
+        font-size: clamp(1.7rem, 8.8vw, 2.2rem);
+        max-width: none;
+    }
+
+    .hero-text {
+        font-size: 0.88rem;
+        max-width: none;
+    }
+
+    .section-head h3 {
+        font-size: 1.4rem;
+    }
+
+    .selection-count {
+        min-width: 52px;
+        padding: 0.58rem 0.72rem;
+    }
+
     .modal-overlay {
         padding: 0.7rem;
         display: flex;
@@ -2372,8 +2950,7 @@ footer {
         line-height: 1.45;
     }
 
-    .auth-hero,
-    .auth-form-shell {
+    .auth-hero {
         padding: 0.9rem;
         border-radius: 1.1rem;
     }
@@ -2435,5 +3012,221 @@ footer {
         width: 42px;
         height: 42px;
         font-size: 1.5rem;
+    }
+}
+
+/* Final dashboard overrides */
+.dashboard-shell {
+    width: min(375px, calc(100% - 1rem));
+    padding: 0.5rem 0 2rem;
+}
+
+.dashboard-layout {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+.sidebar-panel {
+    display: none;
+}
+
+.dashboard-card {
+    border-radius: 20px;
+    padding: 1.15rem;
+}
+
+.skill-card-track {
+    display: grid;
+    grid-auto-flow: row;
+    grid-auto-columns: auto;
+    gap: 0.9rem;
+}
+
+.skill-stack-card {
+    min-height: min(220px, 56vw);
+    max-height: 220px;
+    border-radius: 20px;
+}
+
+.skill-card-surface {
+    padding: 16px;
+}
+
+.skill-stack-card h4 {
+    font-size: clamp(1.8rem, 7vw, 2.15rem);
+}
+
+.referral-dashboard-row {
+    display: grid;
+    gap: 1rem;
+    margin: 0;
+}
+
+@media (max-width: 760px) {
+    .page-shell {
+        width: min(375px, calc(100% - 1rem));
+        padding: 0 0 1.5rem;
+    }
+
+    .topbar {
+        top: 0.75rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .topbar-row {
+        width: min(375px, calc(100% - 1rem));
+        min-height: 64px;
+        padding: 0.75rem 1rem;
+        border-radius: 16px;
+    }
+
+    .brand-logo {
+        max-height: 24px;
+    }
+
+    .topbar-signin {
+        min-height: 36px;
+        padding: 0.5rem 0.9rem;
+        font-size: 0.82rem;
+    }
+
+    .topbar-badge-row {
+        margin-bottom: 0.85rem;
+    }
+
+    .topbar-badge {
+        margin-left: 0;
+        padding: 0.55rem 0.82rem;
+        font-size: 0.68rem;
+    }
+
+    .app-stage {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .phone-frame,
+    .pricing-dock {
+        min-height: auto;
+        padding: 1rem;
+        border-radius: 20px;
+    }
+
+    .hero-copy h2 {
+        font-size: clamp(2rem, 10vw, 2.5rem);
+        line-height: 0.98;
+    }
+
+    .hero-text,
+    .course-meta {
+        font-size: 0.92rem;
+        line-height: 1.45;
+    }
+
+    .course-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .course-card.wide {
+        grid-column: auto;
+    }
+
+    .dashboard-shell {
+        width: min(375px, calc(100% - 1rem));
+        padding: 0.35rem 0 1.6rem;
+    }
+
+    .dashboard-topbar {
+        top: 0.35rem;
+        margin-bottom: 1rem;
+        padding: 0.1rem 0.1rem 0.2rem;
+    }
+
+    .dashboard-topbar h2 {
+        font-size: clamp(1.55rem, 6vw, 1.9rem);
+    }
+
+    .skill-hub-header h3,
+    .referral-target-card h3,
+    .referral-task-card h3,
+    .referral-link-card h3 {
+        font-size: 1.3rem;
+    }
+
+    .dashboard-card {
+        padding: 1rem;
+        border-radius: 20px;
+    }
+
+    .skill-hub-text,
+    .dashboard-text {
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .skill-carousel {
+        overflow-x: visible;
+    }
+
+    .skill-card-track {
+        grid-auto-flow: row;
+        grid-auto-columns: auto;
+        gap: 0.85rem;
+    }
+
+    .skill-stack-card {
+        min-height: min(212px, 58vw);
+        max-height: 220px;
+    }
+
+    .skill-card-surface {
+        padding: 16px;
+    }
+
+    .referral-dashboard-row {
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-shell,
+    .dashboard-shell {
+        width: calc(100% - 0.8rem);
+    }
+
+    .topbar {
+        top: 0.55rem;
+    }
+
+    .topbar-row {
+        width: calc(100% - 0.8rem);
+        min-height: 60px;
+        padding: 0.65rem 0.85rem;
+        border-radius: 16px;
+    }
+
+    .brand-logo {
+        max-height: 22px;
+    }
+
+    .topbar-signin {
+        min-height: 34px;
+        padding: 0.45rem 0.8rem;
+        font-size: 0.78rem;
+    }
+
+    .hero-copy h2 {
+        font-size: clamp(1.8rem, 9vw, 2.15rem);
+    }
+
+    .phone-frame,
+    .pricing-dock,
+    .dashboard-card,
+    .skill-stack-card {
+        border-radius: 18px;
+    }
+
+    .skill-stack-card {
+        min-height: min(200px, 60vw);
     }
 }
