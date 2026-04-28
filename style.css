@@ -121,8 +121,9 @@ h1, h2, h3, h4, h5, h6 {
 
 .brand-logo {
     width: auto;
-    max-height: 28px;
-    height: auto;
+    height: 62px;
+    margin-top: -1.2rem;
+    margin-bottom: -1.2rem;
     object-fit: contain;
 }
 
@@ -2391,7 +2392,9 @@ footer {
     }
 
     .brand-logo {
-        max-height: 24px;
+        height: 52px;
+        margin-top: -1rem;
+        margin-bottom: -1rem;
     }
 
     .topbar-actions {
