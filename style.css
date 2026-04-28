@@ -810,8 +810,7 @@ footer {
     position: relative;
     padding: 1.75rem;
     border-radius: 1.5rem;
-    background: rgba(13, 13, 13, 0.72);
-    backdrop-filter: blur(20px);
+    background: #1a1a1a;
     color: var(--text-light);
     border: 1px solid rgba(255, 255, 255, 0.12);
     box-shadow: var(--shadow-hard);
@@ -1554,18 +1553,22 @@ footer {
     position: sticky;
     top: 0.35rem;
     z-index: 80;
-    background: linear-gradient(180deg, rgba(230, 213, 255, 0.95), rgba(230, 213, 255, 0.7) 72%, rgba(230, 213, 255, 0));
+    background: #0b0b0b;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 1rem;
+    margin-left: -0.1rem;
+    margin-right: -0.1rem;
 }
 
 .dashboard-topbar h2 {
     margin: 0.18rem 0 0;
     font-size: clamp(1.45rem, 5.8vw, 1.8rem);
     line-height: 1.02;
-    color: #101010;
+    color: #f7f4ed;
 }
 
 .dashboard-topbar .eyebrow {
-    color: rgba(16, 16, 16, 0.56);
+    color: rgba(247, 244, 237, 0.56);
     font-size: 0.66rem;
     letter-spacing: 0.14em;
 }
