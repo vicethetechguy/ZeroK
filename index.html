@@ -771,7 +771,8 @@ ${referralLink}`;
                 extraSkill: data.extraSkill || '',
                 referralLink: data.referralLink || '',
                 referrals: Number(data.referrals || 0),
-                referralsVerified: Boolean(data.referralsVerified)
+                referralsVerified: Boolean(data.referralsVerified),
+                avatarUrl: data.avatarUrl || ''
             };
         };
 
@@ -1397,6 +1398,7 @@ ${referralLink}`;
             reader.onload = async (event) => {
                 const base64String = event.target.result;
                 
+                // Preview immediately in UI
                 profileImagePreview.innerHTML = '<img src="' + base64String + '" style="width: 100%; height: 100%; object-fit: cover;">';
                 
                 const topbarAvatarBtn = document.getElementById('open-profile');
@@ -1404,6 +1406,7 @@ ${referralLink}`;
                     topbarAvatarBtn.innerHTML = '<img src="' + base64String + '" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%; width: 44px; height: 44px;">';
                 }
 
+                // Save to local state immediately
                 if (!dashboardData) {
                     dashboardData = { name: '', email: '', skill: '', extraSkill: '', referralLink: '', referrals: 0, referralsVerified: false };
                 }
@@ -1414,22 +1417,36 @@ ${referralLink}`;
                 if (session) {
                     const userId = session.user.id;
                     
-                    await sb.from('profiles').update({ avatar_url: base64String }).eq('id', userId);
+                    // Step 1: Save base64 to profiles table (primary persistence)
+                    const { error: dbError } = await sb.from('profiles').update({ avatar_url: base64String }).eq('id', userId);
+                    
+                    if (dbError) {
+                        console.error('Failed to save avatar to profile:', dbError);
+                        showToast('Failed to save profile picture. Please try again.');
+                        return;
+                    }
 
+                    // Step 2: Try to upload to storage for a cleaner URL (optional enhancement)
                     const fileExt = file.name.split('.').pop();
                     const filePath = userId + '.' + fileExt;
 
-                    sb.storage.from('avatars').upload(filePath, file, { upsert: true }).then(async ({ error: uploadError }) => {
-                        if (!uploadError) {
-                            const { data: { publicUrl } } = sb.storage.from('avatars').getPublicUrl(filePath);
-                            await sb.from('profiles').update({ avatar_url: publicUrl }).eq('id', userId);
-                            dashboardData.avatarUrl = publicUrl;
-                            persistDashboardData();
-                        }
-                    }).catch(() => {});
+                    const { error: uploadError } = await sb.storage.from('avatars').upload(filePath, file, { upsert: true });
+                    
+                    if (uploadError) {
+                        // Storage failed, but base64 is already saved - this is fine
+                        console.warn('Storage upload skipped (bucket may not exist):', uploadError.message);
+                        showToast('Profile picture saved!');
+                    } else {
+                        // Storage succeeded - update with public URL
+                        const { data: { publicUrl } } = sb.storage.from('avatars').getPublicUrl(filePath);
+                        await sb.from('profiles').update({ avatar_url: publicUrl }).eq('id', userId);
+                        dashboardData.avatarUrl = publicUrl;
+                        persistDashboardData();
+                        showToast('Profile picture updated successfully!');
+                    }
+                } else {
+                    showToast('Profile picture saved locally!');
                 }
-                
-                showToast('Profile picture updated successfully!');
             };
             reader.readAsDataURL(file);
         });

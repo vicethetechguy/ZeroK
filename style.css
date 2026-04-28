@@ -1635,12 +1635,16 @@ footer {
     height: 56px;
     border-radius: 18px;
     box-shadow: 0 12px 24px rgba(255, 179, 58, 0.18);
+    background: #ffcf00;
+    border: none;
+    color: #0b0b0b;
+    font-weight: 800;
 }
 
 .skill-picker-wrap {
     position: fixed;
     right: max(1rem, calc((100vw - 375px) / 2 + 0.5rem));
-    bottom: 1.25rem;
+    bottom: 5rem;
     z-index: 95;
 }
 
@@ -3202,7 +3206,7 @@ footer {
 
     .skill-picker-wrap {
         right: 1rem;
-        bottom: 1rem;
+        bottom: 5rem;
     }
 }
 
@@ -3254,7 +3258,7 @@ footer {
 
     .skill-picker-wrap {
         right: 0.85rem;
-        bottom: 0.85rem;
+        bottom: 5rem;
     }
 
     .skill-plus-button {
