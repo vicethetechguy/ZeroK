@@ -7,22 +7,25 @@
     <title>Zero K - Learn a Skill</title>
     <meta name="description" content="Learn a skill that will change your life with Zero K. 3 Skills, 2 Week Training with free access.">
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 
 <body>
     <div class="page-shell" id="landing-shell">
         <header class="topbar">
-            <div class="brand-lockup">
-                <div class="brand-mark">
-                    <img src="logo.png" alt="Zero K" style="height: 64px; object-fit: contain;">
-                    <div class="topbar-badge" style="border: 1px solid rgba(255, 207, 0, 0.4); color: #ffcf00;">2-Week Digital Training</div>
+            <div class="topbar-row">
+                <div class="brand-lockup">
+                    <div class="brand-mark">
+                        <img src="logo.png" alt="Zero K" class="brand-logo">
+                    </div>
+                </div>
+                <div class="topbar-actions">
+                    <button type="button" class="ghost-button compact-button topbar-signin" id="open-signin" style="color: #ffcf00; font-weight: 600;">Sign In</button>
                 </div>
             </div>
-            <div class="topbar-actions">
-                <button type="button" class="ghost-button compact-button topbar-signin" id="open-signin" style="color: #ffcf00; font-weight: 600;">Sign In</button>
-            </div>
+            <div class="topbar-badge" style="border: 1px solid rgba(255, 207, 0, 0.4); color: #ffcf00;">2-Week Digital Training</div>
+            <div class="topbar-spacer" aria-hidden="true"></div>
         </header>
 
         <main class="app-stage">
@@ -357,10 +360,15 @@
         <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="registration-title">
             <button type="button" class="close-modal" aria-label="Close modal">&times;</button>
 
-            <div id="form-view">
-                <p class="eyebrow">Complete registration</p>
-                <h2 id="registration-title">Lock in your spot</h2>
-                <p class="modal-intro">Create your account and claim free access.</p>
+            <div id="form-view" class="auth-panel">
+                <div class="auth-hero">
+                    <div class="auth-hero-copy">
+                        <p class="eyebrow">Complete registration</p>
+                        <h2 id="registration-title">Lock in your spot</h2>
+                        <p class="modal-intro">Create your account and claim free access.</p>
+                    </div>
+                </div>
+                <div class="auth-form-shell">
                 <form id="registration-form" autocomplete="off">
                     <div class="form-grid-2col">
                         <div class="form-group">
@@ -403,12 +411,18 @@
                     <button type="submit" class="submit-button" id="submit-btn">Create Account</button>
                 </form>
                 <button type="button" class="text-switch" id="switch-to-signin">Already have an account? Sign in</button>
+                </div>
             </div>
 
-            <div id="signin-view" class="hidden">
-                <p class="eyebrow">Welcome back</p>
-                <h2>Sign in</h2>
-                <p class="modal-intro" style="margin-bottom: 2rem;">Enter your email and password to access your dashboard.</p>
+            <div id="signin-view" class="hidden auth-panel">
+                <div class="auth-hero auth-hero-signin">
+                    <div class="auth-hero-copy">
+                        <p class="eyebrow">Welcome back</p>
+                        <h2>Sign in</h2>
+                        <p class="modal-intro" style="margin-bottom: 2rem;">Enter your email and password to access your dashboard.</p>
+                    </div>
+                </div>
+                <div class="auth-form-shell">
                 <form id="signin-form" autocomplete="on">
                     <div class="form-group">
                         <label for="signinEmail">Email Address</label>
@@ -427,6 +441,7 @@
                     <button type="submit" class="submit-button" id="signin-btn">Sign In</button>
                 </form>
                 <button type="button" class="text-switch" id="switch-to-register">Need free access? Register</button>
+                </div>
             </div>
 
             <div id="success-view" class="hidden">

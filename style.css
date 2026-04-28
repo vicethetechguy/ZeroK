@@ -12,7 +12,7 @@
     --chip-orange: #ff7b38;
     --chip-lime: #c9f43c;
     --font-main: 'Poppins', sans-serif;
-    --font-secondary: 'Inter', sans-serif;
+    --font-secondary: 'Montserrat', sans-serif;
     --shadow-soft: 0 20px 60px rgba(0, 0, 0, 0.28);
     --shadow-hard: 0 24px 70px rgba(0, 0, 0, 0.45);
 }
@@ -68,10 +68,17 @@ h1, h2, h3, h4, h5, h6 {
 
 .topbar {
     display: flex;
-    align-items: flex-start;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.95rem;
+    margin-bottom: 1.7rem;
+}
+
+.topbar-row {
+    display: flex;
+    align-items: center;
     justify-content: space-between;
     gap: 1.75rem;
-    margin-bottom: 1.7rem;
 }
 
 .brand-lockup {
@@ -90,7 +97,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .brand-logo {
-    width: 98px;
+    width: clamp(136px, 16vw, 188px);
     height: auto;
     object-fit: contain;
 }
@@ -131,6 +138,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .topbar-badge {
+    align-self: flex-start;
     padding: 0.78rem 1.08rem;
     border-radius: 999px;
     background: rgba(11, 11, 11, 0.9);
@@ -147,8 +155,12 @@ h1, h2, h3, h4, h5, h6 {
     justify-content: flex-end;
     margin-left: auto;
     flex-shrink: 0;
-    margin-top: 1rem;
+    margin-top: 0;
     padding-left: 2.3rem;
+}
+
+.topbar-spacer {
+    display: none;
 }
 
 .topbar-signin {
@@ -208,9 +220,10 @@ h1, h2, h3, h4, h5, h6 {
 
 .hero-copy h2 {
     font-size: clamp(2.3rem, 5vw, 4rem);
-    line-height: 0.98;
+    line-height: 1.02;
     margin-top: 0.65rem;
-    max-width: 10ch;
+    max-width: 12ch;
+    text-wrap: balance;
 }
 
 .hero-text {
@@ -218,6 +231,7 @@ h1, h2, h3, h4, h5, h6 {
     max-width: 27ch;
     font-size: 0.98rem;
     margin-top: 1rem;
+    text-align: left;
 }
 
 .hero-strip {
@@ -270,6 +284,8 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 1.9rem;
     line-height: 1.05;
     margin-top: 0.45rem;
+    max-width: 11ch;
+    text-wrap: balance;
 }
 
 .selection-count {
@@ -462,6 +478,11 @@ h1, h2, h3, h4, h5, h6 {
     gap: 0.8rem;
 }
 
+.featured-body > div:first-child {
+    flex: 1;
+    min-width: 0;
+}
+
 .featured-tag {
     text-transform: uppercase;
     letter-spacing: 0.14em;
@@ -471,9 +492,10 @@ h1, h2, h3, h4, h5, h6 {
 
 .featured-body h4 {
     font-size: 1.6rem;
-    line-height: 1.05;
-    max-width: 12ch;
+    line-height: 1.08;
+    max-width: 17ch;
     margin-top: 0.4rem;
+    text-wrap: balance;
 }
 
 .featured-arrow {
@@ -514,6 +536,8 @@ h1, h2, h3, h4, h5, h6 {
 .course-card h4 {
     font-size: 1.45rem;
     line-height: 1.08;
+    max-width: 14ch;
+    text-wrap: balance;
 }
 
 .course-type {
@@ -527,6 +551,7 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 0.84rem;
     line-height: 1.45;
     max-width: 22ch;
+    text-align: left;
 }
 
 .course-card.lilac {
@@ -1239,6 +1264,7 @@ footer {
     font-size: clamp(1.45rem, 3.2vw, 2rem);
     line-height: 1.05;
     margin: 0.35rem 0 0.4rem;
+    text-wrap: balance;
 }
 
 .skill-card-copy {
@@ -1246,6 +1272,7 @@ footer {
     line-height: 1.45;
     max-width: 32ch;
     font-size: 0.92rem;
+    text-align: left;
 }
 
 .skill-card-link-label {
@@ -1281,6 +1308,7 @@ footer {
     font-size: clamp(1.4rem, 2.8vw, 2rem);
     line-height: 1.08;
     margin: 0.35rem 0 0.6rem;
+    text-wrap: balance;
 }
 
 .dashboard-text {
@@ -1288,6 +1316,7 @@ footer {
     max-width: 48ch;
     line-height: 1.65;
     font-size: 0.95rem;
+    text-align: left;
 }
 
 .dashboard-card-head {
@@ -1355,11 +1384,13 @@ footer {
 .skill-detail-summary-copy {
     color: var(--text-light);
     line-height: 1.7;
+    text-align: left;
 }
 
 .skill-detail-block h4 {
     font-size: 1.35rem;
     margin: 0.45rem 0 0.9rem;
+    text-wrap: balance;
 }
 
 .skill-detail-list {
@@ -1461,6 +1492,7 @@ footer {
     margin: 0.8rem 0 0;
     color: var(--text-muted);
     line-height: 1.5;
+    text-align: left;
 }
 
 .progress-track {
@@ -1496,6 +1528,7 @@ footer {
 .unlock-card p:last-child {
     color: var(--text-muted);
     line-height: 1.5;
+    text-align: left;
 }
 
 .unlock-card.unlocked {
@@ -1525,15 +1558,29 @@ footer {
     position: relative;
     width: min(520px, 100%);
     padding: 2.5rem 2rem;
-    border-radius: 1.5rem;
-    background: rgba(13, 13, 13, 0.72);
+    border-radius: 1.9rem;
+    background:
+        radial-gradient(circle at top left, rgba(255, 207, 0, 0.2), transparent 28%),
+        radial-gradient(circle at top right, rgba(165, 124, 242, 0.28), transparent 34%),
+        linear-gradient(160deg, rgba(17, 17, 17, 0.94), rgba(8, 8, 8, 0.92));
     backdrop-filter: blur(24px);
     color: var(--text-light);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    box-shadow: var(--shadow-hard);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    box-shadow: 0 34px 90px rgba(0, 0, 0, 0.42);
     max-height: calc(100dvh - 2rem);
     overflow-y: auto;
     scrollbar-width: none;
+}
+
+.modal-content::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.08), transparent 24%),
+        linear-gradient(135deg, rgba(255, 255, 255, 0.06), transparent 48%);
+    pointer-events: none;
 }
 
 .modal-content::-webkit-scrollbar {
@@ -1565,17 +1612,92 @@ footer {
 }
 
 .modal-content h2 {
-    font-size: 1.55rem;
+    font-size: 1.75rem;
     margin: 0.25rem 0 0.5rem;
-    line-height: 1.08;
+    line-height: 1.02;
     padding-right: 2.5rem;
 }
 
 .modal-intro {
-    color: var(--text-muted);
-    font-size: 0.88rem;
-    line-height: 1.45;
+    color: rgba(247, 244, 237, 0.78);
+    font-size: 0.92rem;
+    line-height: 1.6;
     margin-bottom: 1.5rem;
+}
+
+.auth-panel {
+    position: relative;
+    z-index: 1;
+}
+
+.auth-hero {
+    position: relative;
+    margin-bottom: 1.35rem;
+    padding: 1.2rem 1.2rem 1.15rem;
+    border-radius: 1.45rem;
+    background:
+        radial-gradient(circle at top right, rgba(255, 207, 0, 0.18), transparent 34%),
+        linear-gradient(145deg, rgba(123, 155, 255, 0.22), rgba(165, 124, 242, 0.18) 48%, rgba(255, 207, 0, 0.12));
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    overflow: hidden;
+}
+
+.auth-hero::after {
+    content: "";
+    position: absolute;
+    inset: auto -18% -36% auto;
+    width: 190px;
+    height: 190px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.16), transparent 62%);
+    pointer-events: none;
+}
+
+.auth-hero-signin {
+    background:
+        radial-gradient(circle at top left, rgba(255, 207, 0, 0.16), transparent 32%),
+        linear-gradient(145deg, rgba(255, 123, 56, 0.16), rgba(97, 136, 255, 0.18) 50%, rgba(165, 124, 242, 0.18));
+}
+
+.auth-hero-copy {
+    position: relative;
+    z-index: 1;
+    max-width: 30ch;
+}
+
+.auth-pill-row {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+    margin-top: 1rem;
+}
+
+.auth-pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.48rem 0.8rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: var(--text-light);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    backdrop-filter: blur(12px);
+}
+
+.auth-form-shell {
+    position: relative;
+    z-index: 1;
+    padding: 1.25rem;
+    border-radius: 1.45rem;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.04));
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
 }
 
 .form-group {
@@ -1591,35 +1713,43 @@ footer {
 
 .form-group label {
     display: block;
-    margin-bottom: 0.3rem;
-    font-size: 0.82rem;
-    color: var(--text-muted);
+    margin-bottom: 0.42rem;
+    font-size: 0.78rem;
+    color: rgba(247, 244, 237, 0.72);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
 }
 
 .form-group input,
 .form-group select {
     width: 100%;
-    min-height: 48px;
-    padding: 0.72rem 0.9rem;
-    border-radius: 0.9rem;
-    border: 1px solid var(--surface-stroke);
-    background: rgba(255, 255, 255, 0.05);
+    min-height: 54px;
+    padding: 0.82rem 1rem;
+    border-radius: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.04)),
+        rgba(255, 255, 255, 0.03);
     color: white;
     outline: none;
-    transition: border-color 0.25s ease, background-color 0.25s ease;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    transition: border-color 0.25s ease, background-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .form-group input:focus,
 .form-group select:focus {
-    border-color: rgba(255, 207, 0, 0.5);
-    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 207, 0, 0.52);
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-1px);
+    box-shadow: 0 0 0 4px rgba(255, 207, 0, 0.08);
 }
 
 .form-skill-select .custom-select-trigger {
-    min-height: 48px;
-    padding: 0.72rem 0.9rem;
+    min-height: 54px;
+    padding: 0.82rem 1rem;
     padding-right: 3rem;
-    border-radius: 0.9rem;
+    border-radius: 1rem;
     font-size: 0.95rem;
 }
 
@@ -1643,7 +1773,7 @@ footer {
     border: none;
     padding: 0.25rem;
     cursor: pointer;
-    color: var(--text-muted);
+    color: rgba(247, 244, 237, 0.62);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1663,6 +1793,29 @@ footer {
 
 #success-view {
     text-align: center;
+}
+
+.submit-button,
+.proceed-button {
+    background: linear-gradient(135deg, #fff0b8 0%, #ffd55a 42%, #ffb63d 100%);
+    color: #17120b;
+    box-shadow: 0 18px 36px rgba(255, 183, 59, 0.28);
+}
+
+.submit-button:hover,
+.proceed-button:hover {
+    box-shadow: 0 22px 44px rgba(255, 183, 59, 0.34);
+}
+
+.text-switch {
+    margin-top: 1.15rem;
+    color: #ffe188;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+}
+
+.text-switch:hover {
+    color: #fff1bf;
 }
 
 .success-icon {
@@ -1793,14 +1946,16 @@ footer {
 
 @media (max-width: 760px) {
     .modal-overlay {
-        align-items: flex-end;
+        align-items: center;
         padding: 0.75rem;
+        overflow-y: auto;
     }
 
     .modal-content {
         width: 100%;
         padding: 1rem 1.1rem;
         max-height: calc(100dvh - 1.5rem);
+        min-height: 0;
         border-radius: 1.7rem;
     }
 
@@ -1813,19 +1968,38 @@ footer {
     }
 
     .modal-content h2 {
-        font-size: 1.35rem;
+        font-size: 1.5rem;
         margin: 0.2rem 0 0.4rem;
         padding-right: 2.4rem;
     }
 
     .modal-intro {
-        font-size: 0.82rem;
+        font-size: 0.84rem;
         line-height: 1.4;
         margin-bottom: 0.75rem;
     }
 
+    .auth-hero,
+    .auth-form-shell {
+        padding: 1rem;
+        border-radius: 1.25rem;
+    }
+
+    .auth-hero {
+        margin-bottom: 1rem;
+    }
+
+    .auth-pill-row {
+        gap: 0.45rem;
+    }
+
+    .auth-pill {
+        font-size: 0.66rem;
+        padding: 0.42rem 0.68rem;
+    }
+
     .form-group {
-        margin-bottom: 0.5rem;
+        margin-bottom: 0.7rem;
     }
 
     .form-grid-2col {
@@ -1840,14 +2014,14 @@ footer {
 
     .form-group input,
     .form-group select {
-        min-height: 44px;
+        min-height: 46px;
         padding: 0.62rem 0.85rem;
         font-size: 0.93rem;
         border-radius: 0.8rem;
     }
 
     .form-skill-select .custom-select-trigger {
-        min-height: 44px;
+        min-height: 46px;
         padding: 0.62rem 0.85rem;
         padding-right: 2.8rem;
         border-radius: 0.8rem;
@@ -1878,13 +2052,18 @@ footer {
     .topbar {
         width: 100%;
         gap: 0.9rem;
-        align-items: flex-start;
+    }
+
+    .topbar-row {
+        width: 100%;
+        gap: 0.9rem;
+        align-items: center;
     }
 
     .topbar-actions {
         margin-left: auto;
-        align-self: flex-start;
-        margin-top: 0.82rem;
+        align-self: auto;
+        margin-top: 0;
         padding-left: 1.15rem;
     }
 
@@ -2056,6 +2235,13 @@ footer {
     }
 
     .hero-copy h2 {
+        font-size: clamp(2rem, 10vw, 2.9rem);
+        max-width: 13ch;
+        line-height: 1.04;
+    }
+
+    .section-head h3 {
+        font-size: 1.7rem;
         max-width: 12ch;
     }
 
@@ -2123,7 +2309,7 @@ footer {
     }
 
     .brand-logo {
-        width: 92px;
+        width: clamp(120px, 36vw, 156px);
     }
 
     .brand-mark {
@@ -2160,20 +2346,21 @@ footer {
 
 @media (max-width: 480px) {
     .modal-overlay {
-        padding: 1rem;
+        padding: 0.7rem;
         display: flex;
         align-items: center;
         justify-content: center;
+        overflow-y: auto;
     }
 
     .modal-content {
         border-radius: 1.35rem;
-        max-height: 85vh;
-        min-height: 520px;
-        padding: 2.5rem 1.5rem;
+        max-height: calc(100dvh - 1.4rem);
+        min-height: 0;
+        padding: 1rem;
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: flex-start;
     }
 
     .modal-content h2 {
@@ -2181,19 +2368,30 @@ footer {
     }
 
     .modal-intro {
-        font-size: 0.88rem;
+        font-size: 0.84rem;
+        line-height: 1.45;
+    }
+
+    .auth-hero,
+    .auth-form-shell {
+        padding: 0.9rem;
+        border-radius: 1.1rem;
+    }
+
+    .auth-hero {
+        margin-bottom: 0.85rem;
     }
 
     .form-group input,
     .form-group select {
-        min-height: 48px;
+        min-height: 46px;
         border-radius: 0.9rem;
         font-size: 0.92rem;
     }
 
     .submit-button,
     .proceed-button {
-        min-height: 48px;
+        min-height: 46px;
         border-radius: 999px;
         font-size: 0.93rem;
     }
