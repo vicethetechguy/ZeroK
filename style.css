@@ -768,17 +768,12 @@ footer {
     justify-content: space-between;
     gap: 1.25rem;
     margin-bottom: 2rem;
-    padding: 0.45rem 0.35rem 0.85rem;
-    position: sticky;
-    top: 0;
-    z-index: 80;
-    width: 100vw;
-    margin-left: calc(50% - 50vw);
-    padding-left: max(1rem, calc((100vw - 1180px) / 2));
-    padding-right: max(1rem, calc((100vw - 1180px) / 2));
-    background: transparent;
-    backdrop-filter: none;
-    border-bottom: 0;
+    padding: 1rem 1.5rem;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 1.25rem;
+    backdrop-filter: blur(16px);
+    box-shadow: none;
 }
 
 .dashboard-topbar h2 {
