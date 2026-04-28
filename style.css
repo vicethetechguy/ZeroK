@@ -3429,3 +3429,429 @@ footer {
         border-radius: 16px;
     }
 }
+
+/* Task Bar (Bottom Navigation) */
+.task-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #0b0b0b;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: space-around;
+    padding: 0.5rem 0;
+    z-index: 1000;
+    padding-bottom: env(safe-area-inset-bottom, 0.5rem);
+}
+
+.task-bar-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.5rem 0.75rem;
+    background: transparent;
+    border: none;
+    color: rgba(247, 244, 237, 0.5);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.task-bar-item svg {
+    width: 22px;
+    height: 22px;
+}
+
+.task-bar-item span {
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+}
+
+.task-bar-item.active {
+    color: #ffcf00;
+}
+
+.task-bar-item:hover {
+    color: rgba(255, 207, 0, 0.8);
+}
+
+/* Dashboard Redesign */
+.dashboard-shell {
+    width: 100%;
+    max-width: 100vw;
+    padding: 0 0 80px;
+    margin: 0 auto;
+}
+
+.dashboard-topbar {
+    position: sticky;
+    top: 0;
+    z-index: 80;
+    background: #0b0b0b;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1rem 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.dashboard-greeting h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #f7f4ed;
+    margin: 0;
+}
+
+.dashboard-eyebrow {
+    font-size: 0.7rem;
+    color: rgba(247, 244, 237, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.25rem;
+}
+
+.dashboard-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.streak-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    background: linear-gradient(135deg, #ff7b38 0%, #ffcf00 100%);
+    padding: 0.4rem 0.75rem;
+    border-radius: 999px;
+    color: #0b0b0b;
+}
+
+.streak-icon {
+    font-size: 0.9rem;
+}
+
+.streak-count {
+    font-weight: 800;
+    font-size: 0.9rem;
+}
+
+.streak-label {
+    font-size: 0.6rem;
+    font-weight: 600;
+}
+
+.profile-pic-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.profile-pic-btn svg {
+    width: 20px;
+    height: 20px;
+    color: rgba(247, 244, 237, 0.7);
+}
+
+/* Progress Overview Cards */
+.progress-overview {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+    padding: 1rem;
+}
+
+.progress-ring-card {
+    border-radius: 20px;
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 160px;
+}
+
+.progress-ring-card.lime {
+    background: linear-gradient(135deg, #c9f43c 0%, #a8e000 100%);
+    color: #0b0b0b;
+}
+
+.progress-ring-card.blue {
+    background: linear-gradient(135deg, #6188ff 0%, #4a6fd9 100%);
+    color: #f7f4ed;
+}
+
+.progress-ring {
+    position: relative;
+    width: 90px;
+    height: 90px;
+}
+
+.progress-ring svg {
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+}
+
+.progress-ring-bg {
+    fill: none;
+    stroke: rgba(0, 0, 0, 0.15);
+    stroke-width: 8;
+}
+
+.progress-ring-fill {
+    fill: none;
+    stroke: #0b0b0b;
+    stroke-width: 8;
+    stroke-linecap: round;
+    stroke-dasharray: 264;
+    transition: stroke-dashoffset 0.5s ease;
+}
+
+.progress-ring-text {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.progress-percent {
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+
+.progress-label {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    opacity: 0.7;
+}
+
+.progress-card-title {
+    margin-top: 0.75rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.progress-stat {
+    text-align: center;
+    margin-bottom: 0.75rem;
+}
+
+.progress-big-number {
+    display: block;
+    font-size: 2.25rem;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.progress-stat-label {
+    font-size: 0.7rem;
+    opacity: 0.8;
+}
+
+.activity-chart {
+    display: flex;
+    align-items: flex-end;
+    gap: 4px;
+    height: 40px;
+    width: 100%;
+    padding: 0 0.5rem;
+}
+
+.activity-bar {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 3px 3px 0 0;
+    min-height: 8px;
+}
+
+/* Skill Hub Section */
+.skill-hub-section {
+    padding: 0 1rem 1rem;
+}
+
+.skill-hub-section .skill-hub-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.75rem;
+}
+
+.skill-hub-section .skill-hub-header h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #f7f4ed;
+}
+
+.skill-count-badge {
+    background: rgba(255, 207, 0, 0.15);
+    color: #ffcf00;
+    padding: 0.35rem 0.75rem;
+    border-radius: 999px;
+    font-size: 0.7rem;
+    font-weight: 600;
+}
+
+.skill-stack-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+}
+
+/* Referral Progress Card */
+.referral-progress-card {
+    margin: 0 1rem 1rem;
+    padding: 1.25rem;
+    background: #1a1a1a;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.referral-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 0.75rem;
+}
+
+.referral-header h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #f7f4ed;
+    margin-top: 0.25rem;
+}
+
+.referral-stat {
+    background: linear-gradient(135deg, #ffcf00 0%, #ffaa00 100%);
+    color: #0b0b0b;
+    padding: 0.4rem 0.85rem;
+    border-radius: 999px;
+    font-weight: 800;
+    font-size: 0.85rem;
+}
+
+.referral-progress-bar {
+    height: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.referral-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #ffcf00, #ffaa00);
+    border-radius: 999px;
+    width: 0%;
+    transition: width 0.3s ease;
+}
+
+.referral-hint {
+    margin-top: 0.75rem;
+    font-size: 0.8rem;
+    color: rgba(247, 244, 237, 0.5);
+}
+
+/* Dashboard Layout Adjustments */
+.dashboard-layout {
+    padding: 0;
+    gap: 0;
+    background: #0b0b0b;
+}
+
+.dashboard-panel {
+    min-height: auto;
+}
+
+/* Skill Card for new layout */
+.skill-stack-card {
+    min-height: auto;
+    padding: 1rem;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: #1a1a1a;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.skill-stack-card:hover {
+    border-color: rgba(255, 207, 0, 0.3);
+    transform: translateY(-2px);
+}
+
+.skill-card-surface {
+    padding: 0;
+    min-height: auto;
+}
+
+.skill-card-surface.art-code,
+.skill-card-surface.art-design,
+.skill-card-surface.art-video {
+    background: transparent;
+    padding: 0;
+}
+
+.skill-stack-card h4 {
+    font-size: 1.25rem;
+    color: #f7f4ed;
+    margin: 0 0 0.35rem;
+}
+
+.skill-card-copy {
+    color: rgba(247, 244, 237, 0.6);
+    font-size: 0.8rem;
+    line-height: 1.4;
+    margin: 0;
+}
+
+.skill-card-badge {
+    display: inline-block;
+    padding: 0.25rem 0.6rem;
+    background: rgba(255, 207, 0, 0.15);
+    color: #ffcf00;
+    border-radius: 999px;
+    font-size: 0.65rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+}
+
+/* Move skill picker button position */
+.skill-picker-wrap {
+    position: static;
+    margin-top: 0.75rem;
+}
+
+.skill-plus-button {
+    width: 100%;
+    height: 48px;
+    border-radius: 12px;
+    background: rgba(255, 207, 0, 0.1);
+    border: 1px dashed rgba(255, 207, 0, 0.4);
+    color: #ffcf00;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.skill-plus-button:hover {
+    background: rgba(255, 207, 0, 0.15);
+    border-color: rgba(255, 207, 0, 0.6);
+}
+
+/* Hide old sidebar */
+.sidebar {
+    display: none;
+}

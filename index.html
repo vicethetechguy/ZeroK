@@ -141,152 +141,89 @@
     </div>
 
     <div class="dashboard-shell hidden" id="dashboard-shell">
-        <!-- Sidebar Navigation -->
-        <aside class="sidebar" id="sidebar">
-            <div class="sidebar-header">
-                <img src="logo.png" alt="Zero K" class="sidebar-logo">
-                <button type="button" class="sidebar-close" id="sidebar-close" aria-label="Close sidebar">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="18" y1="6" x2="6" y2="18"></line>
-                        <line x1="6" y1="6" x2="18" y2="18"></line>
-                    </svg>
-                </button>
-            </div>
-            <nav class="sidebar-nav">
-                <a href="#" class="sidebar-item active" data-view="dashboard">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <rect x="3" y="3" width="7" height="7"></rect>
-                        <rect x="14" y="3" width="7" height="7"></rect>
-                        <rect x="14" y="14" width="7" height="7"></rect>
-                        <rect x="3" y="14" width="7" height="7"></rect>
-                    </svg>
-                    <span>Dashboard</span>
-                </a>
-                <a href="#" class="sidebar-item" data-view="leaderboard">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
-                        <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
-                        <path d="M4 22h16"></path>
-                        <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path>
-                        <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path>
-                        <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path>
-                    </svg>
-                    <span>Leaderboard</span>
-                </a>
-                <a href="#" class="sidebar-item" data-view="referral">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
-                        <circle cx="9" cy="7" r="4"></circle>
-                        <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
-                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                    </svg>
-                    <span>Referral</span>
-                </a>
-                <a href="#" class="sidebar-item" data-view="wallet">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M21 12V7H5a2 2 0 0 1 0-4h14v4"></path>
-                        <path d="M3 5v14a2 2 0 0 0 2 2h16v-5"></path>
-                        <path d="M18 12a2 2 0 0 0 0 4h4v-4Z"></path>
-                    </svg>
-                    <span>Wallet</span>
-                </a>
-            </nav>
-            <div class="sidebar-footer">
-                <button type="button" class="sidebar-logout" id="sidebar-logout">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
-                        <polyline points="16 17 21 12 16 7"></polyline>
-                        <line x1="21" y1="12" x2="9" y2="12"></line>
-                    </svg>
-                    <span>Log out</span>
-                </button>
-            </div>
-        </aside>
-        <div class="sidebar-overlay" id="sidebar-overlay"></div>
-
         <header class="dashboard-topbar">
-            <button type="button" class="sidebar-toggle" id="sidebar-toggle" aria-label="Open menu">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="3" y1="12" x2="21" y2="12"></line>
-                    <line x1="3" y1="6" x2="21" y2="6"></line>
-                    <line x1="3" y1="18" x2="21" y2="18"></line>
-                </svg>
-            </button>
-            <div>
-                <p class="eyebrow">Zero K Dashboard</p>
-                <h2 id="dashboard-greeting">Welcome</h2>
+            <div class="dashboard-greeting">
+                <p class="dashboard-eyebrow">Welcome back</p>
+                <h2 id="dashboard-greeting">Hi, Learner</h2>
             </div>
-            <button type="button" class="profile-pic-btn" id="open-profile" aria-label="View Profile">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="profile-avatar"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-            </button>
+            <div class="dashboard-header-actions">
+                <div class="streak-badge">
+                    <span class="streak-icon">🔥</span>
+                    <span class="streak-count" id="streak-count">12</span>
+                    <span class="streak-label">day streak</span>
+                </div>
+                <button type="button" class="profile-pic-btn" id="open-profile" aria-label="View Profile">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="profile-avatar"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                </button>
+            </div>
         </header>
 
         <main class="dashboard-layout">
             <section class="dashboard-panel primary-panel" id="dashboard-view">
-                <div class="skill-hub-standalone-zone">
-                    <div class="skill-hub-header">
-                        <div>
-                            <h3>Build Your Stack</h3>
+                <!-- Progress Overview -->
+                <div class="progress-overview">
+                    <div class="progress-ring-card lime">
+                        <div class="progress-ring">
+                            <svg viewBox="0 0 100 100">
+                                <circle class="progress-ring-bg" cx="50" cy="50" r="42"/>
+                                <circle class="progress-ring-fill" cx="50" cy="50" r="42" style="stroke-dashoffset: calc(264 - (264 * 78) / 100);"/>
+                            </svg>
+                            <div class="progress-ring-text">
+                                <span class="progress-percent">78%</span>
+                                <span class="progress-label">Daily</span>
+                            </div>
                         </div>
+                        <p class="progress-card-title">Daily Progress</p>
                     </div>
-                    <p class="dashboard-text skill-hub-text" id="skill-hub-text" style="color: #0b0b0b !important; font-weight: 500;">Your free access is active. Complete the referral challenge to unlock one extra skill and expand this deck.</p>
 
-                    <div class="skill-carousel" id="skill-carousel" aria-label="Unlocked skills">
-                        <div class="skill-card-track" id="skill-card-track">
-                            <!-- Cards injected by JS -->
+                    <div class="progress-ring-card blue">
+                        <div class="progress-stat">
+                            <span class="progress-big-number" id="tasks-done">137</span>
+                            <span class="progress-stat-label">Tasks Done</span>
+                        </div>
+                        <div class="activity-chart">
+                            <div class="activity-bar" style="height: 60%"></div>
+                            <div class="activity-bar" style="height: 80%"></div>
+                            <div class="activity-bar" style="height: 45%"></div>
+                            <div class="activity-bar" style="height: 90%"></div>
+                            <div class="activity-bar" style="height: 70%"></div>
+                            <div class="activity-bar" style="height: 55%"></div>
+                            <div class="activity-bar" style="height: 85%"></div>
                         </div>
                     </div>
-                    <div class="skill-carousel-dots" id="skill-carousel-dots" aria-hidden="true">
-                        <span class="skill-dot active"></span>
+                </div>
+
+                <!-- Skill Stack Section -->
+                <div class="skill-hub-section">
+                    <div class="skill-hub-header">
+                        <h3>Your Skills</h3>
+                        <span class="skill-count-badge"><span id="skill-count">1</span>/3 unlocked</span>
+                    </div>
+                    <div class="skill-stack-grid" id="skill-card-track">
+                        <!-- Cards injected by JS -->
                     </div>
                     <div class="skill-picker-wrap" id="dashboard-skill-picker-wrap">
                         <button type="button" class="skill-plus-button" id="dashboard-skill-plus" aria-expanded="false" aria-label="Add extra skill">+</button>
                     </div>
                 </div>
 
-                <div class="referral-dashboard-row">
-                    <div class="dashboard-card referral-target-card">
-                        <div class="dashboard-card-head referral-card-head">
-                            <div>
-                                <p class="eyebrow">Referral target</p>
-                                <h3>Track progress</h3>
-                            </div>
-                            <div class="stat-circle"><span id="dashboard-referral-count-tile">0</span></div>
+                <!-- Referral Progress -->
+                <div class="referral-progress-card">
+                    <div class="referral-header">
+                        <div>
+                            <p class="eyebrow">Referral Challenge</p>
+                            <h3>Unlock Extra Skill</h3>
                         </div>
-                        <p class="dashboard-text referral-card-copy">Watch your invite count grow as new learners join through your link.</p>
-                    </div>
-
-                    <div class="dashboard-card referral-link-card">
-                        <div class="dashboard-card-head referral-card-head">
-                            <div>
-                                <p class="eyebrow">Referral link</p>
-                                <h3>Share and grow</h3>
-                            </div>
-                            <button type="button" class="ghost-button compact-button referral-copy-btn" id="copy-referral-link">Copy</button>
+                        <div class="referral-stat">
+                            <span id="dashboard-referral-count-tile">0</span>/10
                         </div>
-                        <div class="referral-link-box referral-link-field" id="dashboard-referral-link"></div>
                     </div>
-
-                    <div class="dashboard-card referral-task-card">
-                    <p class="eyebrow">Unlock an extra skill</p>
-                    <h3>Complete the referral task</h3>
-                    <p class="dashboard-text">Refer 10 friends with your unique link and unlock one additional skill at no cost.</p>
-                    <div class="dashboard-progress-block">
-                        <div class="progress-header">
-                            <span>Referral progress</span>
-                            <strong><span id="dashboard-referral-count">0</span>/10</strong>
-                        </div>
-                        <div class="progress-track" aria-hidden="true">
-                            <div class="progress-fill" id="dashboard-referral-progress-fill"></div>
-                        </div>
-                        <p class="dashboard-progress-note" id="dashboard-referral-note">You need 10 successful referrals to unlock one extra skill.</p>
+                    <div class="referral-progress-bar">
+                        <div class="referral-progress-fill" id="dashboard-referral-progress-fill"></div>
                     </div>
-                    <button type="button" class="cta-button dashboard-cta" id="open-referral-task">Go to Task</button>
-                    </div>
+                    <p class="referral-hint">Refer 10 friends to unlock one additional skill</p>
                 </div>
             </section>
-
-            <section class="dashboard-panel sidebar-panel" id="dashboard-sidebar"></section>
 
             <section class="dashboard-panel secondary-panel hidden full-span" id="profile-view">
                 <div class="dashboard-card">
@@ -325,83 +262,42 @@
                     </div>
                 </div>
             </section>
-
-            <section class="dashboard-panel secondary-panel hidden full-span" id="referral-view">
-                <div class="dashboard-card">
-                    <div class="dashboard-card-head">
-                        <div>
-                            <p class="eyebrow">Referral challenge</p>
-                            <h3>Invite 10 friends</h3>
-                        </div>
-                        <button type="button" class="ghost-button compact-button" id="back-to-dashboard">Back</button>
-                    </div>
-
-                    <p class="dashboard-text">Share your link, track progress, and unlock one extra skill when your referral
-                        count reaches 10.</p>
-
-                    <div class="referral-link-box large-link" id="referral-page-link"></div>
-
-                    <div class="progress-header">
-                        <span>Referral progress</span>
-                        <strong><span id="referral-count">0</span>/10</strong>
-                    </div>
-
-                    <div class="progress-track" aria-hidden="true">
-                        <div class="progress-fill" id="referral-progress-fill"></div>
-                    </div>
-
-                    <div class="unlock-card" id="unlock-status-card">
-                        <p class="eyebrow">Task status</p>
-                        <h4 id="unlock-status-title">Keep sharing your link</h4>
-                        <p id="unlock-status-text">You need 10 successful referrals to unlock one extra skill.</p>
-                    </div>
-                </div>
-            </section>
-
-            <section class="dashboard-panel detail-panel hidden full-span" id="skill-detail-view">
-                <div class="dashboard-card skill-detail-card">
-                    <div class="dashboard-card-head skill-detail-head">
-                        <div>
-                            <p class="eyebrow" id="skill-detail-badge">Skill track</p>
-                            <h3 id="skill-detail-title">Skill roadmap</h3>
-                        </div>
-                        <button type="button" class="ghost-button compact-button" id="back-from-skill-detail">Back</button>
-                    </div>
-
-                    <p class="dashboard-text skill-detail-intro" id="skill-detail-intro">See what this beginner-friendly training path covers.</p>
-
-                    <div class="skill-detail-hero">
-                        <div class="skill-detail-summary">
-                            <p class="skill-detail-summary-label">What this skill means</p>
-                            <p class="skill-detail-summary-copy" id="skill-detail-description"></p>
-                        </div>
-                        <div class="skill-detail-note">
-                            <p class="skill-detail-summary-label">Class scheduling</p>
-                            <p class="skill-detail-summary-copy">Class days and session times will be communicated inside each learner group.</p>
-                        </div>
-                    </div>
-
-                    <div class="skill-detail-grid">
-                        <article class="skill-detail-block">
-                            <p class="eyebrow">Week 1</p>
-                            <h4>Foundation and setup</h4>
-                            <ul class="skill-detail-list" id="skill-detail-week-one"></ul>
-                        </article>
-
-                        <article class="skill-detail-block">
-                            <p class="eyebrow">Week 2</p>
-                            <h4>Practice and output</h4>
-                            <ul class="skill-detail-list" id="skill-detail-week-two"></ul>
-                        </article>
-                    </div>
-
-                    <div class="skill-detail-outcome">
-                        <p class="eyebrow">By the end</p>
-                        <p class="skill-detail-summary-copy" id="skill-detail-outcome"></p>
-                    </div>
-                </div>
-            </section>
         </main>
+
+        <!-- Bottom Task Bar -->
+        <nav class="task-bar" id="task-bar">
+            <button class="task-bar-item active" data-view="dashboard" id="nav-dashboard">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                </svg>
+                <span>Dashboard</span>
+            </button>
+            <button class="task-bar-item" data-view="leaderboard" id="nav-leaderboard">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M8 21h8M12 17v4M6 13l6-9 6 9M4 21h.01M20 21h.01"></path>
+                    <circle cx="12" cy="7" r="3"></circle>
+                </svg>
+                <span>Leaderboard</span>
+            </button>
+            <button class="task-bar-item" data-view="referral" id="nav-referral">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+                <span>Referral</span>
+            </button>
+            <button class="task-bar-item" data-view="wallet" id="nav-wallet">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 12V7H5a2 2 0 0 1 0-4h14v4"></path>
+                    <path d="M3 5v14a2 2 0 0 0 2 2h16v-5"></path>
+                    <path d="M18 12h.01"></path>
+                </svg>
+                <span>Wallet</span>
+            </button>
+        </nav>
     </div>
 
     <div id="skill-picker-overlay" class="picker-overlay hidden" aria-hidden="true">
