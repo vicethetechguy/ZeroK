@@ -262,38 +262,186 @@
                     </div>
                 </div>
             </section>
+
+            <!-- Referral View -->
+            <section class="dashboard-panel secondary-panel hidden full-span" id="referral-view">
+                <div class="dashboard-card referral-full-card">
+                    <div class="dashboard-card-head">
+                        <div>
+                            <p class="eyebrow">Referral Program</p>
+                            <h3>Share & Earn</h3>
+                        </div>
+                        <button type="button" class="ghost-button compact-button" id="back-to-dashboard-from-referral">Back</button>
+                    </div>
+                    
+                    <div class="referral-hero-section">
+                        <div class="referral-hero-icon">🎁</div>
+                        <h4>Refer 10 friends to unlock an extra skill</h4>
+                        <p class="referral-hero-text">Share your unique referral link with friends. When they sign up, your progress increases!</p>
+                    </div>
+
+                    <div class="referral-link-section">
+                        <label class="form-label">Your Referral Link</label>
+                        <div class="referral-link-box" id="dashboard-referral-link"></div>
+                        <button type="button" class="cta-button" id="copy-referral-link" style="margin-top: 0.75rem;">
+                            Copy Link
+                        </button>
+                    </div>
+
+                    <div class="referral-progress-section">
+                        <div class="progress-header">
+                            <span>Current Progress</span>
+                            <strong><span id="referral-view-count">0</span>/10</strong>
+                        </div>
+                        <div class="progress-track">
+                            <div class="progress-fill" id="referral-view-progress-fill"></div>
+                        </div>
+                        <p class="dashboard-progress-note" id="referral-view-note">You need 10 successful referrals to unlock one extra skill.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Skill Detail View -->
+            <section class="dashboard-panel secondary-panel hidden full-span" id="skill-detail-view">
+                <div class="dashboard-card skill-detail-card">
+                    <div class="dashboard-card-head">
+                        <div>
+                            <p class="eyebrow" id="skill-detail-eyebrow">Skill Path</p>
+                            <h3 id="skill-detail-title">Skill Name</h3>
+                        </div>
+                        <button type="button" class="ghost-button compact-button" id="back-from-skill-detail">Back</button>
+                    </div>
+
+                    <div class="skill-detail-badge-row">
+                        <span class="skill-card-badge" id="skill-detail-badge">Badge</span>
+                    </div>
+
+                    <div class="skill-detail-summary">
+                        <p class="skill-detail-summary-label">Overview</p>
+                        <p class="skill-detail-summary-copy" id="skill-detail-intro">Description here</p>
+                    </div>
+
+                    <div class="skill-detail-block">
+                        <h4>Week 1</h4>
+                        <ul class="skill-detail-list" id="skill-detail-week-one"></ul>
+                    </div>
+
+                    <div class="skill-detail-block">
+                        <h4>Week 2</h4>
+                        <ul class="skill-detail-list" id="skill-detail-week-two"></ul>
+                    </div>
+
+                    <div class="skill-detail-outcome">
+                        <p class="skill-detail-summary-label">Outcome</p>
+                        <p class="skill-detail-summary-copy" id="skill-detail-outcome">Outcome text here</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Leaderboard View -->
+            <section class="dashboard-panel secondary-panel hidden full-span" id="leaderboard-view">
+                <div class="dashboard-card">
+                    <div class="dashboard-card-head">
+                        <div>
+                            <p class="eyebrow">Community</p>
+                            <h3>Leaderboard</h3>
+                        </div>
+                    </div>
+                    
+                    <div class="leaderboard-list">
+                        <div class="leaderboard-item">
+                            <span class="leaderboard-rank">1</span>
+                            <div class="leaderboard-user">
+                                <div class="leaderboard-avatar">👑</div>
+                                <div>
+                                    <p class="leaderboard-name">Top Learner</p>
+                                    <p class="leaderboard-score">250 tasks completed</p>
+                                </div>
+                            </div>
+                            <span class="leaderboard-streak">🔥 15 days</span>
+                        </div>
+                        <div class="leaderboard-item">
+                            <span class="leaderboard-rank">2</span>
+                            <div class="leaderboard-user">
+                                <div class="leaderboard-avatar">🥈</div>
+                                <div>
+                                    <p class="leaderboard-name">Rising Star</p>
+                                    <p class="leaderboard-score">180 tasks completed</p>
+                                </div>
+                            </div>
+                            <span class="leaderboard-streak">🔥 12 days</span>
+                        </div>
+                        <div class="leaderboard-item">
+                            <span class="leaderboard-rank">3</span>
+                            <div class="leaderboard-user">
+                                <div class="leaderboard-avatar">🥉</div>
+                                <div>
+                                    <p class="leaderboard-name">Quick Learner</p>
+                                    <p class="leaderboard-score">150 tasks completed</p>
+                                </div>
+                            </div>
+                            <span class="leaderboard-streak">🔥 10 days</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Wallet View -->
+            <section class="dashboard-panel secondary-panel hidden full-span" id="wallet-view">
+                <div class="dashboard-card">
+                    <div class="dashboard-card-head">
+                        <div>
+                            <p class="eyebrow">Rewards</p>
+                            <h3>Wallet</h3>
+                        </div>
+                    </div>
+                    
+                    <div class="wallet-balance">
+                        <p class="wallet-balance-label">Available Points</p>
+                        <p class="wallet-balance-amount">0</p>
+                        <p class="wallet-balance-hint">Complete tasks to earn points</p>
+                    </div>
+
+                    <div class="wallet-activity">
+                        <h4>Recent Activity</h4>
+                        <p class="wallet-empty-state">No activity yet. Start learning to earn rewards!</p>
+                    </div>
+                </div>
+            </section>
         </main>
 
         <!-- Bottom Task Bar -->
         <nav class="task-bar" id="task-bar">
-            <button class="task-bar-item active" data-view="dashboard" id="nav-dashboard">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+            <button type="button" class="task-bar-item active" data-view="dashboard">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="3" width="7" height="9"></rect>
+                    <rect x="14" y="3" width="7" height="5"></rect>
+                    <rect x="14" y="12" width="7" height="9"></rect>
+                    <rect x="3" y="16" width="7" height="5"></rect>
                 </svg>
                 <span>Dashboard</span>
             </button>
-            <button class="task-bar-item" data-view="leaderboard" id="nav-leaderboard">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M8 21h8M12 17v4M6 13l6-9 6 9M4 21h.01M20 21h.01"></path>
-                    <circle cx="12" cy="7" r="3"></circle>
+            <button type="button" class="task-bar-item" data-view="leaderboard">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 20V10"></path>
+                    <path d="M12 20V4"></path>
+                    <path d="M6 20v-6"></path>
                 </svg>
                 <span>Leaderboard</span>
             </button>
-            <button class="task-bar-item" data-view="referral" id="nav-referral">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                    <circle cx="9" cy="7" r="4"></circle>
-                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+            <button type="button" class="task-bar-item" data-view="referral">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path>
+                    <polyline points="16 6 12 2 8 6"></polyline>
+                    <line x1="12" y1="2" x2="12" y2="15"></line>
                 </svg>
                 <span>Referral</span>
             </button>
-            <button class="task-bar-item" data-view="wallet" id="nav-wallet">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <button type="button" class="task-bar-item" data-view="wallet">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M21 12V7H5a2 2 0 0 1 0-4h14v4"></path>
                     <path d="M3 5v14a2 2 0 0 0 2 2h16v-5"></path>
-                    <path d="M18 12h.01"></path>
+                    <path d="M18 12a2 2 0 0 0 0 4h4v-4Z"></path>
                 </svg>
                 <span>Wallet</span>
             </button>
@@ -524,15 +672,71 @@
                 await sb.auth.signOut();
                 dashboardData = null;
                 localStorage.removeItem('zerok_dashboard_data');
-                closeSidebar();
                 // The onAuthStateChange listener handles the rest
             });
         }
 
         const dashboardView = document.getElementById('dashboard-view');
-        const dashboardSidebar = document.getElementById('dashboard-sidebar');
         const referralView = document.getElementById('referral-view');
         const skillDetailView = document.getElementById('skill-detail-view');
+        const leaderboardView = document.getElementById('leaderboard-view');
+        const walletView = document.getElementById('wallet-view');
+        const taskBar = document.getElementById('task-bar');
+        const taskBarItems = taskBar.querySelectorAll('.task-bar-item');
+
+        // Show view function for task bar navigation
+        const showView = (viewName) => {
+            // Hide all views
+            dashboardView.classList.add('hidden');
+            referralView.classList.add('hidden');
+            skillDetailView.classList.add('hidden');
+            profileView.classList.add('hidden');
+            leaderboardView.classList.add('hidden');
+            walletView.classList.add('hidden');
+
+            // Update task bar active state
+            taskBarItems.forEach(item => {
+                item.classList.remove('active');
+                if (item.dataset.view === viewName) {
+                    item.classList.add('active');
+                }
+            });
+
+            // Show the selected view
+            switch(viewName) {
+                case 'dashboard':
+                    dashboardView.classList.remove('hidden');
+                    break;
+                case 'referral':
+                    referralView.classList.remove('hidden');
+                    break;
+                case 'leaderboard':
+                    leaderboardView.classList.remove('hidden');
+                    break;
+                case 'wallet':
+                    walletView.classList.remove('hidden');
+                    break;
+            }
+
+            window.scrollTo(0, 0);
+        };
+
+        // Task bar click handlers
+        taskBarItems.forEach(item => {
+            item.addEventListener('click', () => {
+                showView(item.dataset.view);
+            });
+        });
+
+        // Back button handlers for views
+        document.getElementById('back-to-dashboard-from-referral')?.addEventListener('click', () => showView('dashboard'));
+        document.getElementById('back-from-skill-detail')?.addEventListener('click', () => showView('dashboard'));
+
+        const referralViewCount = document.getElementById('referral-view-count');
+        const referralViewProgressFill = document.getElementById('referral-view-progress-fill');
+        const referralViewNote = document.getElementById('referral-view-note');
+
+        const dashboardSidebar = document.getElementById('dashboard-sidebar');
         const referralCountEl = document.getElementById('referral-count');
         const referralProgressFill = document.getElementById('referral-progress-fill');
         const dashboardReferralCountEl = document.getElementById('dashboard-referral-count');
@@ -969,621 +1173,631 @@ ${referralLink}`;
         };
 
         const renderSkillCarouselDots = (cardCount) => {
-            skillCarouselDots.innerHTML = Array.from({ length: cardCount }, (_, index) => '<span class="skill-dot' + (index === 0 ? ' active' : '') + '" data-index="' + index + '"></span>').join('');
-        };
+            const dots = document.createElement('div');
+            dots.classList.add('skill-carousel-dots');
 
-        const updateSkillCarouselState = () => {
-            const cards = skillCardTrack.querySelectorAll('.skill-stack-card');
-            if (!cards.length) {
-                return;
-            }
-
-            const cardWidth = cards[0].offsetWidth || 1;
-            const activeIndex = Math.min(cards.length - 1, Math.round(skillCarousel.scrollLeft / cardWidth));
-
-            skillCarouselDots.querySelectorAll('.skill-dot').forEach((dot, index) => {
-                dot.classList.toggle('active', index === activeIndex);
-            });
-        };
-
-        const renderSkillCards = () => {
-            const cards = [
-                {
-                    eyebrow: 'Primary skill',
-                    title: dashboardData.skill,
-                    copy: 'Your training lane is ready. Tap this card to join your peers and see the beginner roadmap for this skill.',
-                    className: 'primary'
+            for (let i = 0; i < cardCount; i++) {
+                const dot = document.createElement('button');
+                dot.setAttribute('aria-label', `Slide ${i + 1}`);
+                dot.setAttribute('data-index', i);
+                dot.classList.add('dot');
+                if (i === 0) {
+                    dot.classList.add('active');
                 }
-            ];
-
-            if (dashboardData.extraSkill) {
-                cards.push({
-                    eyebrow: 'Unlocked skill',
-                    title: dashboardData.extraSkill,
-                    copy: 'This extra track is now open. Tap this card to view the 2-week beginner breakdown for this skill.',
-                    className: 'secondary'
-                });
+                dots.appendChild(dot);
             }
 
-            skillCardTrack.innerHTML = cards.map((card) => {
-                return buildSkillCardMarkup(card);
+            return dots;
+        };
+
+        const buildPendingDashboardData = (data) => {
+            const normalizedData = enrichDashboardData(data);
+            normalizedData.extraSkill = '';
+            normalizedData.referralsVerified = false;
+            return normalizedData;
+        };
+
+        const sanitizeDashboardData = (data) => {
+            const normalizedData = enrichDashboardData(data);
+            normalizedData.referrals = Math.max(0, Number(normalizedData.referrals || 0));
+
+            if (!normalizedData.referralsVerified || normalizedData.referrals < 10) {
+                normalizedData.extraSkill = '';
+            }
+
+            return normalizedData;
+        };
+
+        const mapProfileToDashboardData = (profile, email) => {
+            return {
+                name: profile.username || '',
+                email: email || '',
+                skill: profile.selected_skill || '',
+                extraSkill: profile.extra_skill || '',
+                referralLink: profile.referral_link || '',
+                referrals: Number(profile.referral_count || 0),
+                referralsVerified: true,
+                avatarUrl: profile.avatar_url || ''
+            };
+        };
+
+        const hasUnlockedExtraSkill = () => dashboardData.referralsVerified && dashboardData.referrals >= 10;
+
+        const normalizeSkillName = (skill) => availableSkills.includes(skill) ? skill : availableSkills[0];
+
+        const buildSkillDetailList = (items) => {
+            return items.map((item) => '<li>' + item + '</li>').join('');
+        };
+
+        const renderSkillDetail = (skillName) => {
+            const normalizedSkill = normalizeSkillName(skillName);
+            const plan = skillLearningPlans[normalizedSkill];
+
+            skillDetailBadge.textContent = plan.badge;
+            skillDetailTitle.textContent = normalizedSkill;
+            skillDetailIntro.textContent = plan.intro;
+            skillDetailDescription.textContent = plan.description;
+            skillDetailWeekOne.innerHTML = buildSkillDetailList(plan.weekOne);
+            skillDetailWeekTwo.innerHTML = buildSkillDetailList(plan.weekTwo);
+            skillDetailOutcome.textContent = plan.outcome;
+        };
+
+        const buildSkillCardMarkup = (card) => {
+            const normalizedSkill = normalizeSkillName(card.title);
+            const theme = skillVisualThemes[normalizedSkill] || skillVisualThemes[availableSkills[0]];
+
+            const iconSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="skill-card-icon"><path d="M8 5l8 7-8 7"></path></svg>`;
+
+            return '<article class="skill-stack-card ' + card.className + '" data-skill="' + normalizedSkill + '" role="button" tabindex="0" aria-label="Open ' + normalizedSkill + ' training plan">'
+                + '<div class="skill-card-surface ' + theme.artClass + '">'
+                + '<span class="skill-card-badge">' + theme.badge + '</span>'
+                + '<div class="skill-card-main">'
+                + '<div class="skill-card-content">'
+                + '<h4>' + card.title + '</h4>'
+                + '<p class="skill-card-copy">' + card.copy + '</p>'
+                + '</div>'
+                + '<div class="skill-card-hint" aria-hidden="true">' + iconSvg + '</div>'
+                + '</div>'
+                + '<span class="skill-card-link-label">Open 2-week training breakdown</span>'
+                + '</div>'
+                + '</article>';
+        };
+
+        const applyUnlockRules = () => {
+            const sanitizedData = sanitizeDashboardData(dashboardData);
+            const hasChanged = sanitizedData.extraSkill !== dashboardData.extraSkill
+                || sanitizedData.referrals !== dashboardData.referrals
+                || sanitizedData.referralsVerified !== dashboardData.referralsVerified
+                || sanitizedData.name !== dashboardData.name
+                || sanitizedData.email !== dashboardData.email
+                || sanitizedData.skill !== dashboardData.skill
+                || sanitizedData.referralLink !== dashboardData.referralLink;
+
+            dashboardData = sanitizedData;
+
+            if (hasChanged) {
+                persistDashboardData();
+            }
+        };
+
+        const syncProfileFromSupabase = async (userId, userEmail) => {
+            const { data, error } = await sb
+                .from('profiles')
+                .select('*')
+                .eq('id', userId)
+                .single();
+
+            if (error || !data) return false;
+
+            const saved = getSavedDashboardData();
+            dashboardData = sanitizeDashboardData(mapProfileToDashboardData(data, userEmail));
+            if (saved && saved.email === dashboardData.email && saved.skill === dashboardData.skill) {
+                dashboardData.extraSkill = saved.extraSkill || '';
+            }
+            applyUnlockRules();
+            persistDashboardData();
+            if (!dashboardShell.classList.contains('hidden')) populateDashboard();
+            return true;
+        };
+
+        const getAvailableExtraSkills = () => {
+            return availableSkills.filter((skill) => skill !== dashboardData.skill);
+        };
+
+        const closeDashboardSkillPicker = () => {
+            dashboardSkillPickerWrap.classList.remove('open');
+            dashboardSkillPlusButton.setAttribute('aria-expanded', 'false');
+            dashboardSkillMenu.classList.add('hidden');
+            skillPickerOverlay.classList.add('hidden');
+            skillPickerOverlay.setAttribute('aria-hidden', 'true');
+        };
+
+        const openDashboardSkillPicker = () => {
+            renderDashboardSkillMenu();
+            dashboardSkillPickerWrap.classList.add('open');
+            dashboardSkillPlusButton.setAttribute('aria-expanded', 'true');
+            skillPickerOverlay.classList.remove('hidden');
+            skillPickerOverlay.setAttribute('aria-hidden', 'false');
+            dashboardSkillMenu.classList.remove('hidden');
+        };
+
+        const closeUnlockRequiredPopup = () => {
+            unlockRequiredOverlay.classList.add('hidden');
+            unlockRequiredOverlay.setAttribute('aria-hidden', 'true');
+        };
+
+        const openUnlockRequiredPopup = () => {
+            unlockRequiredOverlay.classList.remove('hidden');
+            unlockRequiredOverlay.setAttribute('aria-hidden', 'false');
+        };
+
+        const renderDashboardSkillMenu = () => {
+            const extraSkillOptions = getAvailableExtraSkills();
+
+            dashboardSkillMenu.innerHTML = extraSkillOptions.map((skill) => {
+                const activeClass = dashboardData.extraSkill === skill ? ' active' : '';
+                const selectedState = dashboardData.extraSkill === skill ? 'true' : 'false';
+                return '<button type="button" class="custom-select-option' + activeClass + '" data-value="' + skill + '" aria-selected="' + selectedState + '">' + skill + '</button>';
             }).join('');
 
-            let dotsHTML = '';
-            cards.forEach((card, i) => {
-                const isActive = i === 0 ? 'active' : '';
-                dotsHTML += `<span class="skill-dot ${isActive}"></span>`;
-            });
-            skillCarouselDots.innerHTML = dotsHTML;
-
-            applyUnlockRules();
-            skillCarousel.scrollLeft = 0;
-            skillCarousel.classList.toggle('has-secondary-card', Boolean(dashboardData.extraSkill));
-            updateSkillCarouselState();
-        };
-
-        const updateReferralProgress = () => {
-            applyUnlockRules();
-
-            const countedReferrals = dashboardData.referralsVerified ? dashboardData.referrals : 0;
-            const cappedReferrals = Math.min(countedReferrals, 10);
-            const progress = (cappedReferrals / 10) * 100;
-
-            referralCountEl.textContent = cappedReferrals;
-            referralProgressFill.style.width = progress + '%';
-            dashboardReferralCountEl.textContent = cappedReferrals;
-            dashboardReferralCountTile.textContent = cappedReferrals;
-            dashboardReferralProgressFill.style.width = progress + '%';
-
-            if (!dashboardData.referralsVerified) {
-                unlockStatusCard.classList.remove('unlocked');
-                unlockStatusTitle.textContent = 'Checking referrals';
-                unlockStatusText.textContent = 'We are confirming your latest referral count from the system.';
-                dashboardReferralNote.textContent = 'Checking your latest referral progress before unlock is allowed.';
-                openReferralTaskButton.classList.remove('hidden');
-                dashboardSkillPickerWrap.classList.add('locked');
-                dashboardSkillPlusButton.setAttribute('aria-label', 'Extra skill locked');
-                dashboardSkillPlusButton.setAttribute('aria-disabled', 'true');
-                return;
-            }
-
-            if (cappedReferrals >= 10) {
-                unlockStatusCard.classList.add('unlocked');
-                unlockStatusTitle.textContent = 'Extra skill unlocked';
-                unlockStatusText.textContent = 'You have completed the task. Your dashboard can now grant one additional skill.';
-                dashboardReferralNote.textContent = 'Referral target reached. You can now unlock one extra skill.';
-                openReferralTaskButton.classList.add('hidden');
-                dashboardSkillPickerWrap.classList.remove('locked');
-                dashboardSkillPlusButton.setAttribute('aria-label', 'Choose your extra skill');
-                dashboardSkillPlusButton.setAttribute('aria-disabled', 'false');
-            } else {
-                unlockStatusCard.classList.remove('unlocked');
-                unlockStatusTitle.textContent = 'Keep sharing your link';
-                unlockStatusText.textContent = 'You need ' + (10 - cappedReferrals) + ' more referrals to unlock one extra skill.';
-                dashboardReferralNote.textContent = 'You need ' + (10 - cappedReferrals) + ' more successful referrals to unlock your extra skill.';
-                openReferralTaskButton.classList.remove('hidden');
-                dashboardSkillPickerWrap.classList.add('locked');
-                dashboardSkillPlusButton.setAttribute('aria-label', 'Extra skill locked');
-                dashboardSkillPlusButton.setAttribute('aria-disabled', 'true');
-            }
-        };
-
-        const populateDashboard = () => {
-            applyUnlockRules();
-            dashboardGreeting.textContent = 'Welcome, ' + dashboardData.name;
-            if (dashboardSkillName) dashboardSkillName.textContent = dashboardData.skill;
-            const skillMicroName = document.getElementById('skill-micro-name');
-            if (skillMicroName) skillMicroName.textContent = dashboardData.skill;
-            dashboardReferralLink.textContent = dashboardData.referralLink;
-            referralPageLink.textContent = dashboardData.referralLink;
-            renderDashboardSkillMenu();
-            renderSkillCards();
-            updateReferralProgress();
-            skillHubText.textContent = hasUnlockedExtraSkill()
-                ? 'Your extra slot is ready. Tap the plus icon to drop down the remaining skills and add a fresh card to your stack.'
-                : 'Your free access is active. Complete the referral challenge to unlock one extra skill and expand this deck.';
-
-            const topbarAvatarBtn = document.getElementById('open-profile');
-            const profilePreviewEl = document.getElementById('profile-image-preview');
-            const profileUserDisplay = document.getElementById('profile-username-display');
-            const profileMailDisplay = document.getElementById('profile-email-display');
-            
-            if (profileUserDisplay) profileUserDisplay.value = dashboardData.name || '';
-            if (profileMailDisplay) profileMailDisplay.value = dashboardData.email || '';
-
-            if (dashboardData.avatarUrl) {
-                if (topbarAvatarBtn) {
-                    topbarAvatarBtn.innerHTML = '<img src="' + dashboardData.avatarUrl + '" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%; width: 44px; height: 44px;">';
-                }
-                if (profilePreviewEl) {
-                    profilePreviewEl.innerHTML = '<img src="' + dashboardData.avatarUrl + '" style="width: 100%; height: 100%; object-fit: cover;">';
-                }
-            } else {
-                const defaultAvatarSvg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="profile-avatar" style="width: 22px; height: 22px; color: var(--text-black);"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>';
-                if (topbarAvatarBtn) topbarAvatarBtn.innerHTML = defaultAvatarSvg;
-                if (profilePreviewEl) profilePreviewEl.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 40px; height: 40px; color: var(--text-muted);"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>';
-            }
-        };
-
-        const showDashboard = () => {
-            landingShell.classList.add('hidden');
-            dashboardShell.classList.remove('hidden');
-            dashboardView.classList.remove('hidden');
-            dashboardSidebar.classList.remove('hidden');
-            referralView.classList.add('hidden');
-            skillDetailView.classList.add('hidden');
-            profileView.classList.add('hidden');
-            document.body.style.background = 'radial-gradient(circle at top center, rgba(255, 255, 255, 0.32), transparent 24%), linear-gradient(180deg, #e6d5ff 0%, #cbb2ff 22%, #ffd968 58%, #ffcf00 100%)';
-            populateDashboard();
-            closeCurrentModal();
-            window.scrollTo(0, 0);
-        };
-
-        const showReferralView = () => {
-            dashboardView.classList.add('hidden');
-            dashboardSidebar.classList.add('hidden');
-            referralView.classList.remove('hidden');
-            skillDetailView.classList.add('hidden');
-        };
-
-        const showDashboardHome = () => {
-            dashboardView.classList.remove('hidden');
-            dashboardSidebar.classList.remove('hidden');
-            referralView.classList.add('hidden');
-            skillDetailView.classList.add('hidden');
-        };
-
-        const showSkillDetailView = (skillName) => {
-            renderSkillDetail(skillName);
-            dashboardView.classList.add('hidden');
-            dashboardSidebar.classList.add('hidden');
-            referralView.classList.add('hidden');
-            skillDetailView.classList.remove('hidden');
-        };
-
-        const countdownInterval = setInterval(() => {
-            const now = new Date().getTime();
-            const distance = campaignDeadline - now;
-
-            if (distance <= 0) {
-                clearInterval(countdownInterval);
-                daysEl.textContent = '00';
-                hoursEl.textContent = '00';
-                minutesEl.textContent = '00';
-                secondsEl.textContent = '00';
-                currentPriceLabel.textContent = 'Access';
-                mainPrice.textContent = 'Free';
-                return;
-            }
-
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            daysEl.textContent = days.toString().padStart(2, '0');
-            hoursEl.textContent = hours.toString().padStart(2, '0');
-            minutesEl.textContent = minutes.toString().padStart(2, '0');
-            secondsEl.textContent = seconds.toString().padStart(2, '0');
-        }, 1000);
-
-        landingSkillTrigger.addEventListener('click', () => {
-            toggleCustomSelect(landingSkillSelect, landingSkillTrigger, landingSkillMenu);
-        });
-
-        signupSkillTrigger.addEventListener('click', () => {
-            toggleCustomSelect(signupSkillSelect, signupSkillTrigger, signupSkillMenu);
-        });
-
-        landingSkillMenu.querySelectorAll('.custom-select-option').forEach((option) => {
-            option.addEventListener('click', () => {
-                updateSelectedSkill(option.dataset.value);
-                closeCustomSelect(landingSkillSelect, landingSkillTrigger, landingSkillMenu);
-            });
-        });
-
-        signupSkillMenu.querySelectorAll('.custom-select-option').forEach((option) => {
-            option.addEventListener('click', () => {
-                updateSelectedSkill(option.dataset.value);
-                closeCustomSelect(signupSkillSelect, signupSkillTrigger, signupSkillMenu);
-            });
-        });
-
-        ctaButton.addEventListener('click', (e) => {
-            e.preventDefault();
-
-            if (selectedSkills.length < 1) {
-                showToast('Please select a minimum of 1 skill before proceeding.');
-                return;
-            }
-
-            renderSelectedSkills();
-            showRegisterView();
-            openModal();
-        });
-
-        openSigninButton.addEventListener('click', () => {
-            showSigninView();
-            openModal();
-        });
-
-        switchToSigninButton.addEventListener('click', showSigninView);
-        switchToRegisterButton.addEventListener('click', showRegisterView);
-
-        closeModal.addEventListener('click', closeCurrentModal);
-
-        modalOverlay.addEventListener('click', (e) => {
-            if (e.target === modalOverlay) {
-                closeCurrentModal();
-            }
-        });
-
-        // Password visibility toggles
-        document.addEventListener('click', (e) => {
-            const toggle = e.target.closest('.pw-toggle');
-            if (!toggle) return;
-            const input = document.getElementById(toggle.dataset.target);
-            if (!input) return;
-            const isHidden = input.type === 'password';
-            input.type = isHidden ? 'text' : 'password';
-            toggle.querySelector('.eye-icon').classList.toggle('hidden', isHidden);
-            toggle.querySelector('.eye-off-icon').classList.toggle('hidden', !isHidden);
-            toggle.setAttribute('aria-label', isHidden ? 'Hide password' : 'Show password');
-        });
-        document.addEventListener('click', (e) => {
-            if (!landingSkillSelect.contains(e.target)) {
-                closeCustomSelect(landingSkillSelect, landingSkillTrigger, landingSkillMenu);
-            }
-
-            if (!signupSkillSelect.contains(e.target)) {
-                closeCustomSelect(signupSkillSelect, signupSkillTrigger, signupSkillMenu);
-            }
-        });
-
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && !modalOverlay.classList.contains('hidden')) {
-                closeCurrentModal();
-            }
-
-            if (e.key === 'Escape') {
-                closeCustomSelect(landingSkillSelect, landingSkillTrigger, landingSkillMenu);
-                closeCustomSelect(signupSkillSelect, signupSkillTrigger, signupSkillMenu);
-                closeDashboardSkillPicker();
-                closeUnlockRequiredPopup();
-            }
-        });
-
-        registrationForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-
-            if (selectedSkills.length < 1) {
-                showToast('Please select a minimum of 1 skill before proceeding.');
-                return;
-            }
-
-            const username    = regUsernameInput.value.trim();
-            const email       = regEmailInput.value.trim();
-            const password    = regPasswordInput.value;
-            const skill       = selectedSkills[0];
-            const referralCode = referralCodeInput.value.trim();
-            const referralLink = buildReferralLink(username);
-
-            if (!username) { showToast('Please enter a username.'); return; }
-
-            const originalText = submitBtn.textContent;
-            submitBtn.textContent = 'Creating account...';
-            submitBtn.disabled = true;
-
-            // 1. Create Supabase auth user
-            const { data: authData, error: authError } = await sb.auth.signUp({ email, password });
-
-            if (authError) {
-                submitBtn.textContent = originalText;
-                submitBtn.disabled = false;
-                showToast(authError.message || 'Registration failed. Please try again.');
-                return;
-            }
-
-            const userId = authData.user.id;
-
-            // 2. Upsert profile row
-            const { error: profileError } = await sb.from('profiles').upsert({
-                id: userId,
-                username,
-                email,
-                selected_skill: skill,
-                referral_link: referralLink,
-                referral_code: referralCode || null,
-                referral_count: 0,
-                extra_skill: null
-            });
-
-            if (profileError) {
-                submitBtn.textContent = originalText;
-                submitBtn.disabled = false;
-                showToast('Account created but profile save failed. Contact support.');
-                return;
-            }
-
-            // 3. Track referral if a referral code was provided
-            if (referralCode) {
-                await sb.rpc('increment_referral_count', { ref_slug: referralCode }).catch(() => {});
-            }
-
-            // 4. Immediately sign the user in — no email verification needed
-            const { data: signInData, error: signInError } = await sb.auth.signInWithPassword({ email, password });
-
-            submitBtn.textContent = originalText;
-            submitBtn.disabled = false;
-
-            if (signInError || !signInData.session) {
-                // Signed up but couldn't auto-sign-in — show success and let them sign in manually
-                dashboardData = { name: username, email, skill, extraSkill: '', referralLink, referrals: 0, referralsVerified: false };
-                persistDashboardData();
-                formView.classList.add('hidden');
-                successView.classList.remove('hidden');
-                registrationForm.reset();
-                resetSelections();
-                return;
-            }
-
-            // Auto-signed in — go straight to dashboard
-            dashboardData = { name: username, email, skill, extraSkill: '', referralLink, referrals: 0, referralsVerified: false };
-            persistDashboardData();
-            registrationForm.reset();
-            resetSelections();
-            closeCurrentModal();
-            showDashboard();
-        });
-
-        signinForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-
-            const email    = document.getElementById('signinEmail').value.trim();
-            const password = signinPasswordInput.value;
-            const originalText = signinBtn.textContent;
-
-            signinBtn.textContent = 'Signing In...';
-            signinBtn.disabled = true;
-
-            const { data: authData, error: authError } = await sb.auth.signInWithPassword({ email, password });
-
-            if (authError) {
-                signinBtn.textContent = originalText;
-                signinBtn.disabled = false;
-                showToast(authError.message || 'Sign in failed. Check your credentials.');
-                return;
-            }
-
-            const userId = authData.user.id;
-            signinForm.reset();
-            signinBtn.textContent = originalText;
-            signinBtn.disabled = false;
-            closeCurrentModal();
-
-            const found = await syncProfileFromSupabase(userId, email);
-            if (!found) {
-                // Profile missing: Create fallback session data so they can still access the dashboard
-                dashboardData = { 
-                    name: email.split('@')[0], 
-                    email: email, 
-                    skill: availableSkills[0], 
-                    extraSkill: '', 
-                    referralLink: window.location.origin + '?ref=' + Math.random().toString(36).substring(2, 10), 
-                    referrals: 0, 
-                    referralsVerified: false 
-                };
-                persistDashboardData();
-            }
-            
-            showDashboard();
-        });
-
-        // Profile Listeners
-        openProfileBtn.addEventListener('click', () => {
-            if (!dashboardData) return;
-            profileUsernameDisplay.value = dashboardData.name || '';
-            profileEmailDisplay.value = dashboardData.email || '';
-            dashboardView.classList.add('hidden');
-            dashboardSidebar.classList.add('hidden');
-            referralView.classList.add('hidden');
-            skillDetailView.classList.add('hidden');
-            profileView.classList.remove('hidden');
-            window.scrollTo(0, 0);
-        });
-
-        backToDashboardFromProfile.addEventListener('click', showDashboard);
-
-        logoutBtn.addEventListener('click', async () => {
-            const originalText = logoutBtn.textContent;
-            logoutBtn.textContent = 'Signing out...';
-            logoutBtn.disabled = true;
-            
-            await sb.auth.signOut();
-            dashboardData = null;
-            localStorage.removeItem('zerok_dashboard_data');
-            
-            logoutBtn.textContent = originalText;
-            logoutBtn.disabled = false;
-            // The onAuthStateChange listener takes care of updating views on sign-out
-        });
-
-        const profileImageUpload = document.getElementById('profile-image-upload');
-        const profileImagePreview = document.getElementById('profile-image-preview');
-
-        profileImageUpload.addEventListener('change', async (e) => {
-            const file = e.target.files[0];
-            if (!file) return;
-            
-            if (file.size > 2 * 1024 * 1024) {
-                showToast('Image must be less than 2MB');
-                return;
-            }
-
-            const reader = new FileReader();
-            reader.onload = async (event) => {
-                const base64String = event.target.result;
-                
-                // Preview immediately in UI
-                profileImagePreview.innerHTML = '<img src="' + base64String + '" style="width: 100%; height: 100%; object-fit: cover;">';
-                
-                const topbarAvatarBtn = document.getElementById('open-profile');
-                if (topbarAvatarBtn) {
-                    topbarAvatarBtn.innerHTML = '<img src="' + base64String + '" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%; width: 44px; height: 44px;">';
-                }
-
-                // Save to local state immediately
-                if (!dashboardData) {
-                    dashboardData = { name: '', email: '', skill: '', extraSkill: '', referralLink: '', referrals: 0, referralsVerified: false };
-                }
-                dashboardData.avatarUrl = base64String;
-                persistDashboardData();
-
-                const { data: { session } } = await sb.auth.getSession();
-                if (session) {
-                    const userId = session.user.id;
-                    
-                    // Step 1: Save base64 to profiles table (primary persistence)
-                    const { error: dbError } = await sb.from('profiles').update({ avatar_url: base64String }).eq('id', userId);
-                    
-                    if (dbError) {
-                        console.error('Failed to save avatar to profile:', dbError);
-                        showToast('Failed to save profile picture. Please try again.');
+            dashboardSkillMenu.querySelectorAll('.custom-select-option').forEach((option) => {
+                option.addEventListener('click', () => {
+                    if (!hasUnlockedExtraSkill()) {
+                        showToast('Refer 10 friends to unlock your extra skill slot.');
                         return;
                     }
 
-                    // Step 2: Try to upload to storage for a cleaner URL (optional enhancement)
-                    const fileExt = file.name.split('.').pop();
-                    const filePath = userId + '.' + fileExt;
-
-                    const { error: uploadError } = await sb.storage.from('avatars').upload(filePath, file, { upsert: true });
-                    
-                    if (uploadError) {
-                        // Storage failed, but base64 is already saved - this is fine
-                        console.warn('Storage upload skipped (bucket may not exist):', uploadError.message);
-                        showToast('Profile picture saved!');
-                    } else {
-                        // Storage succeeded - update with public URL
-                        const { data: { publicUrl } } = sb.storage.from('avatars').getPublicUrl(filePath);
-                        await sb.from('profiles').update({ avatar_url: publicUrl }).eq('id', userId);
-                        dashboardData.avatarUrl = publicUrl;
-                        persistDashboardData();
-                        showToast('Profile picture updated successfully!');
-                    }
-                } else {
-                    showToast('Profile picture saved locally!');
-                }
-            };
-            reader.readAsDataURL(file);
-        });
-
-        dashboardLink.addEventListener('click', showDashboard);
-        openReferralTaskButton.addEventListener('click', showReferralView);
-        backToDashboardButton.addEventListener('click', showDashboard);
-        backFromSkillDetailButton.addEventListener('click', showDashboard);
-
-        dashboardSkillPlusButton.addEventListener('click', () => {
-            if (!hasUnlockedExtraSkill()) {
-                openUnlockRequiredPopup();
-                return;
-            }
-
-            const isOpen = dashboardSkillPickerWrap.classList.contains('open');
-            closeCustomSelect(landingSkillSelect, landingSkillTrigger, landingSkillMenu);
-            closeCustomSelect(signupSkillSelect, signupSkillTrigger, signupSkillMenu);
-
-            if (isOpen) {
-                closeDashboardSkillPicker();
-                return;
-            }
-
-            openDashboardSkillPicker();
-        });
-
-        closeSkillPickerButton.addEventListener('click', closeDashboardSkillPicker);
-        closeUnlockRequiredButton.addEventListener('click', closeUnlockRequiredPopup);
-        unlockRequiredOkButton.addEventListener('click', closeUnlockRequiredPopup);
-
-        skillPickerOverlay.addEventListener('click', (e) => {
-            if (e.target === skillPickerOverlay) {
-                closeDashboardSkillPicker();
-            }
-        });
-
-        unlockRequiredOverlay.addEventListener('click', (e) => {
-            if (e.target === unlockRequiredOverlay) {
-                closeUnlockRequiredPopup();
-            }
-        });
-
-        skillCarousel.addEventListener('scroll', updateSkillCarouselState);
-
-        skillCardTrack.addEventListener('click', (event) => {
-            const skillCard = event.target.closest('.skill-stack-card');
-            if (!skillCard) {
-                return;
-            }
-
-            showSkillDetailView(skillCard.dataset.skill);
-        });
-
-        skillCardTrack.addEventListener('keydown', (event) => {
-            const skillCard = event.target.closest('.skill-stack-card');
-            if (!skillCard) {
-                return;
-            }
-
-            if (event.key === 'Enter' || event.key === ' ') {
-                event.preventDefault();
-                showSkillDetailView(skillCard.dataset.skill);
-            }
-        });
-
-        copyReferralLinkButton.addEventListener('click', async () => {
-            if (!dashboardData.referralLink) {
-                return;
-            }
-
-            try {
-                await navigator.clipboard.writeText(buildReferralMessage(dashboardData.referralLink));
-                showToast('Referral message copied.');
-            } catch (error) {
-                showToast('Copy failed. You can still share the link manually.');
-            }
-        });
-
-        // ── Auto-restore session via Supabase ────────────────────────────────────
-        sb.auth.getSession().then(async ({ data: { session } }) => {
-            if (session) {
-                const found = await syncProfileFromSupabase(session.user.id, session.user.email);
-                if (!found) {
-                    dashboardData = { 
-                        name: session.user.email.split('@')[0], 
-                        email: session.user.email, 
-                        skill: availableSkills[0], 
-                        extraSkill: '', 
-                        referralLink: window.location.origin + '?ref=' + Math.random().toString(36).substring(2, 10), 
-                        referrals: 0, 
-                        referralsVerified: false 
-                    };
+                    dashboardData.extraSkill = option.dataset.value;
                     persistDashboardData();
+                    renderSkillCards();
+                    closeDashboardSkillPicker();
+                    showToast(option.dataset.value + ' has been added to your dashboard.');
+                });
+            });
+        };
+
+        const renderSkillCarouselDots = (cardCount) => {
+            const dots = document.createElement('div');
+            dots.classList.add('skill-carousel-dots');
+
+            for (let i = 0; i < cardCount; i++) {
+                const dot = document.createElement('button');
+                dot.setAttribute('aria-label', `Slide ${i + 1}`);
+                dot.setAttribute('data-index', i);
+                dot.classList.add('dot');
+                if (i === 0) {
+                    dot.classList.add('active');
                 }
-                showDashboard();
+                dots.appendChild(dot);
             }
-        });
 
-        sb.auth.onAuthStateChange(async (event, session) => {
-            if (event === 'SIGNED_OUT') {
-                localStorage.removeItem('zeroKDashboardData');
-                dashboardShell.classList.add('hidden');
-                landingShell.classList.remove('hidden');
-                document.body.style.background = 'radial-gradient(circle at top center, rgba(255, 255, 255, 0.32), transparent 24%), linear-gradient(180deg, #e6d5ff 0%, #cbb2ff 22%, #ffd968 58%, #ffcf00 100%)';
+            return dots;
+        };
+
+        const buildPendingDashboardData = (data) => {
+            const normalizedData = enrichDashboardData(data);
+            normalizedData.extraSkill = '';
+            normalizedData.referralsVerified = false;
+            return normalizedData;
+        };
+
+        const sanitizeDashboardData = (data) => {
+            const normalizedData = enrichDashboardData(data);
+            normalizedData.referrals = Math.max(0, Number(normalizedData.referrals || 0));
+
+            if (!normalizedData.referralsVerified || normalizedData.referrals < 10) {
+                normalizedData.extraSkill = '';
             }
-        });
 
-        updateSelectionCount();
-        footerText.innerHTML = '&copy; ' + new Date().getFullYear() + ' Zero K. All rights reserved.';
-    </script>
-</body>
+            return normalizedData;
+        };
 
-</html>
+        const mapProfileToDashboardData = (profile, email) => {
+            return {
+                name: profile.username || '',
+                email: email || '',
+                skill: profile.selected_skill || '',
+                extraSkill: profile.extra_skill || '',
+                referralLink: profile.referral_link || '',
+                referrals: Number(profile.referral_count || 0),
+                referralsVerified: true,
+                avatarUrl: profile.avatar_url || ''
+            };
+        };
+
+        const hasUnlockedExtraSkill = () => dashboardData.referralsVerified && dashboardData.referrals >= 10;
+
+        const normalizeSkillName = (skill) => availableSkills.includes(skill) ? skill : availableSkills[0];
+
+        const buildSkillDetailList = (items) => {
+            return items.map((item) => '<li>' + item + '</li>').join('');
+        };
+
+        const renderSkillDetail = (skillName) => {
+            const normalizedSkill = normalizeSkillName(skillName);
+            const plan = skillLearningPlans[normalizedSkill];
+
+            skillDetailBadge.textContent = plan.badge;
+            skillDetailTitle.textContent = normalizedSkill;
+            skillDetailIntro.textContent = plan.intro;
+            skillDetailDescription.textContent = plan.description;
+            skillDetailWeekOne.innerHTML = buildSkillDetailList(plan.weekOne);
+            skillDetailWeekTwo.innerHTML = buildSkillDetailList(plan.weekTwo);
+            skillDetailOutcome.textContent = plan.outcome;
+        };
+
+        const buildSkillCardMarkup = (card) => {
+            const normalizedSkill = normalizeSkillName(card.title);
+            const theme = skillVisualThemes[normalizedSkill] || skillVisualThemes[availableSkills[0]];
+
+            const iconSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="skill-card-icon"><path d="M8 5l8 7-8 7"></path></svg>`;
+
+            return '<article class="skill-stack-card ' + card.className + '" data-skill="' + normalizedSkill + '" role="button" tabindex="0" aria-label="Open ' + normalizedSkill + ' training plan">'
+                + '<div class="skill-card-surface ' + theme.artClass + '">'
+                + '<span class="skill-card-badge">' + theme.badge + '</span>'
+                + '<div class="skill-card-main">'
+                + '<div class="skill-card-content">'
+                + '<h4>' + card.title + '</h4>'
+                + '<p class="skill-card-copy">' + card.copy + '</p>'
+                + '</div>'
+                + '<div class="skill-card-hint" aria-hidden="true">' + iconSvg + '</div>'
+                + '</div>'
+                + '<span class="skill-card-link-label">Open 2-week training breakdown</span>'
+                + '</div>'
+                + '</article>';
+        };
+
+        const applyUnlockRules = () => {
+            const sanitizedData = sanitizeDashboardData(dashboardData);
+            const hasChanged = sanitizedData.extraSkill !== dashboardData.extraSkill
+                || sanitizedData.referrals !== dashboardData.referrals
+                || sanitizedData.referralsVerified !== dashboardData.referralsVerified
+                || sanitizedData.name !== dashboardData.name
+                || sanitizedData.email !== dashboardData.email
+                || sanitizedData.skill !== dashboardData.skill
+                || sanitizedData.referralLink !== dashboardData.referralLink;
+
+            dashboardData = sanitizedData;
+
+            if (hasChanged) {
+                persistDashboardData();
+            }
+        };
+
+        const syncProfileFromSupabase = async (userId, userEmail) => {
+            const { data, error } = await sb
+                .from('profiles')
+                .select('*')
+                .eq('id', userId)
+                .single();
+
+            if (error || !data) return false;
+
+            const saved = getSavedDashboardData();
+            dashboardData = sanitizeDashboardData(mapProfileToDashboardData(data, userEmail));
+            if (saved && saved.email === dashboardData.email && saved.skill === dashboardData.skill) {
+                dashboardData.extraSkill = saved.extraSkill || '';
+            }
+            applyUnlockRules();
+            persistDashboardData();
+            if (!dashboardShell.classList.contains('hidden')) populateDashboard();
+            return true;
+        };
+
+        const getAvailableExtraSkills = () => {
+            return availableSkills.filter((skill) => skill !== dashboardData.skill);
+        };
+
+        const closeDashboardSkillPicker = () => {
+            dashboardSkillPickerWrap.classList.remove('open');
+            dashboardSkillPlusButton.setAttribute('aria-expanded', 'false');
+            dashboardSkillMenu.classList.add('hidden');
+            skillPickerOverlay.classList.add('hidden');
+            skillPickerOverlay.setAttribute('aria-hidden', 'true');
+        };
+
+        const openDashboardSkillPicker = () => {
+            renderDashboardSkillMenu();
+            dashboardSkillPickerWrap.classList.add('open');
+            dashboardSkillPlusButton.setAttribute('aria-expanded', 'true');
+            skillPickerOverlay.classList.remove('hidden');
+            skillPickerOverlay.setAttribute('aria-hidden', 'false');
+            dashboardSkillMenu.classList.remove('hidden');
+        };
+
+        const closeUnlockRequiredPopup = () => {
+            unlockRequiredOverlay.classList.add('hidden');
+            unlockRequiredOverlay.setAttribute('aria-hidden', 'true');
+        };
+
+        const openUnlockRequiredPopup = () => {
+            unlockRequiredOverlay.classList.remove('hidden');
+            unlockRequiredOverlay.setAttribute('aria-hidden', 'false');
+        };
+
+        const renderDashboardSkillMenu = () => {
+            const extraSkillOptions = getAvailableExtraSkills();
+
+            dashboardSkillMenu.innerHTML = extraSkillOptions.map((skill) => {
+                const activeClass = dashboardData.extraSkill === skill ? ' active' : '';
+                const selectedState = dashboardData.extraSkill === skill ? 'true' : 'false';
+                return '<button type="button" class="custom-select-option' + activeClass + '" data-value="' + skill + '" aria-selected="' + selectedState + '">' + skill + '</button>';
+            }).join('');
+
+            dashboardSkillMenu.querySelectorAll('.custom-select-option').forEach((option) => {
+                option.addEventListener('click', () => {
+                    if (!hasUnlockedExtraSkill()) {
+                        showToast('Refer 10 friends to unlock your extra skill slot.');
+                        return;
+                    }
+
+                    dashboardData.extraSkill = option.dataset.value;
+                    persistDashboardData();
+                    renderSkillCards();
+                    closeDashboardSkillPicker();
+                    showToast(option.dataset.value + ' has been added to your dashboard.');
+                });
+            });
+        };
+
+        const renderSkillCarouselDots = (cardCount) => {
+            const dots = document.createElement('div');
+            dots.classList.add('skill-carousel-dots');
+
+            for (let i = 0; i < cardCount; i++) {
+                const dot = document.createElement('button');
+                dot.setAttribute('aria-label', `Slide ${i + 1}`);
+                dot.setAttribute('data-index', i);
+                dot.classList.add('dot');
+                if (i === 0) {
+                    dot.classList.add('active');
+                }
+                dots.appendChild(dot);
+            }
+
+            return dots;
+        };
+
+        const buildPendingDashboardData = (data) => {
+            const normalizedData = enrichDashboardData(data);
+            normalizedData.extraSkill = '';
+            normalizedData.referralsVerified = false;
+            return normalizedData;
+        };
+
+        const sanitizeDashboardData = (data) => {
+            const normalizedData = enrichDashboardData(data);
+            normalizedData.referrals = Math.max(0, Number(normalizedData.referrals || 0));
+
+            if (!normalizedData.referralsVerified || normalizedData.referrals < 10) {
+                normalizedData.extraSkill = '';
+            }
+
+            return normalizedData;
+        };
+
+        const mapProfileToDashboardData = (profile, email) => {
+            return {
+                name: profile.username || '',
+                email: email || '',
+                skill: profile.selected_skill || '',
+                extraSkill: profile.extra_skill || '',
+                referralLink: profile.referral_link || '',
+                referrals: Number(profile.referral_count || 0),
+                referralsVerified: true,
+                avatarUrl: profile.avatar_url || ''
+            };
+        };
+
+        const hasUnlockedExtraSkill = () => dashboardData.referralsVerified && dashboardData.referrals >= 10;
+
+        const normalizeSkillName = (skill) => availableSkills.includes(skill) ? skill : availableSkills[0];
+
+        const buildSkillDetailList = (items) => {
+            return items.map((item) => '<li>' + item + '</li>').join('');
+        };
+
+        const renderSkillDetail = (skillName) => {
+            const normalizedSkill = normalizeSkillName(skillName);
+            const plan = skillLearningPlans[normalizedSkill];
+
+            skillDetailBadge.textContent = plan.badge;
+            skillDetailTitle.textContent = normalizedSkill;
+            skillDetailIntro.textContent = plan.intro;
+            skillDetailDescription.textContent = plan.description;
+            skillDetailWeekOne.innerHTML = buildSkillDetailList(plan.weekOne);
+            skillDetailWeekTwo.innerHTML = buildSkillDetailList(plan.weekTwo);
+            skillDetailOutcome.textContent = plan.outcome;
+        };
+
+        const buildSkillCardMarkup = (card) => {
+            const normalizedSkill = normalizeSkillName(card.title);
+            const theme = skillVisualThemes[normalizedSkill] || skillVisualThemes[availableSkills[0]];
+
+            const iconSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="skill-card-icon"><path d="M8 5l8 7-8 7"></path></svg>`;
+
+            return '<article class="skill-stack-card ' + card.className + '" data-skill="' + normalizedSkill + '" role="button" tabindex="0" aria-label="Open ' + normalizedSkill + ' training plan">'
+                + '<div class="skill-card-surface ' + theme.artClass + '">'
+                + '<span class="skill-card-badge">' + theme.badge + '</span>'
+                + '<div class="skill-card-main">'
+                + '<div class="skill-card-content">'
+                + '<h4>' + card.title + '</h4>'
+                + '<p class="skill-card-copy">' + card.copy + '</p>'
+                + '</div>'
+                + '<div class="skill-card-hint" aria-hidden="true">' + iconSvg + '</div>'
+                + '</div>'
+                + '<span class="skill-card-link-label">Open 2-week training breakdown</span>'
+                + '</div>'
+                + '</article>';
+        };
+
+        const applyUnlockRules = () => {
+            const sanitizedData = sanitizeDashboardData(dashboardData);
+            const hasChanged = sanitizedData.extraSkill !== dashboardData.extraSkill
+                || sanitizedData.referrals !== dashboardData.referrals
+                || sanitizedData.referralsVerified !== dashboardData.referralsVerified
+                || sanitizedData.name !== dashboardData.name
+                || sanitizedData.email !== dashboardData.email
+                || sanitizedData.skill !== dashboardData.skill
+                || sanitizedData.referralLink !== dashboardData.referralLink;
+
+            dashboardData = sanitizedData;
+
+            if (hasChanged) {
+                persistDashboardData();
+            }
+        };
+
+        const syncProfileFromSupabase = async (userId, userEmail) => {
+            const { data, error } = await sb
+                .from('profiles')
+                .select('*')
+                .eq('id', userId)
+                .single();
+
+            if (error || !data) return false;
+
+            const saved = getSavedDashboardData();
+            dashboardData = sanitizeDashboardData(mapProfileToDashboardData(data, userEmail));
+            if (saved && saved.email === dashboardData.email && saved.skill === dashboardData.skill) {
+                dashboardData.extraSkill = saved.extraSkill || '';
+            }
+            applyUnlockRules();
+            persistDashboardData();
+            if (!dashboardShell.classList.contains('hidden')) populateDashboard();
+            return true;
+        };
+
+        const getAvailableExtraSkills = () => {
+            return availableSkills.filter((skill) => skill !== dashboardData.skill);
+        };
+
+        const closeDashboardSkillPicker = () => {
+            dashboardSkillPickerWrap.classList.remove('open');
+            dashboardSkillPlusButton.setAttribute('aria-expanded', 'false');
+            dashboardSkillMenu.classList.add('hidden');
+            skillPickerOverlay.classList.add('hidden');
+            skillPickerOverlay.setAttribute('aria-hidden', 'true');
+        };
+
+        const openDashboardSkillPicker = () => {
+            renderDashboardSkillMenu();
+            dashboardSkillPickerWrap.classList.add('open');
+            dashboardSkillPlusButton.setAttribute('aria-expanded', 'true');
+            skillPickerOverlay.classList.remove('hidden');
+            skillPickerOverlay.setAttribute('aria-hidden', 'false');
+            dashboardSkillMenu.classList.remove('hidden');
+        };
+
+        const closeUnlockRequiredPopup = () => {
+            unlockRequiredOverlay.classList.add('hidden');
+            unlockRequiredOverlay.setAttribute('aria-hidden', 'true');
+        };
+
+        const openUnlockRequiredPopup = () => {
+            unlockRequiredOverlay.classList.remove('hidden');
+            unlockRequiredOverlay.setAttribute('aria-hidden', 'false');
+        };
+
+        const renderDashboardSkillMenu = () => {
+            const extraSkillOptions = getAvailableExtraSkills();
+
+            dashboardSkillMenu.innerHTML = extraSkillOptions.map((skill) => {
+                const activeClass = dashboardData.extraSkill === skill ? ' active' : '';
+                const selectedState = dashboardData.extraSkill === skill ? 'true' : 'false';
+                return '<button type="button" class="custom-select-option' + activeClass + '" data-value="' + skill + '" aria-selected="' + selectedState + '">' + skill + '</button>';
+            }).join('');
+
+            dashboardSkillMenu.querySelectorAll('.custom-select-option').forEach((option) => {
+                option.addEventListener('click', () => {
+                    if (!hasUnlockedExtraSkill()) {
+                        showToast('Refer 10 friends to unlock your extra skill slot.');
+                        return;
+                    }
+
+                    dashboardData.extraSkill = option.dataset.value;
+                    persistDashboardData();
+                    renderSkillCards();
+                    closeDashboardSkillPicker();
+                    showToast(option.dataset.value + ' has been added to your dashboard.');
+                });
+            });
+        };
+
+        const renderSkillCarouselDots = (cardCount) => {
+            const dots = document.createElement('div');
+            dots.classList.add('skill-carousel-dots');
+
+            for (let i = 0; i < cardCount; i++) {
+                const dot = document.createElement('button');
+                dot.setAttribute('aria-label', `Slide ${i + 1}`);
+                dot.setAttribute('data-index', i);
+                dot.classList.add('dot');
+                if (i === 0) {
+                    dot.classList.add('active');
+                }
+                dots.appendChild(dot);
+            }
+
+            return dots;
+        };
+
+        const buildPendingDashboardData = (data) => {
+            const normalizedData = enrichDashboardData(data);
+            normalizedData.extraSkill = '';
+            normalizedData.referralsVerified = false;
+            return normalizedData;
+        };
+
+        const sanitizeDashboardData = (data) => {
+            const normalizedData = enrichDashboardData(data);
+            normalizedData.referrals = Math.max(0, Number(normalizedData.referrals || 0));
+
+            if (!normalizedData.referralsVerified || normalizedData.referrals < 10) {
+                normalizedData.extraSkill = '';
+            }
+
+            return normalizedData;
+        };
+
+        const mapProfileToDashboardData = (profile, email) => {
+            return {
+                name: profile.username || '',
+                email: email || '',
+                skill: profile.selected_skill || '',
+                extraSkill: profile.extra_skill || '',
+                referralLink: profile.referral_link || '',
+                referrals: Number(profile.referral_count || 0),
+                referralsVerified: true,
+                avatarUrl: profile.avatar_url || ''
+            };
+        };
+
+        const hasUnlockedExtraSkill = () => dashboardData.referralsVerified && dashboardData.referrals >= 10;
+
+        const normalizeSkillName = (skill) => availableSkills.includes(skill) ? skill : availableSkills[0];
+
+        const buildSkillDetailList = (items) => {
+            return items.map((item) => '<li>' + item + '</li>').join('');
+        };
+
+        const renderSkillDetail = (skillName) => {
+            const normalizedSkill = normalizeSkillName(skillName);
+            const plan = skillLearningPlans[normalizedSkill];
+
+            skillDetailBadge.textContent = plan.badge;
+            skillDetailTitle.textContent = normalizedSkill;
+            skillDetailIntro.textContent = plan.intro;
+            skillDetailDescription.textContent = plan.description;
+            skillDetailWeekOne.innerHTML = buildSkillDetailList(plan.weekOne);
+            skillDetailWeekTwo.innerHTML = buildSkillDetailList(plan.weekTwo);
+            skillDetailOutcome.textContent = plan.outcome;
+        };
+
+        const buildSkillCardMarkup = (card) => {
+            const normalizedSkill = normalizeSkillName(card.title);
+            const theme = skillVisualThemes[normalizedSkill] || skillVisualThemes[availableSkills[0]];
+
+            const iconSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="skill-card-icon"><path d="M8 5l8 7-8 7"></path></svg>`;
+
+            return '<article class="skill-stack-card ' + card.className + '"
