@@ -174,46 +174,7 @@
             </div>
 
             <!-- Skill Hub Section -->
-            <div class="skill-hub-section">
-                <h3 class="skill-hub-title">Build Your Stack</h3>
-                <p class="skill-hub-text" id="skill-hub-text">Your free access is active. Complete the referral challenge to unlock one extra skill.</p>
-
-                <div class="skill-carousel" id="skill-carousel">
-                    <div class="skill-card-track" id="skill-card-track">
-                        <!-- Cards injected by JS -->
-                    </div>
-                </div>
-
-                <!-- Add Skill Button -->
-                <div class="skill-picker-wrap" id="dashboard-skill-picker-wrap">
-                    <button type="button" class="skill-plus-button" id="dashboard-skill-plus" aria-label="Add extra skill">+</button>
-                </div>
-            </div>
-
-            <!-- Quick Stats -->
-            <div class="quick-stats">
-                <div class="stat-card">
-                    <div class="stat-card-icon green">📊</div>
-                    <div class="stat-card-content">
-                        <h4>Progress</h4>
-                        <p class="stat-value">78%</p>
-                    </div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-card-icon blue">🔥</div>
-                    <div class="stat-card-content">
-                        <h4>Streak</h4>
-                        <p class="stat-value">12 Days</p>
-                    </div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-card-icon orange">⭐</div>
-                    <div class="stat-card-content">
-                        <h4>Points</h4>
-                        <p class="stat-value" id="wallet-points">250</p>
-                    </div>
-                </div>
-            </div>
+            <!-- Skill Hub moved to Bootcamps -->
             
             <!-- Social Feed Section -->
             <div class="feed-section">
@@ -239,58 +200,99 @@
 
         <!-- Bootcamps View -->
         <section class="bootcamps-view hidden" id="bootcamps-view">
+            <!-- Header -->
             <div class="dashboard-welcome-card">
                 <h2>Bootcamps 🚀</h2>
                 <p>Intensive training programs to level up your skills</p>
             </div>
 
-            <div class="bootcamp-card">
-                <div class="bootcamp-card-header">
-                    <div class="bootcamp-card-icon">💻</div>
-                    <div class="bootcamp-card-title">
-                        <h4>Vibe Coding</h4>
-                        <span>2-Week Program</span>
+            <!-- Skill Hub Section -->
+            <div class="skill-hub-section">
+                <h3 class="skill-hub-title">Build Your Stack</h3>
+                <p class="skill-hub-text" id="skill-hub-text-bootcamps">Your free access is active. Complete the referral challenge to unlock one extra skill.</p>
+
+                <div class="skill-carousel" id="skill-carousel-bootcamps">
+                    <div class="skill-card-track" id="skill-card-track-bootcamps">
+                        <!-- Cards injected by JS -->
                     </div>
                 </div>
-                <div class="bootcamp-card-body">
-                    <p>Learn to build apps using AI-assisted coding techniques. From idea to deployment.</p>
-                    <div class="bootcamp-card-footer">
-                        <span class="bootcamp-card-meta">📍 Remote • 🕒 10hrs/week</span>
-                        <button class="copy-btn" style="width: auto; padding: 0.5rem 1rem;">Join</button>
-                    </div>
+
+                <!-- Add Skill Button -->
+                <div class="skill-picker-wrap" id="bootcamps-skill-picker-wrap">
+                    <button type="button" class="skill-plus-button" id="bootcamps-skill-plus" aria-label="Add extra skill">+</button>
                 </div>
             </div>
 
-            <div class="bootcamp-card">
-                <div class="bootcamp-card-header blue">
-                    <div class="bootcamp-card-icon">🎨</div>
-                    <div class="bootcamp-card-title">
-                        <h4>Graphics Design</h4>
-                        <span>2-Week Program</span>
-                    </div>
-                </div>
-                <div class="bootcamp-card-body">
-                    <p>Master design principles, typography, and create stunning visual content.</p>
-                    <div class="bootcamp-card-footer">
-                        <span class="bootcamp-card-meta">📍 Remote • 🕒 10hrs/week</span>
-                        <button class="copy-btn" style="width: auto; padding: 0.5rem 1rem;">Join</button>
-                    </div>
-                </div>
+            <!-- Category Tabs -->
+            <div class="category-tabs">
+                <button class="category-tab active">All Programs</button>
+                <button class="category-tab">Coding</button>
+                <button class="category-tab">Design</button>
+                <button class="category-tab">Video</button>
             </div>
 
-            <div class="bootcamp-card">
-                <div class="bootcamp-card-header orange">
-                    <div class="bootcamp-card-icon">🎬</div>
-                    <div class="bootcamp-card-title">
-                        <h4>Video Editing</h4>
-                        <span>2-Week Program</span>
+            <!-- Bootcamp Cards -->
+            <div class="bootcamp-cards-grid">
+                <div class="bootcamp-card">
+                    <div class="bootcamp-card-header green">
+                        <div class="bootcamp-card-icon">💻</div>
+                        <div class="bootcamp-card-title">
+                            <h4>Vibe Coding</h4>
+                            <span class="bootcamp-duration">2-Week Program</span>
+                        </div>
+                        <span class="bootcamp-badge active">Active</span>
+                    </div>
+                    <div class="bootcamp-card-body">
+                        <p>Learn to build apps using AI-assisted coding techniques. From idea to deployment in 2 weeks.</p>
+                        <div class="bootcamp-progress">
+                            <div class="progress-header">
+                                <span>Progress</span>
+                                <span>78%</span>
+                            </div>
+                            <div class="progress-track">
+                                <div class="progress-fill" style="width: 78%;"></div>
+                            </div>
+                        </div>
+                        <div class="bootcamp-card-footer">
+                            <span class="bootcamp-meta">📍 Remote • 🕒 10hrs/week</span>
+                            <button class="copy-btn bootcamp-continue-btn">Continue</button>
+                        </div>
                     </div>
                 </div>
-                <div class="bootcamp-card-body">
-                    <p>Create engaging videos from raw footage. Learn cutting, transitions, and storytelling.</p>
-                    <div class="bootcamp-card-footer">
-                        <span class="bootcamp-card-meta">📍 Remote • 🕒 10hrs/week</span>
-                        <button class="copy-btn" style="width: auto; padding: 0.5rem 1rem;">Join</button>
+
+                <div class="bootcamp-card">
+                    <div class="bootcamp-card-header blue">
+                        <div class="bootcamp-card-icon">🎨</div>
+                        <div class="bootcamp-card-title">
+                            <h4>Graphics Design</h4>
+                            <span class="bootcamp-duration">2-Week Program</span>
+                        </div>
+                        <span class="bootcamp-badge locked">Locked</span>
+                    </div>
+                    <div class="bootcamp-card-body">
+                        <p>Master design principles, typography, and create stunning visual content.</p>
+                        <div class="bootcamp-card-footer">
+                            <span class="bootcamp-meta">📍 Remote • 🕒 10hrs/week</span>
+                            <button class="copy-btn bootcamp-unlock-btn" disabled>Refer 10 friends to unlock</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bootcamp-card">
+                    <div class="bootcamp-card-header orange">
+                        <div class="bootcamp-card-icon">🎬</div>
+                        <div class="bootcamp-card-title">
+                            <h4>Video Editing</h4>
+                            <span class="bootcamp-duration">2-Week Program</span>
+                        </div>
+                        <span class="bootcamp-badge locked">Locked</span>
+                    </div>
+                    <div class="bootcamp-card-body">
+                        <p>Learn to edit, cut, and produce professional videos with modern tools.</p>
+                        <div class="bootcamp-card-footer">
+                            <span class="bootcamp-meta">📍 Remote • 🕒 10hrs/week</span>
+                            <button class="copy-btn bootcamp-unlock-btn" disabled>Refer 10 friends to unlock</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -298,14 +300,14 @@
 
         <!-- Bottom Task Bar -->
         <div class="task-bar">
-            <button class="task-bar-item active" id="taskbar-dashboard" aria-label="Dashboard">
+            <button class="task-bar-item active" id="taskbar-home" aria-label="Dashboard">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <rect x="3" y="3" width="7" height="9"></rect>
                     <rect x="14" y="3" width="7" height="5"></rect>
                     <rect x="14" y="12" width="7" height="9"></rect>
                     <rect x="3" y="16" width="7" height="5"></rect>
                 </svg>
-                <span>Dashboard</span>
+                <span>Home</span>
             </button>
             <button class="task-bar-item" id="taskbar-bootcamps" aria-label="Bootcamps">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -1020,9 +1022,17 @@ ${referralLink}`;
                 });
             }
 
-            skillCardTrack.innerHTML = cards.map((card) => {
+            const cardsHTML = cards.map((card) => {
                 return buildSkillCardMarkup(card);
             }).join('');
+
+            // Update both dashboard and bootcamps skill card tracks
+            skillCardTrack.innerHTML = cardsHTML;
+            
+            const bootcampsTrack = document.getElementById('skill-card-track-bootcamps');
+            if (bootcampsTrack) {
+                bootcampsTrack.innerHTML = cardsHTML;
+            }
 
             let dotsHTML = '';
             cards.forEach((card, i) => {
@@ -1659,7 +1669,7 @@ ${referralLink}`;
         };
 
         // Task bar event listeners
-        const taskbarDashboard = document.getElementById('taskbar-dashboard');
+        const taskbarDashboard = document.getElementById('taskbar-home');
         const taskbarBootcamps = document.getElementById('taskbar-bootcamps');
         const taskbarReferral = document.getElementById('taskbar-referral');
         const taskbarWallet = document.getElementById('taskbar-wallet');
