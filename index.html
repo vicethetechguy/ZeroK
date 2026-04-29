@@ -1710,7 +1710,6 @@ ${referralLink}`;
             const view = document.getElementById('referral-view');
             if (view) view.classList.remove('hidden');
             updateTaskBarActiveState('referral');
-            updateReferralProgress();
         };
 
         const navigateToWallet = () => {
@@ -1727,19 +1726,6 @@ ${referralLink}`;
                 const referralPoints = (dashboardData.referrals || 0) * 100;
                 const basePoints = 250;
                 walletPointsEl.textContent = basePoints + referralPoints;
-            }
-        };
-
-        const updateReferralProgress = () => {
-            if (dashboardData) {
-                const count = Math.min(dashboardData.referrals || 0, 10);
-                const countEl = document.getElementById('referral-view-count');
-                const progressEl = document.getElementById('referral-view-progress-fill');
-                const linkEl = document.getElementById('referral-link-input');
-                
-                if (countEl) countEl.textContent = count;
-                if (progressEl) progressEl.style.width = (count / 10 * 100) + '%';
-                if (linkEl && dashboardData.referralLink) linkEl.value = dashboardData.referralLink;
             }
         };
 
@@ -1768,7 +1754,7 @@ ${referralLink}`;
                 }
             });
         }
-</script>
+    </script>
 </body>
 
 </html>
