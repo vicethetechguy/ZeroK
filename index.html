@@ -529,6 +529,7 @@
         <div class="toast-message">Please select a minimum of 1 skill before proceeding.</div>
     </div>
 
+
     <script>
         // ── Supabase client ──────────────────────────────────────────────────────
         const SUPABASE_URL  = 'https://wxwjsfxjkythodbuhenx.supabase.co';
@@ -1881,12 +1882,12 @@ ${referralLink}`;
                     
                     if (file.type.startsWith('video/')) {
                         mediaPreview.innerHTML = `
-                            <video src="\${event.target.result}" controls></video>
+                            <video src="${event.target.result}" controls></video>
                             <button type="button" class="remove-media-btn" onclick="removeMedia()">×</button>
                         `;
                     } else {
                         mediaPreview.innerHTML = `
-                            <img src="\${event.target.result}" alt="Preview">
+                            <img src="${event.target.result}" alt="Preview">
                             <button type="button" class="remove-media-btn" onclick="removeMedia()">×</button>
                         `;
                     }
@@ -1926,7 +1927,7 @@ ${referralLink}`;
                     // Upload media if exists
                     if (selectedMediaFile && currentUser) {
                         const fileExt = selectedMediaFile.name.split('.').pop();
-                        const filePath = `posts/\${currentUser.id}/\${Date.now()}.\${fileExt}`;
+                        const filePath = `posts/${currentUser.id}/${Date.now()}.${fileExt}`;
                         
                         const { error: uploadError } = await sb.storage
                             .from('posts')
@@ -2033,57 +2034,57 @@ ${referralLink}`;
             const authorName = post.profiles?.username || 'Anonymous';
             const authorInitial = authorName.charAt(0).toUpperCase();
             const avatarHtml = post.profiles?.avatar_url 
-                ? `<img src="\${post.profiles.avatar_url}" alt="\${authorName}">`
+                ? `<img src="${post.profiles.avatar_url}" alt="${authorName}">`
                 : authorInitial;
             
             const timeAgo = getTimeAgo(new Date(post.created_at));
             
             const mediaHtml = post.media_url
                 ? post.media_type === 'video'
-                    ? `<video src="\${post.media_url}" controls></video>`
-                    : `<img src="\${post.media_url}" alt="\${post.title}">`
+                    ? `<video src="${post.media_url}" controls></video>`
+                    : `<img src="${post.media_url}" alt="${post.title}">`
                 : '';
             
             return `
-                <article class="post-card" data-post-id="\${post.id}">
+                <article class="post-card" data-post-id="${post.id}">
                     <div class="post-header">
-                        <div class="post-avatar">\${avatarHtml}</div>
+                        <div class="post-avatar">${avatarHtml}</div>
                         <div class="post-author-info">
-                            <div class="post-author-name">\${authorName}</div>
-                            <div class="post-meta">\${timeAgo}</div>
+                            <div class="post-author-name">${authorName}</div>
+                            <div class="post-meta">${timeAgo}</div>
                         </div>
-                        <span class="post-category-tag">\${post.category}</span>
+                        <span class="post-category-tag">${post.category}</span>
                     </div>
-                    \${post.media_url ? `<div class="post-media">\${mediaHtml}</div>` : ''}
+                    ${post.media_url ? `<div class="post-media">${mediaHtml}</div>` : ''}
                     <div class="post-content">
-                        <h4 class="post-title">\${post.title}</h4>
-                        \${post.description ? `<p class="post-description">\${post.description}</p>` : ''}
+                        <h4 class="post-title">${post.title}</h4>
+                        ${post.description ? `<p class="post-description">${post.description}</p>` : ''}
                     </div>
                     <div class="post-actions">
-                        <button class="post-action-btn like-btn \${isLiked ? 'liked' : ''}" data-post-id="\${post.id}">
-                            <svg viewBox="0 0 24 24" fill="\${isLiked ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="2">
+                        <button class="post-action-btn like-btn ${isLiked ? 'liked' : ''}" data-post-id="${post.id}">
+                            <svg viewBox="0 0 24 24" fill="${isLiked ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="2">
                                 <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
                             </svg>
-                            <span class="like-count">\${post.likes_count || 0}</span>
+                            <span class="like-count">${post.likes_count || 0}</span>
                         </button>
-                        <button class="post-action-btn comment-btn" data-post-id="\${post.id}">
+                        <button class="post-action-btn comment-btn" data-post-id="${post.id}">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
                             </svg>
-                            <span>\${post.comments_count || 0}</span>
+                            <span>${post.comments_count || 0}</span>
                         </button>
                         <span class="points-badge">
                             <svg viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
                             </svg>
-                            +\${(post.likes_count || 0) * 10}
+                            +${(post.likes_count || 0) * 10}
                         </span>
                     </div>
-                    <div class="comments-section hidden" data-post-id="\${post.id}">
+                    <div class="comments-section hidden" data-post-id="${post.id}">
                         <div class="comments-list"></div>
                         <div class="comment-input-wrapper">
-                            <input type="text" class="comment-input" placeholder="Add a comment..." data-post-id="\${post.id}">
-                            <button class="comment-submit" data-post-id="\${post.id}">Post</button>
+                            <input type="text" class="comment-input" placeholder="Add a comment..." data-post-id="${post.id}">
+                            <button class="comment-submit" data-post-id="${post.id}">Post</button>
                         </div>
                     </div>
                 </article>
@@ -2095,11 +2096,11 @@ ${referralLink}`;
             const seconds = Math.floor((new Date() - date) / 1000);
             if (seconds < 60) return 'Just now';
             const minutes = Math.floor(seconds / 60);
-            if (minutes < 60) return `\${minutes}m ago`;
+            if (minutes < 60) return `${minutes}m ago`;
             const hours = Math.floor(minutes / 60);
-            if (hours < 24) return `\${hours}h ago`;
+            if (hours < 24) return `${hours}h ago`;
             const days = Math.floor(hours / 24);
-            if (days < 7) return `\${days}d ago`;
+            if (days < 7) return `${days}d ago`;
             return date.toLocaleDateString();
         };
         
@@ -2137,7 +2138,7 @@ ${referralLink}`;
                 return;
             }
             
-            const btn = document.querySelector(`.like-btn[data-post-id="\${postId}"]`);
+            const btn = document.querySelector(`.like-btn[data-post-id="${postId}"]`);
             const isLiked = btn.classList.contains('liked');
             
             try {
@@ -2156,7 +2157,7 @@ ${referralLink}`;
         
         // Toggle Comments
         const toggleComments = async (postId) => {
-            const section = document.querySelector(`.comments-section[data-post-id="\${postId}"]`);
+            const section = document.querySelector(`.comments-section[data-post-id="${postId}"]`);
             const isHidden = section.classList.contains('hidden');
             
             section.classList.toggle('hidden');
@@ -2168,7 +2169,7 @@ ${referralLink}`;
         
         // Load Comments
         const loadComments = async (postId) => {
-            const list = document.querySelector(`.comments-section[data-post-id="\${postId}"] .comments-list`);
+            const list = document.querySelector(`.comments-section[data-post-id="${postId}"] .comments-list`);
             
             try {
                 const { data: comments } = await sb
@@ -2180,10 +2181,10 @@ ${referralLink}`;
                 if (comments && comments.length > 0) {
                     list.innerHTML = comments.map(c => `
                         <div class="comment">
-                            <div class="comment-avatar">\${(c.profiles?.username || 'A').charAt(0)}</div>
+                            <div class="comment-avatar">${(c.profiles?.username || 'A').charAt(0)}</div>
                             <div class="comment-content">
-                                <div class="comment-author">\${c.profiles?.username || 'Anonymous'}</div>
-                                <div class="comment-text">\${c.content}</div>
+                                <div class="comment-author">${c.profiles?.username || 'Anonymous'}</div>
+                                <div class="comment-text">${c.content}</div>
                             </div>
                         </div>
                     `).join('');
@@ -2202,7 +2203,7 @@ ${referralLink}`;
                 return;
             }
             
-            const input = document.querySelector(`.comment-input[data-post-id="\${postId}"]`);
+            const input = document.querySelector(`.comment-input[data-post-id="${postId}"]`);
             const content = input.value.trim();
             
             if (!content) return;
