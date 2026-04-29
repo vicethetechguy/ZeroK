@@ -198,6 +198,37 @@
                 </div>
             </div>
 
+            
+            <!-- Social Feed Section -->
+            <div class="feed-section">
+                <div class="feed-header">
+                    <h3>Community Feed</h3>
+                    <button class="create-post-btn" id="open-create-post">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 5v14M5 12h14"/>
+                        </svg>
+                        <span>Post</span>
+                    </button>
+                </div>
+                
+                <!-- Category Filter -->
+                <div class="category-filter">
+                    <button class="category-btn active" data-category="all">All</button>
+                    <button class="category-btn" data-category="Vibe Coding">Vibe Coding</button>
+                    <button class="category-btn" data-category="Graphics Design">Graphics</button>
+                    <button class="category-btn" data-category="Video Editing">Video</button>
+                </div>
+                
+                <!-- Posts Feed -->
+                <div class="posts-feed" id="posts-feed">
+                    <!-- Posts will be loaded here by JS -->
+                    <div class="empty-feed">
+                        <div class="empty-icon">📝</div>
+                        <p>No posts yet. Be the first to share your work!</p>
+                    </div>
+                </div>
+            </div>
+
             <!-- Referral Progress Card -->
             <div class="referral-progress-card">
                 <div class="referral-progress-header">
@@ -1745,7 +1776,524 @@ ${referralLink}`;
                 }
             });
         }
-    </script>
-</body>
+    
+        // ========================================
+        // SOCIAL FEED - Posts, Likes, Comments
+        // ========================================
+        
+        const postModalOverlay = document.getElementById('post-modal-overlay');
+        const openCreatePostBtn = document.getElementById('open-create-post');
+        const closePostModalBtn = document.getElementById('close-post-modal');
+        const createPostForm = document.getElementById('create-post-form');
+        const mediaUploadArea = document.getElementById('media-upload-area');
+        const postMediaInput = document.getElementById('post-media');
+        const uploadPlaceholder = document.getElementById('upload-placeholder');
+        const mediaPreview = document.getElementById('media-preview');
+        const postsFeed = document.getElementById('posts-feed');
+        const categoryOptions = document.querySelectorAll('.category-option');
+        const categoryBtns = document.querySelectorAll('.category-btn');
+        
+        let selectedCategory = 'Vibe Coding';
+        let selectedMediaFile = null;
+        let currentFilter = 'all';
+        let currentUser = null;
+        
+        // Get current user
+        const getCurrentUser = async () => {
+            const { data: { session } } = await sb.auth.getSession();
+            if (session) {
+                currentUser = {
+                    id: session.user.id,
+                    email: session.user.email,
+                    name: dashboardData?.name || session.user.email.split('@')[0]
+                };
+            }
+        };
+        getCurrentUser();
+        
+        // Open/Close Post Modal
+        if (openCreatePostBtn) {
+            openCreatePostBtn.addEventListener('click', () => {
+                postModalOverlay.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            });
+        }
+        
+        if (closePostModalBtn) {
+            closePostModalBtn.addEventListener('click', () => {
+                postModalOverlay.classList.add('hidden');
+                document.body.style.overflow = '';
+            });
+        }
+        
+        if (postModalOverlay) {
+            postModalOverlay.addEventListener('click', (e) => {
+                if (e.target === postModalOverlay) {
+                    postModalOverlay.classList.add('hidden');
+                    document.body.style.overflow = '';
+                }
+            });
+        }
+        
+        // Category Selection
+        categoryOptions.forEach(btn => {
+            btn.addEventListener('click', () => {
+                categoryOptions.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                selectedCategory = btn.dataset.value;
+                document.getElementById('post-category').value = selectedCategory;
+            });
+        });
+        
+        // Filter buttons
+        categoryBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                categoryBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                currentFilter = btn.dataset.category;
+                loadPosts();
+            });
+        });
+        
+        // Media Upload
+        if (mediaUploadArea) {
+            mediaUploadArea.addEventListener('click', () => {
+                postMediaInput.click();
+            });
+        }
+        
+        if (postMediaInput) {
+            postMediaInput.addEventListener('change', (e) => {
+                const file = e.target.files[0];
+                if (!file) return;
+                
+                if (file.size > 10 * 1024 * 1024) {
+                    showToast('File must be less than 10MB');
+                    return;
+                }
+                
+                selectedMediaFile = file;
+                
+                const reader = new FileReader();
+                reader.onload = (event) => {
+                    uploadPlaceholder.classList.add('hidden');
+                    mediaPreview.classList.remove('hidden');
+                    
+                    if (file.type.startsWith('video/')) {
+                        mediaPreview.innerHTML = `
+                            <video src="\${event.target.result}" controls></video>
+                            <button type="button" class="remove-media-btn" onclick="removeMedia()">×</button>
+                        `;
+                    } else {
+                        mediaPreview.innerHTML = `
+                            <img src="\${event.target.result}" alt="Preview">
+                            <button type="button" class="remove-media-btn" onclick="removeMedia()">×</button>
+                        `;
+                    }
+                };
+                reader.readAsDataURL(file);
+            });
+        }
+        
+        window.removeMedia = () => {
+            selectedMediaFile = null;
+            mediaPreview.innerHTML = '';
+            mediaPreview.classList.add('hidden');
+            uploadPlaceholder.classList.remove('hidden');
+            postMediaInput.value = '';
+        };
+        
+        // Create Post
+        if (createPostForm) {
+            createPostForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                
+                const title = document.getElementById('post-title').value.trim();
+                const description = document.getElementById('post-description').value.trim();
+                
+                if (!title) {
+                    showToast('Please add a title');
+                    return;
+                }
+                
+                const submitBtn = createPostForm.querySelector('.submit-post-btn');
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Posting...';
+                
+                try {
+                    let mediaUrl = null;
+                    
+                    // Upload media if exists
+                    if (selectedMediaFile && currentUser) {
+                        const fileExt = selectedMediaFile.name.split('.').pop();
+                        const filePath = `posts/\${currentUser.id}/\${Date.now()}.\${fileExt}`;
+                        
+                        const { error: uploadError } = await sb.storage
+                            .from('posts')
+                            .upload(filePath, selectedMediaFile);
+                        
+                        if (!uploadError) {
+                            const { data: { publicUrl } } = sb.storage
+                                .from('posts')
+                                .getPublicUrl(filePath);
+                            mediaUrl = publicUrl;
+                        }
+                    }
+                    
+                    // Create post
+                    const { error: postError } = await sb
+                        .from('posts')
+                        .insert({
+                            user_id: currentUser.id,
+                            title,
+                            description,
+                            category: selectedCategory,
+                            media_url: mediaUrl,
+                            media_type: selectedMediaFile?.type?.startsWith('video/') ? 'video' : 'image'
+                        });
+                    
+                    if (postError) throw postError;
+                    
+                    showToast('Post created successfully!');
+                    
+                    // Reset form
+                    createPostForm.reset();
+                    removeMedia();
+                    postModalOverlay.classList.add('hidden');
+                    document.body.style.overflow = '';
+                    
+                    // Reload posts
+                    loadPosts();
+                    
+                } catch (error) {
+                    console.error('Error creating post:', error);
+                    showToast('Failed to create post. Please try again.');
+                }
+                
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Post';
+            });
+        }
+        
+        // Load Posts
+        const loadPosts = async () => {
+            if (!postsFeed) return;
+            
+            try {
+                let query = sb
+                    .from('posts')
+                    .select('*, profiles(username, avatar_url)')
+                    .order('created_at', { ascending: false })
+                    .limit(20);
+                
+                if (currentFilter !== 'all') {
+                    query = query.eq('category', currentFilter);
+                }
+                
+                const { data: posts, error } = await query;
+                
+                if (error) throw error;
+                
+                if (!posts || posts.length === 0) {
+                    postsFeed.innerHTML = `
+                        <div class="empty-feed">
+                            <div class="empty-icon">📝</div>
+                            <p>No posts yet. Be the first to share your work!</p>
+                        </div>
+                    `;
+                    return;
+                }
+                
+                // Get current user's likes
+                const { data: userLikes } = await sb
+                    .from('likes')
+                    .select('post_id')
+                    .eq('user_id', currentUser?.id);
+                
+                const likedPostIds = new Set(userLikes?.map(l => l.post_id) || []);
+                
+                postsFeed.innerHTML = posts.map(post => renderPostCard(post, likedPostIds.has(post.id))).join('');
+                
+                // Add event listeners to new posts
+                addPostEventListeners();
+                
+            } catch (error) {
+                console.error('Error loading posts:', error);
+                postsFeed.innerHTML = `
+                    <div class="empty-feed">
+                        <div class="empty-icon">⚠️</div>
+                        <p>Failed to load posts. Please refresh.</p>
+                    </div>
+                `;
+            }
+        };
+        
+        // Render Post Card
+        const renderPostCard = (post, isLiked) => {
+            const authorName = post.profiles?.username || 'Anonymous';
+            const authorInitial = authorName.charAt(0).toUpperCase();
+            const avatarHtml = post.profiles?.avatar_url 
+                ? `<img src="\${post.profiles.avatar_url}" alt="\${authorName}">`
+                : authorInitial;
+            
+            const timeAgo = getTimeAgo(new Date(post.created_at));
+            
+            const mediaHtml = post.media_url
+                ? post.media_type === 'video'
+                    ? `<video src="\${post.media_url}" controls></video>`
+                    : `<img src="\${post.media_url}" alt="\${post.title}">`
+                : '';
+            
+            return `
+                <article class="post-card" data-post-id="\${post.id}">
+                    <div class="post-header">
+                        <div class="post-avatar">\${avatarHtml}</div>
+                        <div class="post-author-info">
+                            <div class="post-author-name">\${authorName}</div>
+                            <div class="post-meta">\${timeAgo}</div>
+                        </div>
+                        <span class="post-category-tag">\${post.category}</span>
+                    </div>
+                    \${post.media_url ? `<div class="post-media">\${mediaHtml}</div>` : ''}
+                    <div class="post-content">
+                        <h4 class="post-title">\${post.title}</h4>
+                        \${post.description ? `<p class="post-description">\${post.description}</p>` : ''}
+                    </div>
+                    <div class="post-actions">
+                        <button class="post-action-btn like-btn \${isLiked ? 'liked' : ''}" data-post-id="\${post.id}">
+                            <svg viewBox="0 0 24 24" fill="\${isLiked ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="2">
+                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                            </svg>
+                            <span class="like-count">\${post.likes_count || 0}</span>
+                        </button>
+                        <button class="post-action-btn comment-btn" data-post-id="\${post.id}">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                            </svg>
+                            <span>\${post.comments_count || 0}</span>
+                        </button>
+                        <span class="points-badge">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                            </svg>
+                            +\${(post.likes_count || 0) * 10}
+                        </span>
+                    </div>
+                    <div class="comments-section hidden" data-post-id="\${post.id}">
+                        <div class="comments-list"></div>
+                        <div class="comment-input-wrapper">
+                            <input type="text" class="comment-input" placeholder="Add a comment..." data-post-id="\${post.id}">
+                            <button class="comment-submit" data-post-id="\${post.id}">Post</button>
+                        </div>
+                    </div>
+                </article>
+            `;
+        };
+        
+        // Time ago helper
+        const getTimeAgo = (date) => {
+            const seconds = Math.floor((new Date() - date) / 1000);
+            if (seconds < 60) return 'Just now';
+            const minutes = Math.floor(seconds / 60);
+            if (minutes < 60) return `\${minutes}m ago`;
+            const hours = Math.floor(minutes / 60);
+            if (hours < 24) return `\${hours}h ago`;
+            const days = Math.floor(hours / 24);
+            if (days < 7) return `\${days}d ago`;
+            return date.toLocaleDateString();
+        };
+        
+        // Add event listeners to posts
+        const addPostEventListeners = () => {
+            // Like buttons
+            document.querySelectorAll('.like-btn').forEach(btn => {
+                btn.addEventListener('click', () => toggleLike(btn.dataset.postId));
+            });
+            
+            // Comment buttons
+            document.querySelectorAll('.comment-btn').forEach(btn => {
+                btn.addEventListener('click', () => toggleComments(btn.dataset.postId));
+            });
+            
+            // Comment submit
+            document.querySelectorAll('.comment-submit').forEach(btn => {
+                btn.addEventListener('click', () => submitComment(btn.dataset.postId));
+            });
+            
+            // Comment input enter key
+            document.querySelectorAll('.comment-input').forEach(input => {
+                input.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') {
+                        submitComment(input.dataset.postId);
+                    }
+                });
+            });
+        };
+        
+        // Toggle Like
+        const toggleLike = async (postId) => {
+            if (!currentUser) {
+                showToast('Please sign in to like posts');
+                return;
+            }
+            
+            const btn = document.querySelector(`.like-btn[data-post-id="\${postId}"]`);
+            const isLiked = btn.classList.contains('liked');
+            
+            try {
+                if (isLiked) {
+                    await sb.from('likes').delete().match({ post_id: postId, user_id: currentUser.id });
+                } else {
+                    await sb.from('likes').insert({ post_id: postId, user_id: currentUser.id });
+                }
+                
+                loadPosts();
+            } catch (error) {
+                console.error('Error toggling like:', error);
+                showToast('Failed to update like');
+            }
+        };
+        
+        // Toggle Comments
+        const toggleComments = async (postId) => {
+            const section = document.querySelector(`.comments-section[data-post-id="\${postId}"]`);
+            const isHidden = section.classList.contains('hidden');
+            
+            section.classList.toggle('hidden');
+            
+            if (isHidden) {
+                loadComments(postId);
+            }
+        };
+        
+        // Load Comments
+        const loadComments = async (postId) => {
+            const list = document.querySelector(`.comments-section[data-post-id="\${postId}"] .comments-list`);
+            
+            try {
+                const { data: comments } = await sb
+                    .from('comments')
+                    .select('*, profiles(username)')
+                    .eq('post_id', postId)
+                    .order('created_at', { ascending: true });
+                
+                if (comments && comments.length > 0) {
+                    list.innerHTML = comments.map(c => `
+                        <div class="comment">
+                            <div class="comment-avatar">\${(c.profiles?.username || 'A').charAt(0)}</div>
+                            <div class="comment-content">
+                                <div class="comment-author">\${c.profiles?.username || 'Anonymous'}</div>
+                                <div class="comment-text">\${c.content}</div>
+                            </div>
+                        </div>
+                    `).join('');
+                } else {
+                    list.innerHTML = '<p style="color: rgba(255,255,255,0.4); font-size: 0.85rem;">No comments yet</p>';
+                }
+            } catch (error) {
+                console.error('Error loading comments:', error);
+            }
+        };
+        
+        // Submit Comment
+        const submitComment = async (postId) => {
+            if (!currentUser) {
+                showToast('Please sign in to comment');
+                return;
+            }
+            
+            const input = document.querySelector(`.comment-input[data-post-id="\${postId}"]`);
+            const content = input.value.trim();
+            
+            if (!content) return;
+            
+            try {
+                await sb.from('comments').insert({
+                    post_id: postId,
+                    user_id: currentUser.id,
+                    content
+                });
+                
+                input.value = '';
+                loadComments(postId);
+                loadPosts();
+                showToast('Comment added!');
+            } catch (error) {
+                console.error('Error adding comment:', error);
+                showToast('Failed to add comment');
+            }
+        };
+        
+        // Load posts when dashboard is shown
+        const originalShowDashboard = showDashboard;
+        showDashboard = () => {
+            originalShowDashboard();
+            getCurrentUser();
+            loadPosts();
+        };
+        
+        // Initial load if already on dashboard
+        if (!dashboardShell.classList.contains('hidden')) {
+            getCurrentUser();
+            loadPosts();
+        }
+
+</script>
+
+    <!-- Create Post Modal -->
+    <div class="post-modal-overlay hidden" id="post-modal-overlay">
+        <div class="post-modal">
+            <div class="post-modal-header">
+                <h3>Create Post</h3>
+                <button class="close-modal-btn" id="close-post-modal">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 6L6 18M6 6l12 12"/>
+                    </svg>
+                </button>
+            </div>
+            
+            <form id="create-post-form">
+                <div class="form-group">
+                    <label for="post-title">Title</label>
+                    <input type="text" id="post-title" placeholder="Give your work a title" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="post-description">Description</label>
+                    <textarea id="post-description" placeholder="Describe your work..." rows="3"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label>Category</label>
+                    <div class="category-select">
+                        <button type="button" class="category-option active" data-value="Vibe Coding">Vibe Coding</button>
+                        <button type="button" class="category-option" data-value="Graphics Design">Graphics Design</button>
+                        <button type="button" class="category-option" data-value="Video Editing">Video Editing</button>
+                    </div>
+                    <input type="hidden" id="post-category" value="Vibe Coding">
+                </div>
+                
+                <div class="form-group">
+                    <label>Media</label>
+                    <div class="media-upload-area" id="media-upload-area">
+                        <input type="file" id="post-media" accept="image/*,video/*" style="display: none;">
+                        <div class="upload-placeholder" id="upload-placeholder">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                <polyline points="17 8 12 3 7 8"/>
+                                <line x1="12" y1="3" x2="12" y2="15"/>
+                            </svg>
+                            <p>Click to upload image or video</p>
+                        </div>
+                        <div class="media-preview hidden" id="media-preview"></div>
+                    </div>
+                </div>
+                
+                <button type="submit" class="submit-post-btn">Post</button>
+            </form>
+        </div>
+    </div>
+    
+    </body>
 
 </html>
