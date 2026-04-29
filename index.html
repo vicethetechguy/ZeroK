@@ -157,8 +157,21 @@
             </div>
         </div>
 
-        <!-- Main Dashboard View -->
+                <!-- Main Dashboard View -->
         <div id="dashboard-view">
+            <!-- Welcome Card -->
+            <div class="dashboard-welcome-card">
+                <h2 id="dashboard-greeting">Welcome Back!</h2>
+                <p>Track your progress today</p>
+            </div>
+
+            <!-- Category Tabs -->
+            <div class="category-tabs">
+                <button class="category-tab active">All</button>
+                <button class="category-tab">Vibe Coding</button>
+                <button class="category-tab">Graphics</button>
+                <button class="category-tab">Video</button>
+            </div>
 
             <!-- Skill Hub Section -->
             <div class="skill-hub-section">
@@ -177,6 +190,30 @@
                 </div>
             </div>
 
+            <!-- Quick Stats -->
+            <div class="quick-stats">
+                <div class="stat-card">
+                    <div class="stat-card-icon green">📊</div>
+                    <div class="stat-card-content">
+                        <h4>Progress</h4>
+                        <p class="stat-value">78%</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-card-icon blue">🔥</div>
+                    <div class="stat-card-content">
+                        <h4>Streak</h4>
+                        <p class="stat-value">12 Days</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-card-icon orange">⭐</div>
+                    <div class="stat-card-content">
+                        <h4>Points</h4>
+                        <p class="stat-value" id="wallet-points">250</p>
+                    </div>
+                </div>
+            </div>
             
             <!-- Social Feed Section -->
             <div class="feed-section">
@@ -190,34 +227,13 @@
                     </button>
                 </div>
                 
-                <!-- Category Filter -->
-                <div class="category-filter">
-                    <button class="category-btn active" data-category="all">All</button>
-                    <button class="category-btn" data-category="Vibe Coding">Vibe Coding</button>
-                    <button class="category-btn" data-category="Graphics Design">Graphics</button>
-                    <button class="category-btn" data-category="Video Editing">Video</button>
-                </div>
-                
-                <!-- Posts Feed -->
-                <div class="posts-feed" id="posts-feed">
-                    <!-- Posts will be loaded here by JS -->
+                <!-- Posts Container -->
+                <div class="posts-container" id="posts-container">
+                    <!-- Posts will be loaded here -->
                     <div class="empty-feed">
-                        <div class="empty-icon">📝</div>
-                        <p>No posts yet. Be the first to share your work!</p>
+                        <p>Be the first to post your work!</p>
                     </div>
                 </div>
-            </div>
-
-            <!-- Referral Progress Card -->
-            <div class="referral-progress-card">
-                <div class="referral-progress-header">
-                    <h3>Referral Progress</h3>
-                    <span class="referral-progress-count"><span id="dashboard-referral-count">0</span>/10</span>
-                </div>
-                <div class="referral-progress-bar">
-                    <div class="referral-progress-fill" id="dashboard-referral-progress-fill" style="width: 0%"></div>
-                </div>
-                <p class="referral-progress-text">Refer 10 friends to unlock an extra skill</p>
             </div>
         </div>
 
