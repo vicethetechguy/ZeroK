@@ -159,36 +159,6 @@
 
         <!-- Main Dashboard View -->
         <div id="dashboard-view">
-            <!-- Progress Ring Card -->
-            <div class="progress-ring-card">
-                <div class="progress-ring-header">
-                    <div>
-                        <h3>Daily Progress</h3>
-                        <p class="progress-ring-label">Tasks completed today</p>
-                    </div>
-                    <div class="progress-ring-value">78%</div>
-                </div>
-            </div>
-
-            <!-- Streak Card -->
-            <div class="streak-card">
-                <div class="streak-icon">🔥</div>
-                <div class="streak-content">
-                    <h3>12 Day Streak</h3>
-                    <p>Keep going! You're on fire!</p>
-                </div>
-            </div>
-
-            <!-- Activity Card -->
-            <div class="activity-card">
-                <div class="activity-card-header">
-                    <div>
-                        <h3>Activity</h3>
-                        <p class="activity-label">This week</p>
-                    </div>
-                    <div class="activity-count">137</div>
-                </div>
-            </div>
 
             <!-- Skill Hub Section -->
             <div class="skill-hub-section">
@@ -365,36 +335,81 @@
 
         <!-- Profile View -->
         <section class="dashboard-panel secondary-panel hidden full-span" id="profile-view">
-            <div class="dashboard-card">
-                <div class="dashboard-card-head">
-                    <div>
-                        <p class="eyebrow">User profile</p>
-                        <h3>Your details</h3>
+            <!-- Profile Header -->
+            <div class="profile-header">
+                <div class="profile-avatar-large" id="profile-avatar-large">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="profile-avatar-icon-large"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                </div>
+                <div class="profile-info">
+                    <h2 class="profile-name" id="profile-name">User</h2>
+                    <p class="profile-email" id="profile-email-display">user@example.com</p>
+                    <p class="profile-skill-badge" id="profile-skill-badge">Vibe Coding</p>
+                </div>
+                <label class="profile-edit-photo">
+                    <input type="file" id="profile-image-upload" accept="image/*" hidden>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+                        <circle cx="12" cy="13" r="4"/>
+                    </svg>
+                </label>
+            </div>
+
+            <!-- Stats Cards -->
+            <div class="profile-stats-grid">
+                <!-- Progress Ring Card -->
+                <div class="progress-ring-card">
+                    <div class="progress-ring-header">
+                        <div>
+                            <h3>Daily Progress</h3>
+                            <p class="progress-ring-label">Tasks completed today</p>
+                        </div>
+                        <div class="progress-ring-value">78%</div>
                     </div>
                 </div>
 
-                <div class="profile-image-section">
-                    <div class="profile-image-preview" id="profile-image-preview">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="profile-avatar-icon"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                <!-- Streak Card -->
+                <div class="streak-card">
+                    <div class="streak-icon">🔥</div>
+                    <div class="streak-content">
+                        <h3>12 Day Streak</h3>
+                        <p>Keep going! You're on fire!</p>
                     </div>
-                    <label class="profile-image-upload-btn">
-                        <input type="file" id="profile-image-upload" accept="image/*" hidden>
-                        Change Photo
-                    </label>
                 </div>
 
+                <!-- Activity Card -->
+                <div class="activity-card">
+                    <div class="activity-card-header">
+                        <div>
+                            <h3>Activity</h3>
+                            <p class="activity-label">This week</p>
+                        </div>
+                        <div class="activity-count">137</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Profile Details -->
+            <div class="profile-details-card">
+                <h3>Account Details</h3>
                 <div class="profile-details">
                     <div class="profile-field">
-                        <label for="profile-username-display">Username</label>
-                        <input type="text" id="profile-username-display" readonly>
+                        <label>Username</label>
+                        <div class="profile-value" id="profile-username-display">user</div>
                     </div>
                     <div class="profile-field">
-                        <label for="profile-email-display">Email</label>
-                        <input type="email" id="profile-email-display" readonly>
+                        <label>Email</label>
+                        <div class="profile-value" id="profile-email-value">user@example.com</div>
+                    </div>
+                    <div class="profile-field">
+                        <label>Primary Skill</label>
+                        <div class="profile-value" id="profile-primary-skill">Vibe Coding</div>
                     </div>
                 </div>
+            </div>
 
-                <button type="button" class="back-btn" id="back-to-dashboard-from-profile">Back to Dashboard</button>
+            <!-- Profile Actions -->
+            <div class="profile-actions">
+                <button type="button" class="back-btn dashboard-cta" id="back-to-dashboard-from-profile">Back to Dashboard</button>
                 <button type="button" class="logout-btn" id="logout-btn">Sign Out</button>
             </div>
         </section>
