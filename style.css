@@ -3668,8 +3668,8 @@ footer {
     font-size: 0.85rem;
 }
 
-/* Leaderboard View */
-.leaderboard-view,
+/* Bootcamps View */
+.bootcamps-view,
 .referral-view,
 .wallet-view,
 .profile-view {
@@ -3693,14 +3693,14 @@ footer {
     font-size: 0.9rem;
 }
 
-/* Leaderboard Items */
-.leaderboard-list {
+/* Bootcamps Items */
+.bootcamps-list {
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
 }
 
-.leaderboard-item {
+.bootcamps-item {
     display: flex;
     align-items: center;
     gap: 1rem;
@@ -3710,7 +3710,7 @@ footer {
     border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.leaderboard-rank {
+.bootcamps-rank {
     width: 32px;
     height: 32px;
     background: rgba(255, 207, 0, 0.2);
@@ -3723,22 +3723,22 @@ footer {
     font-size: 0.9rem;
 }
 
-.leaderboard-rank.gold {
+.bootcamps-rank.gold {
     background: #ffcf00;
     color: #0b0b0b;
 }
 
-.leaderboard-rank.silver {
+.bootcamps-rank.silver {
     background: #c0c0c0;
     color: #0b0b0b;
 }
 
-.leaderboard-rank.bronze {
+.bootcamps-rank.bronze {
     background: #cd7f32;
     color: #0b0b0b;
 }
 
-.leaderboard-avatar {
+.bootcamps-avatar {
     width: 44px;
     height: 44px;
     border-radius: 50%;
@@ -3746,22 +3746,22 @@ footer {
     overflow: hidden;
 }
 
-.leaderboard-info {
+.bootcamps-info {
     flex: 1;
 }
 
-.leaderboard-name {
+.bootcamps-name {
     font-weight: 600;
     color: #ffffff;
     margin-bottom: 0.25rem;
 }
 
-.leaderboard-stats {
+.bootcamps-stats {
     font-size: 0.8rem;
     color: rgba(255, 255, 255, 0.5);
 }
 
-.leaderboard-score {
+.bootcamps-score {
     font-weight: 700;
     color: #ffcf00;
 }

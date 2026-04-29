@@ -211,57 +211,48 @@
             </div>
         </div>
 
-        <!-- Leaderboard View -->
-        <div class="leaderboard-view hidden" id="leaderboard-view">
+        <!-- Bootcamps View -->
+        <div class="bootcamps-view hidden" id="bootcamps-view">
             <div class="view-header">
-                <h2>Leaderboard</h2>
-                <p>Top learners this week</p>
+                <h2>Bootcamps</h2>
+                <p>Available training programs</p>
             </div>
-            <div class="leaderboard-list">
-                <div class="leaderboard-item">
-                    <div class="leaderboard-rank gold">1</div>
-                    <div class="leaderboard-avatar" style="background: #ffcf00;"></div>
-                    <div class="leaderboard-info">
-                        <div class="leaderboard-name">Alexia</div>
-                        <div class="leaderboard-stats">312 tasks • 15 day streak</div>
+            <div class="bootcamps-list">
+                <div class="bootcamps-item">
+                    <div class="bootcamps-rank gold">🔥</div>
+                    <div class="bootcamps-avatar" style="background: #ffcf00;"></div>
+                    <div class="bootcamps-info">
+                        <div class="bootcamps-name">Vibe Coding</div>
+                        <div class="bootcamps-stats">2 weeks • Beginner friendly</div>
                     </div>
-                    <div class="leaderboard-score">1,250 pts</div>
+                    <div class="bootcamps-score">Active</div>
                 </div>
-                <div class="leaderboard-item">
-                    <div class="leaderboard-rank silver">2</div>
-                    <div class="leaderboard-avatar" style="background: #c0c0c0;"></div>
-                    <div class="leaderboard-info">
-                        <div class="leaderboard-name">Jordan</div>
-                        <div class="leaderboard-stats">289 tasks • 12 day streak</div>
+                <div class="bootcamps-item">
+                    <div class="bootcamps-rank silver">🎨</div>
+                    <div class="bootcamps-avatar" style="background: #c0c0c0;"></div>
+                    <div class="bootcamps-info">
+                        <div class="bootcamps-name">Graphics Design</div>
+                        <div class="bootcamps-stats">2 weeks • Beginner friendly</div>
                     </div>
-                    <div class="leaderboard-score">1,120 pts</div>
+                    <div class="bootcamps-score">Unlock</div>
                 </div>
-                <div class="leaderboard-item">
-                    <div class="leaderboard-rank bronze">3</div>
-                    <div class="leaderboard-avatar" style="background: #cd7f32;"></div>
-                    <div class="leaderboard-info">
-                        <div class="leaderboard-name">Morgan</div>
-                        <div class="leaderboard-stats">245 tasks • 10 day streak</div>
+                <div class="bootcamps-item">
+                    <div class="bootcamps-rank bronze">🎬</div>
+                    <div class="bootcamps-avatar" style="background: #cd7f32;"></div>
+                    <div class="bootcamps-info">
+                        <div class="bootcamps-name">Video Editing</div>
+                        <div class="bootcamps-stats">2 weeks • Beginner friendly</div>
                     </div>
-                    <div class="leaderboard-score">980 pts</div>
+                    <div class="bootcamps-score">Unlock</div>
                 </div>
-                <div class="leaderboard-item">
-                    <div class="leaderboard-rank">4</div>
-                    <div class="leaderboard-avatar" style="background: #a57cf2;"></div>
-                    <div class="leaderboard-info">
-                        <div class="leaderboard-name">Casey</div>
-                        <div class="leaderboard-stats">198 tasks • 8 day streak</div>
+                <div class="bootcamps-item">
+                    <div class="bootcamps-rank">⭐</div>
+                    <div class="bootcamps-avatar" style="background: #a57cf2;"></div>
+                    <div class="bootcamps-info">
+                        <div class="bootcamps-name">Coming Soon</div>
+                        <div class="bootcamps-stats">More bootcamps on the way</div>
                     </div>
-                    <div class="leaderboard-score">850 pts</div>
-                </div>
-                <div class="leaderboard-item">
-                    <div class="leaderboard-rank">5</div>
-                    <div class="leaderboard-avatar" style="background: #6188ff;"></div>
-                    <div class="leaderboard-info">
-                        <div class="leaderboard-name">Riley</div>
-                        <div class="leaderboard-stats">156 tasks • 5 day streak</div>
-                    </div>
-                    <div class="leaderboard-score">720 pts</div>
+                    <div class="bootcamps-score">Preview</div>
                 </div>
             </div>
         </div>
@@ -379,13 +370,13 @@
                 </svg>
                 <span>Dashboard</span>
             </button>
-            <button class="task-bar-item" id="taskbar-leaderboard" aria-label="Leaderboard">
+            <button class="task-bar-item" id="taskbar-bootcamps" aria-label="Bootcamps">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M18 20V10"></path>
                     <path d="M12 20V4"></path>
                     <path d="M6 20v-6"></path>
                 </svg>
-                <span>Leaderboard</span>
+                <span>Bootcamps</span>
             </button>
             <button class="task-bar-item" id="taskbar-referral" aria-label="Referral">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -596,7 +587,7 @@
                     showDashboard();
                 } else if (view === 'referral') {
                     showReferralView();
-                } else if (view === 'leaderboard' || view === 'wallet') {
+                } else if (view === 'bootcamps' || view === 'wallet') {
                     showToast(`${view.charAt(0).toUpperCase() + view.slice(1)} coming soon!`);
                 }
                 
@@ -1676,7 +1667,7 @@ ${referralLink}`;
         // ========================================
         
         const hideAllViews = () => {
-            const views = ['dashboard-view', 'leaderboard-view', 'referral-view', 'wallet-view', 'profile-view'];
+            const views = ['dashboard-view', 'bootcamps-view', 'referral-view', 'wallet-view', 'profile-view'];
             views.forEach(viewId => {
                 const view = document.getElementById(viewId);
                 if (view) view.classList.add('hidden');
@@ -1698,11 +1689,11 @@ ${referralLink}`;
             updateTaskBarActiveState('dashboard');
         };
 
-        const navigateToLeaderboard = () => {
+        const navigateToBootcamps = () => {
             hideAllViews();
-            const view = document.getElementById('leaderboard-view');
+            const view = document.getElementById('bootcamps-view');
             if (view) view.classList.remove('hidden');
-            updateTaskBarActiveState('leaderboard');
+            updateTaskBarActiveState('bootcamps');
         };
 
         const navigateToReferral = () => {
@@ -1731,14 +1722,14 @@ ${referralLink}`;
 
         // Task bar event listeners
         const taskbarDashboard = document.getElementById('taskbar-dashboard');
-        const taskbarLeaderboard = document.getElementById('taskbar-leaderboard');
+        const taskbarBootcamps = document.getElementById('taskbar-bootcamps');
         const taskbarReferral = document.getElementById('taskbar-referral');
         const taskbarWallet = document.getElementById('taskbar-wallet');
         const copyReferralBtn = document.getElementById('copy-referral-btn');
         const referralLinkInput = document.getElementById('referral-link-input');
 
         if (taskbarDashboard) taskbarDashboard.addEventListener('click', navigateToDashboard);
-        if (taskbarLeaderboard) taskbarLeaderboard.addEventListener('click', navigateToLeaderboard);
+        if (taskbarBootcamps) taskbarBootcamps.addEventListener('click', navigateToBootcamps);
         if (taskbarReferral) taskbarReferral.addEventListener('click', navigateToReferral);
         if (taskbarWallet) taskbarWallet.addEventListener('click', navigateToWallet);
         
