@@ -145,9 +145,16 @@
     <div class="dashboard-shell hidden" id="dashboard-shell">
         <!-- Dashboard Header -->
         <div class="dashboard-header">
-            <p class="eyebrow" style="color: rgba(255,255,255,0.5); margin-bottom: 0.25rem;">Welcome back</p>
-            <h2 class="dashboard-greeting" id="dashboard-greeting">Alexia</h2>
-            <p class="dashboard-subtext">Here's your progress today</p>
+            <div class="dashboard-header-row">
+                <div class="dashboard-header-left">
+                    <p class="eyebrow" style="color: rgba(255,255,255,0.5); margin-bottom: 0.25rem;">Welcome back</p>
+                    <h2 class="dashboard-greeting" id="dashboard-greeting">User</h2>
+                    <p class="dashboard-subtext">Here's some inspiration for you</p>
+                </div>
+                <button type="button" class="profile-avatar-btn" id="open-profile" aria-label="View Profile">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="profile-avatar-icon"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                </button>
+            </div>
         </div>
 
         <!-- Main Dashboard View -->
@@ -1181,7 +1188,7 @@ ${referralLink}`;
 
         const populateDashboard = () => {
             applyUnlockRules();
-            dashboardGreeting.textContent = 'Welcome, ' + dashboardData.name;
+            dashboardGreeting.textContent = dashboardData.name;
             if (dashboardSkillName) dashboardSkillName.textContent = dashboardData.skill;
             const skillMicroName = document.getElementById('skill-micro-name');
             if (skillMicroName) skillMicroName.textContent = dashboardData.skill;
