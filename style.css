@@ -3745,3 +3745,443 @@ footer {
     flex-direction: column;
     gap: 0.75rem;
 }
+/* ==========
+
+/* ========== NEW CARD UI ========== */
+.dashboard-welcome-card {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f8f8 100%);
+    border-radius: 1.25rem;
+    padding: 1.25rem;
+    color: #0b0b0b;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.dashboard-welcome-card h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+}
+
+.dashboard-welcome-card p {
+    color: rgba(11, 11, 11, 0.6);
+    font-size: 0.85rem;
+}
+
+.stat-card {
+    background: #ffffff;
+    border-radius: 1rem;
+    padding: 1rem;
+    margin-bottom: 0.75rem;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.stat-card-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+}
+
+.stat-card-icon.green { background: #c9f43c; }
+.stat-card-icon.blue { background: #6188ff; }
+.stat-card-icon.orange { background: #ff7b38; }
+.stat-card-icon.purple { background: #a57cf2; }
+
+.stat-card-content h4 {
+    font-size: 0.8rem;
+    color: rgba(11, 11, 11, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.15rem;
+}
+
+.stat-card-content p {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #0b0b0b;
+}
+
+.feed-card {
+    background: #ffffff;
+    border-radius: 1rem;
+    padding: 1rem;
+    margin-bottom: 0.75rem;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+.feed-card-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+}
+
+.feed-card-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.feed-card-author {
+    flex: 1;
+}
+
+.feed-card-author h4 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #0b0b0b;
+}
+
+.feed-card-author span {
+    font-size: 0.75rem;
+    color: rgba(11, 11, 11, 0.5);
+}
+
+.feed-card-media {
+    width: 100%;
+    border-radius: 0.75rem;
+    margin-bottom: 0.75rem;
+}
+
+.feed-card-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+.feed-card-actions button {
+    background: none;
+    border: none;
+    color: rgba(11, 11, 11, 0.5);
+    font-size: 0.85rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+.feed-card-actions button.liked {
+    color: #ff4757;
+}
+
+.category-chip {
+    display: inline-block;
+    padding: 0.35rem 0.75rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.category-chip.active {
+    background: #c9f43c;
+    color: #0b0b0b;
+}
+
+.category-chip.inactive {
+    background: rgba(11, 11, 11, 0.08);
+    color: rgba(11, 11, 11, 0.6);
+}
+
+.bootcamp-card {
+    background: #ffffff;
+    border-radius: 1rem;
+    overflow: hidden;
+    margin-bottom: 0.75rem;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+.bootcamp-card-header {
+    padding: 1rem;
+    background: linear-gradient(135deg, #c9f43c 0%, #a8e030 100%);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.bootcamp-card-header.blue {
+    background: linear-gradient(135deg, #6188ff 0%, #5078ff 100%);
+}
+
+.bootcamp-card-header.orange {
+    background: linear-gradient(135deg, #ff7b38 0%, #ff6620 100%);
+}
+
+.bootcamp-card-header.purple {
+    background: linear-gradient(135deg, #a57cf2 0%, #9566f0 100%);
+}
+
+.bootcamp-card-icon {
+    width: 48px;
+    height: 48px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+
+.bootcamp-card-title {
+    flex: 1;
+    color: #0b0b0b;
+}
+
+.bootcamp-card-title h4 {
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.bootcamp-card-title span {
+    font-size: 0.75rem;
+    opacity: 0.7;
+}
+
+.bootcamp-card-body {
+    padding: 1rem;
+}
+
+.bootcamp-card-body p {
+    font-size: 0.85rem;
+    color: rgba(11, 11, 11, 0.6);
+    margin-bottom: 0.75rem;
+}
+
+.bootcamp-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bootcamp-card-meta {
+    font-size: 0.75rem;
+    color: rgba(11, 11, 11, 0.5);
+}
+
+.wallet-balance-card {
+    background: linear-gradient(135deg, #c9f43c 0%, #ffcf00 100%);
+    border-radius: 1.25rem;
+    padding: 1.5rem;
+    color: #0b0b0b;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 20px rgba(201, 244, 60, 0.3);
+}
+
+.wallet-balance-card h4 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    opacity: 0.7;
+    margin-bottom: 0.25rem;
+}
+
+.wallet-balance-card .balance {
+    font-size: 2.5rem;
+    font-weight: 800;
+}
+
+.wallet-balance-card .balance span {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.wallet-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.wallet-stat-card {
+    background: #ffffff;
+    border-radius: 1rem;
+    padding: 1rem;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+.wallet-stat-card h4 {
+    font-size: 0.75rem;
+    color: rgba(11, 11, 11, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.25rem;
+}
+
+.wallet-stat-card p {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #0b0b0b;
+}
+
+.wallet-action-card {
+    background: #ffffff;
+    border-radius: 1rem;
+    padding: 1rem;
+    margin-bottom: 0.75rem;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.wallet-action-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.wallet-action-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+}
+
+.wallet-action-icon.green { background: rgba(201, 244, 60, 0.2); }
+.wallet-action-icon.blue { background: rgba(97, 136, 255, 0.2); }
+.wallet-action-icon.orange { background: rgba(255, 123, 56, 0.2); }
+
+.wallet-action-content {
+    flex: 1;
+}
+
+.wallet-action-content h4 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #0b0b0b;
+}
+
+.wallet-action-content p {
+    font-size: 0.75rem;
+    color: rgba(11, 11, 11, 0.5);
+}
+
+.wallet-action-arrow {
+    color: rgba(11, 11, 11, 0.3);
+}
+
+.referral-hero-card {
+    background: linear-gradient(135deg, #6188ff 0%, #5078ff 100%);
+    border-radius: 1.25rem;
+    padding: 1.5rem;
+    color: #ffffff;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 20px rgba(97, 136, 255, 0.3);
+}
+
+.referral-hero-card h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+}
+
+.referral-hero-card p {
+    font-size: 0.85rem;
+    opacity: 0.9;
+}
+
+.referral-progress-card {
+    background: #ffffff;
+    border-radius: 1rem;
+    padding: 1rem;
+    margin-bottom: 0.75rem;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+.referral-progress-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.referral-progress-header span {
+    font-size: 0.85rem;
+    color: rgba(11, 11, 11, 0.6);
+}
+
+.referral-progress-header strong {
+    font-size: 1rem;
+    color: #0b0b0b;
+}
+
+.referral-progress-bar {
+    height: 8px;
+    background: rgba(11, 11, 11, 0.1);
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.referral-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #c9f43c 0%, #ffcf00 100%);
+    border-radius: 999px;
+    transition: width 0.3s ease;
+}
+
+.referral-link-card {
+    background: #ffffff;
+    border-radius: 1rem;
+    padding: 1rem;
+    margin-bottom: 0.75rem;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+.referral-link-card h4 {
+    font-size: 0.85rem;
+    color: rgba(11, 11, 11, 0.6);
+    margin-bottom: 0.5rem;
+}
+
+.referral-link-box {
+    background: rgba(11, 11, 11, 0.05);
+    border-radius: 0.75rem;
+    padding: 0.75rem;
+    font-size: 0.8rem;
+    color: #0b0b0b;
+    word-break: break-all;
+    margin-bottom: 0.75rem;
+}
+
+.copy-btn {
+    width: 100%;
+    padding: 0.75rem;
+    background: #c9f43c;
+    border: none;
+    border-radius: 999px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #0b0b0b;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.copy-btn:hover {
+    transform: scale(1.02);
+}
+
+.section-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #0b0b0b;
+    margin-bottom: 0.75rem;
+}
+
+.section-subtitle {
+    font-size: 0.85rem;
+    color: rgba(11, 11, 11, 0.5);
+    margin-bottom: 1rem;
+}
+

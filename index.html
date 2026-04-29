@@ -222,195 +222,61 @@
         </div>
 
         <!-- Bootcamps View -->
-        <div class="bootcamps-view hidden" id="bootcamps-view">
-            <div class="view-header">
-                <h2>Bootcamps</h2>
-                <p>Available training programs</p>
-            </div>
-            <div class="bootcamps-list">
-                <div class="bootcamps-item">
-                    <div class="bootcamps-rank gold">🔥</div>
-                    <div class="bootcamps-avatar" style="background: #ffcf00;"></div>
-                    <div class="bootcamps-info">
-                        <div class="bootcamps-name">Vibe Coding</div>
-                        <div class="bootcamps-stats">2 weeks • Beginner friendly</div>
-                    </div>
-                    <div class="bootcamps-score">Active</div>
-                </div>
-                <div class="bootcamps-item">
-                    <div class="bootcamps-rank silver">🎨</div>
-                    <div class="bootcamps-avatar" style="background: #c0c0c0;"></div>
-                    <div class="bootcamps-info">
-                        <div class="bootcamps-name">Graphics Design</div>
-                        <div class="bootcamps-stats">2 weeks • Beginner friendly</div>
-                    </div>
-                    <div class="bootcamps-score">Unlock</div>
-                </div>
-                <div class="bootcamps-item">
-                    <div class="bootcamps-rank bronze">🎬</div>
-                    <div class="bootcamps-avatar" style="background: #cd7f32;"></div>
-                    <div class="bootcamps-info">
-                        <div class="bootcamps-name">Video Editing</div>
-                        <div class="bootcamps-stats">2 weeks • Beginner friendly</div>
-                    </div>
-                    <div class="bootcamps-score">Unlock</div>
-                </div>
-                <div class="bootcamps-item">
-                    <div class="bootcamps-rank">⭐</div>
-                    <div class="bootcamps-avatar" style="background: #a57cf2;"></div>
-                    <div class="bootcamps-info">
-                        <div class="bootcamps-name">Coming Soon</div>
-                        <div class="bootcamps-stats">More bootcamps on the way</div>
-                    </div>
-                    <div class="bootcamps-score">Preview</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Referral View -->
-        <div class="referral-view hidden" id="referral-view">
-            <div class="view-header">
-                <h2>Share & Earn</h2>
-                <p>Invite friends to unlock rewards</p>
-            </div>
-            
-            <div class="referral-hero">
-                <div class="referral-hero-icon">👥</div>
-                <h3>Invite Friends</h3>
-                <p>Share your unique link and earn rewards when friends join</p>
+        <section class="bootcamps-view hidden" id="bootcamps-view">
+            <div class="dashboard-welcome-card">
+                <h2>Bootcamps 🚀</h2>
+                <p>Intensive training programs to level up your skills</p>
             </div>
 
-            <div class="referral-link-section">
-                <h4>Your Referral Link</h4>
-                <div class="referral-link-box">
-                    <input type="text" id="referral-link-input" class="referral-link-input" readonly placeholder="Sign in to get your link">
-                </div>
-                <button class="copy-link-btn" id="copy-referral-btn">Copy Link</button>
-            </div>
-
-            <div class="referral-progress-card">
-                <div class="referral-progress-header">
-                    <h3>Your Progress</h3>
-                    <span class="referral-progress-count"><span id="referral-view-count">0</span>/10</span>
-                </div>
-                <div class="referral-progress-bar">
-                    <div class="referral-progress-fill" id="referral-view-progress-fill" style="width: 0%"></div>
-                </div>
-                <p class="referral-progress-text">Refer 10 friends to unlock an extra skill</p>
-            </div>
-        </div>
-
-        <!-- Wallet View -->
-        <div class="wallet-view hidden" id="wallet-view">
-            <div class="view-header">
-                <h2>Wallet</h2>
-                <p>Your rewards and activity</p>
-            </div>
-            
-            <div class="wallet-balance-card">
-                <div class="wallet-balance-label">Total Points</div>
-                <div class="wallet-balance-value" id="wallet-points">250</div>
-            </div>
-
-            <div class="wallet-activity">
-                <h3>Recent Activity</h3>
-                <div class="activity-item">
-                    <div class="activity-icon earned">+</div>
-                    <div class="activity-info">
-                        <div class="activity-title">Welcome Bonus</div>
-                        <div class="activity-date">Today</div>
-                    </div>
-                    <div class="activity-points earned">+250</div>
-                </div>
-                <div class="activity-item">
-                    <div class="activity-icon earned">+</div>
-                    <div class="activity-info">
-                        <div class="activity-title">Referral Reward</div>
-                        <div class="activity-date">Pending</div>
-                    </div>
-                    <div class="activity-points earned">+100</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Profile View -->
-        <section class="dashboard-panel secondary-panel hidden full-span" id="profile-view">
-            <!-- Profile Header -->
-            <div class="profile-header">
-                <div class="profile-avatar-large" id="profile-avatar-large">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="profile-avatar-icon-large"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-                </div>
-                <div class="profile-info">
-                    <h2 class="profile-name" id="profile-name">User</h2>
-                    <p class="profile-email" id="profile-email-display">user@example.com</p>
-                    <p class="profile-skill-badge" id="profile-skill-badge">Vibe Coding</p>
-                </div>
-                <label class="profile-edit-photo">
-                    <input type="file" id="profile-image-upload" accept="image/*" hidden>
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
-                        <circle cx="12" cy="13" r="4"/>
-                    </svg>
-                </label>
-            </div>
-
-            <!-- Stats Cards -->
-            <div class="profile-stats-grid">
-                <!-- Progress Ring Card -->
-                <div class="progress-ring-card">
-                    <div class="progress-ring-header">
-                        <div>
-                            <h3>Daily Progress</h3>
-                            <p class="progress-ring-label">Tasks completed today</p>
-                        </div>
-                        <div class="progress-ring-value">78%</div>
+            <div class="bootcamp-card">
+                <div class="bootcamp-card-header">
+                    <div class="bootcamp-card-icon">💻</div>
+                    <div class="bootcamp-card-title">
+                        <h4>Vibe Coding</h4>
+                        <span>2-Week Program</span>
                     </div>
                 </div>
-
-                <!-- Streak Card -->
-                <div class="streak-card">
-                    <div class="streak-icon">🔥</div>
-                    <div class="streak-content">
-                        <h3>12 Day Streak</h3>
-                        <p>Keep going! You're on fire!</p>
-                    </div>
-                </div>
-
-                <!-- Activity Card -->
-                <div class="activity-card">
-                    <div class="activity-card-header">
-                        <div>
-                            <h3>Activity</h3>
-                            <p class="activity-label">This week</p>
-                        </div>
-                        <div class="activity-count">137</div>
+                <div class="bootcamp-card-body">
+                    <p>Learn to build apps using AI-assisted coding techniques. From idea to deployment.</p>
+                    <div class="bootcamp-card-footer">
+                        <span class="bootcamp-card-meta">📍 Remote • 🕒 10hrs/week</span>
+                        <button class="copy-btn" style="width: auto; padding: 0.5rem 1rem;">Join</button>
                     </div>
                 </div>
             </div>
 
-            <!-- Profile Details -->
-            <div class="profile-details-card">
-                <h3>Account Details</h3>
-                <div class="profile-details">
-                    <div class="profile-field">
-                        <label>Username</label>
-                        <div class="profile-value" id="profile-username-display">user</div>
+            <div class="bootcamp-card">
+                <div class="bootcamp-card-header blue">
+                    <div class="bootcamp-card-icon">🎨</div>
+                    <div class="bootcamp-card-title">
+                        <h4>Graphics Design</h4>
+                        <span>2-Week Program</span>
                     </div>
-                    <div class="profile-field">
-                        <label>Email</label>
-                        <div class="profile-value" id="profile-email-value">user@example.com</div>
-                    </div>
-                    <div class="profile-field">
-                        <label>Primary Skill</label>
-                        <div class="profile-value" id="profile-primary-skill">Vibe Coding</div>
+                </div>
+                <div class="bootcamp-card-body">
+                    <p>Master design principles, typography, and create stunning visual content.</p>
+                    <div class="bootcamp-card-footer">
+                        <span class="bootcamp-card-meta">📍 Remote • 🕒 10hrs/week</span>
+                        <button class="copy-btn" style="width: auto; padding: 0.5rem 1rem;">Join</button>
                     </div>
                 </div>
             </div>
 
-            <!-- Profile Actions -->
-            <div class="profile-actions">
-                <button type="button" class="back-btn dashboard-cta" id="back-to-dashboard-from-profile">Back to Dashboard</button>
-                <button type="button" class="logout-btn" id="logout-btn">Sign Out</button>
+            <div class="bootcamp-card">
+                <div class="bootcamp-card-header orange">
+                    <div class="bootcamp-card-icon">🎬</div>
+                    <div class="bootcamp-card-title">
+                        <h4>Video Editing</h4>
+                        <span>2-Week Program</span>
+                    </div>
+                </div>
+                <div class="bootcamp-card-body">
+                    <p>Create engaging videos from raw footage. Learn cutting, transitions, and storytelling.</p>
+                    <div class="bootcamp-card-footer">
+                        <span class="bootcamp-card-meta">📍 Remote • 🕒 10hrs/week</span>
+                        <button class="copy-btn" style="width: auto; padding: 0.5rem 1rem;">Join</button>
+                    </div>
+                </div>
             </div>
         </section>
 
